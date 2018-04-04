@@ -12,61 +12,59 @@ import javax.tools.JavaCompiler.CompilationTask;
 import org.apache.commons.io.FileUtils;
 
 public class Proxy {
-	
-	@SuppressWarnings("unchecked")
-	public static Object newProxyInstance(Class infce,InvocationHandler h) throws Exception{
-		String rt = "\r\n";
-		String methodStr = "";
-		for(Method m : infce.getMethods()){
-			methodStr += "	@Override" + rt +
-			"	public void " + m.getName() + "() {" + rt +
-			"  try{" + rt +
-			"  Method md = " + infce.getName() + ".class.getMethod(\"" 
-										+ m.getName() + "\");" + rt +
-			"  h.invoke(this,md);" +rt+ 
-			"  }catch(Exception e){ e.printStackTrace();}" + rt +
-			"	}" ;
-		}
-		
-		String str =
-		"package com.imooc.proxy;" + rt +
-		"import java.lang.reflect.Method;" + rt +
-		"import com.imooc.proxy.InvocationHandler;" +  rt+
-		"public class $Proxy0 implements " + infce.getName() + " {" + rt +
-		"	public $Proxy0(InvocationHandler h) {" + rt +
-		"		this.h = h;" + rt +
-		"	}" + rt +
-		"  private InvocationHandler h;" + rt+ 
-		methodStr + rt +
-		"}" ;
-		//²úÉú´úÀíÀàµÄjavaÎÄ¼þ
-		String filename = System.getProperty("user.dir") +"/bin/com/imooc/proxy/$Proxy0.java";
-		File file = new File(filename);
-		FileUtils.writeStringToFile(file, str);
-		
-		//±àÒë
-		//ÄÃµ½±àÒëÆ÷
-		JavaCompiler complier = ToolProvider.getSystemJavaCompiler();
-		//ÎÄ¼þ¹ÜÀíÕß
-		StandardJavaFileManager fileMgr = 
-				complier.getStandardFileManager(null, null, null);
-		//»ñÈ¡ÎÄ¼þ
-		Iterable units = fileMgr.getJavaFileObjects(filename);
-		//±àÒëÈÎÎñ
-		CompilationTask t = complier.getTask(null, fileMgr, null, null, null, units);
-		//½øÐÐ±àÒë
-		t.call();
-		fileMgr.close();
-		
-		//load µ½ÄÚ´æ
-		ClassLoader cl = ClassLoader.getSystemClassLoader();
-		Class c = cl.loadClass("com.imooc.proxy.$Proxy0");
-		
-		Constructor ctr = c.getConstructor(InvocationHandler.class);
-		return ctr.newInstance(h);
-	}
 
-	
-	
-	
+    @SuppressWarnings("unchecked")
+    public static Object newProxyInstance(Class infce, InvocationHandler h) throws Exception {
+        String rt = "\r\n";
+        String methodStr = "";
+        for (Method m : infce.getMethods()) {
+            methodStr += "	@Override" + rt +
+                    "	public void " + m.getName() + "() {" + rt +
+                    "  try{" + rt +
+                    "  Method md = " + infce.getName() + ".class.getMethod(\""
+                    + m.getName() + "\");" + rt +
+                    "  h.invoke(this,md);" + rt +
+                    "  }catch(Exception e){ e.printStackTrace();}" + rt +
+                    "	}";
+        }
+
+        String str =
+                "package com.imooc.proxy;" + rt +
+                        "import java.lang.reflect.Method;" + rt +
+                        "import com.imooc.proxy.InvocationHandler;" + rt +
+                        "public class $Proxy0 implements " + infce.getName() + " {" + rt +
+                        "	public $Proxy0(InvocationHandler h) {" + rt +
+                        "		this.h = h;" + rt +
+                        "	}" + rt +
+                        "  private InvocationHandler h;" + rt +
+                        methodStr + rt +
+                        "}";
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½javaï¿½Ä¼ï¿½
+        String filename = System.getProperty("user.dir") + "/bin/com/imooc/proxy/$Proxy0.java";
+        File file = new File(filename);
+        FileUtils.writeStringToFile(file, str);
+
+        //ï¿½ï¿½ï¿½ï¿½
+        //ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        JavaCompiler complier = ToolProvider.getSystemJavaCompiler();
+        //ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        StandardJavaFileManager fileMgr =
+                complier.getStandardFileManager(null, null, null);
+        //ï¿½ï¿½È¡ï¿½Ä¼ï¿½
+        Iterable units = fileMgr.getJavaFileObjects(filename);
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        CompilationTask t = complier.getTask(null, fileMgr, null, null, null, units);
+        //ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
+        t.call();
+        fileMgr.close();
+
+        //load ï¿½ï¿½ï¿½Ú´ï¿½
+        ClassLoader cl = ClassLoader.getSystemClassLoader();
+        Class c = cl.loadClass("com.imooc.proxy.$Proxy0");
+
+        Constructor ctr = c.getConstructor(InvocationHandler.class);
+        return ctr.newInstance(h);
+    }
+
+
 }

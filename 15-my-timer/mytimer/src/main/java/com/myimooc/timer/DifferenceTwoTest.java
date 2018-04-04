@@ -11,7 +11,7 @@ import java.util.TimerTask;
  */
 public class DifferenceTwoTest {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         // 定义时间格式
         final SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         // 获取当前的具体时间

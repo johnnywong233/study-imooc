@@ -1,40 +1,49 @@
 package com.imooc.po;
+
 /**
- * ÏûÏ¢¸¸Àà
- * @author Stephen
+ * ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
  *
+ * @author Stephen
  */
 public class BaseMessage {
-	//½ÓÊÕ·½Î¢ÐÅºÅ
-	private String ToUserName;
-	//·¢ËÍ·½Î¢ÐÅºÅ
-	private String FromUserName;
-	//´´½¨Ê±¼ä
-	private long CreateTime;
-	//ÏûÏ¢ÀàÐÍ
-	private String MsgType;
-	public String getToUserName() {
-		return ToUserName;
-	}
-	public void setToUserName(String toUserName) {
-		ToUserName = toUserName;
-	}
-	public String getFromUserName() {
-		return FromUserName;
-	}
-	public void setFromUserName(String fromUserName) {
-		FromUserName = fromUserName;
-	}
-	public long getCreateTime() {
-		return CreateTime;
-	}
-	public void setCreateTime(long createTime) {
-		CreateTime = createTime;
-	}
-	public String getMsgType() {
-		return MsgType;
-	}
-	public void setMsgType(String msgType) {
-		MsgType = msgType;
-	}
+    //ï¿½ï¿½ï¿½Õ·ï¿½Î¢ï¿½Åºï¿½
+    private String ToUserName;
+    //ï¿½ï¿½ï¿½Í·ï¿½Î¢ï¿½Åºï¿½
+    private String FromUserName;
+    //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    private long CreateTime;
+    //ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
+    private String MsgType;
+
+    public String getToUserName() {
+        return ToUserName;
+    }
+
+    public void setToUserName(String toUserName) {
+        ToUserName = toUserName;
+    }
+
+    public String getFromUserName() {
+        return FromUserName;
+    }
+
+    public void setFromUserName(String fromUserName) {
+        FromUserName = fromUserName;
+    }
+
+    public long getCreateTime() {
+        return CreateTime;
+    }
+
+    public void setCreateTime(long createTime) {
+        CreateTime = createTime;
+    }
+
+    public String getMsgType() {
+        return MsgType;
+    }
+
+    public void setMsgType(String msgType) {
+        MsgType = msgType;
+    }
 }

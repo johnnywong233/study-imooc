@@ -5,26 +5,26 @@ import java.lang.reflect.Method;
 
 public class TimeHandler implements InvocationHandler {
 
-	private Object target;
-	
-	public TimeHandler(Object target) {
-		super();
-		this.target = target;
-	}
+    private Object target;
 
-	@Override
-	public void invoke(Object o, Method m) {
-		
-		try {
-			long starttime = System.currentTimeMillis();
-			System.out.println("Æû³µ¿ªÊ¼ÐÐÊ»....");
-			m.invoke(target);
-			long endtime = System.currentTimeMillis();
-			System.out.println("Æû³µ½áÊøÐÐÊ»....  Æû³µÐÐÊ»Ê±¼ä£º"
-							+ (endtime - starttime) + "ºÁÃë£¡");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    public TimeHandler(Object target) {
+        super();
+        this.target = target;
+    }
+
+    @Override
+    public void invoke(Object o, Method m) {
+
+        try {
+            long starttime = System.currentTimeMillis();
+            System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ê»....");
+            m.invoke(target);
+            long endtime = System.currentTimeMillis();
+            System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê»....  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê»Ê±ï¿½ä£º"
+                    + (endtime - starttime) + "ï¿½ï¿½ï¿½ë£¡");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

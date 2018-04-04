@@ -1,15 +1,15 @@
 package com.sunny.project;
+
 /**
- * Ê¥µ®ÏµÁÐµÄÄÐº¢×Ó
- * @author Administrator
+ * Ê¥ï¿½ï¿½Ïµï¿½Ðµï¿½ï¿½Ðºï¿½ï¿½ï¿½
  *
+ * @author Administrator
  */
 public class MCBoy implements Boy {
 
-	@Override
-	public void drawMan() {
-		// TODO Auto-generated method stub
-		System.out.println("-----------------Ê¥µ®ÏµÁÐµÄÄÐº¢×Ó--------------------");
-	}
+    @Override
+    public void drawMan() {
+        System.out.println("-----------------Ê¥ï¿½ï¿½Ïµï¿½Ðµï¿½ï¿½Ðºï¿½ï¿½ï¿½--------------------");
+    }
 
 }

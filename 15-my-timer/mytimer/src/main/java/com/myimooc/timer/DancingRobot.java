@@ -7,11 +7,11 @@ import java.util.TimerTask;
  * 跳舞机器人
  * Created by ChangComputer on 2017/5/24.
  */
-public class DancingRobot extends TimerTask{
+public class DancingRobot extends TimerTask {
 
     /**
      * 任务执行
-     * */
+     */
     @Override
     public void run() {
 

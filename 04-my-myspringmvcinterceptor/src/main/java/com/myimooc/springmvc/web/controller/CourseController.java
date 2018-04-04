@@ -30,97 +30,99 @@ import com.myimooc.springmvc.service.CourseService;
 
 /**
  * 课程相关控制器
+ *
  * @author zhangcheng
  * @version v1.0 2017-02-08
- *
  */
 @SuppressWarnings("unused")
 @Controller
 @RequestMapping("/course")
 public class CourseController {
-    
+
     private Logger log = LoggerFactory.getLogger(CourseController.class);
-    
-    @Resource(name="courseService")
+
+    @Resource(name = "courseService")
     private CourseService courseService;
-    
-    @RequestMapping(value="/view",method=RequestMethod.GET)
-    public String viewCourse(@RequestParam("courseId")Integer courseId,Model model){
-        log.debug("courseId:"+courseId);
+
+    @RequestMapping(value = "/view", method = RequestMethod.GET)
+    public String viewCourse(@RequestParam("courseId") Integer courseId, Model model) {
+        log.debug("courseId:" + courseId);
         Course course = courseService.getCourseById(courseId);
         model.addAttribute(course);
-        
+
         return "course_overview";
     }
-    
-    @RequestMapping(value="/view2/{courseId}",method=RequestMethod.GET)
-    public String viewCourse2(@PathVariable("courseId")Integer courseId,Map<String,Object> model){
-        log.debug("courseId:"+courseId);
+
+    @RequestMapping(value = "/view2/{courseId}", method = RequestMethod.GET)
+    public String viewCourse2(@PathVariable("courseId") Integer courseId, Map<String, Object> model) {
+        log.debug("courseId:" + courseId);
         Course course = courseService.getCourseById(courseId);
         model.put("course", course);
         return "course_overview";
     }
-    
+
     @RequestMapping("view3")
-    public String viewCourse3(HttpServletRequest request){
+    public String viewCourse3(HttpServletRequest request) {
         Integer courseId = Integer.valueOf(request.getParameter("courseId"));
-        log.debug("courseId:"+courseId);
+        log.debug("courseId:" + courseId);
         Course course = courseService.getCourseById(courseId);
         request.setAttribute("course", course);
         return "course_overview";
     }
-    
+
     /**
      * 添加课程
      */
-    @RequestMapping(value="/admin",method=RequestMethod.GET,params="add")
-    public String createCourse(){
+    @RequestMapping(value = "/admin", method = RequestMethod.GET, params = "add")
+    public String createCourse() {
         return "course_admin/edit";
     }
-    
+
     /**
      * 保存课程
      */
-    @RequestMapping(value="/save",method=RequestMethod.POST)
-    public String doSave(@ModelAttribute Course course){
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String doSave(@ModelAttribute Course course) {
         log.debug("Info of Course.");
         log.debug(ReflectionToStringBuilder.toString(course));
         //在此进行业务操作，比如数据库持久化。
         course.setCourseId(123);
-        
-        
-        return "redirect:view2/"+course.getCourseId();
-    
+
+
+        return "redirect:view2/" + course.getCourseId();
+
     }
-    
+
     /**
      * 跳转到文件上传页面
+     *
      * @return
      */
-    @RequestMapping(value="/upload",method=RequestMethod.GET)
-    public String showUploadPage(){
+    @RequestMapping(value = "/upload", method = RequestMethod.GET)
+    public String showUploadPage() {
         return "course_admin/file";
     }
-    
+
     /**
      * 文件上传成功，跳转到成功页面
+     *
      * @return
-     * @throws IOException 
+     * @throws IOException
      */
-    @RequestMapping(value="/doUpload",method=RequestMethod.POST)
-    public String doUpload(@RequestParam("file") MultipartFile file,HttpServletRequest request) throws IOException{
-        
-        if(!file.isEmpty()){
-            log.debug("正在处理文件："+file.getOriginalFilename());
-            File fileTemp = new File("/upload",System.currentTimeMillis()+file.getOriginalFilename());
-            
+    @RequestMapping(value = "/doUpload", method = RequestMethod.POST)
+    public String doUpload(@RequestParam("file") MultipartFile file, HttpServletRequest request) throws IOException {
+
+        if (!file.isEmpty()) {
+            log.debug("正在处理文件：" + file.getOriginalFilename());
+            File fileTemp = new File("/upload", System.currentTimeMillis() + file.getOriginalFilename());
+
 //            File fileTemp = new File(request.getServletContext().getRealPath("/WEB-INF/classes/upload"),System.currentTimeMillis()+file.getOriginalFilename());
             log.debug(fileTemp.getAbsolutePath());
-            FileUtils.copyInputStreamToFile(file.getInputStream(),fileTemp);
+            FileUtils.copyInputStreamToFile(file.getInputStream(), fileTemp);
         }
         return "success";
     }
-    
+
 //    @RequestMapping(value="/{courseId}",method=RequestMethod.GET)
 //    @ResponseBody
 //    public Map<String,Object> getCourseInJson(@PathVariable Integer courseId){
@@ -136,12 +138,12 @@ public class CourseController {
 //        
 //        return resultMap;
 //    }
-    
-    @RequestMapping(value="/{courseId}",method=RequestMethod.GET)
+
+    @RequestMapping(value = "/{courseId}", method = RequestMethod.GET)
     @ResponseBody
-    public Course getCourse(@PathVariable Integer courseId){
-        
-        
+    public Course getCourse(@PathVariable Integer courseId) {
+
+
         Course couesr = courseService.getCourseById(courseId);
         log.debug(couesr.toString());
         return couesr;

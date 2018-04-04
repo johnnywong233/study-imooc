@@ -19,57 +19,58 @@ import com.myimooc.auth.service.FunctionService;
 
 /**
  * 功能控制器
+ *
  * @author zc on 2017-08-20
  */
 @Controller
 @RequestMapping("/function")
 public class FunctionController {
-	
-	@Autowired
-	private FunctionService functionService;
-	@Autowired
-	private NativeCache nativeCache;
-	
-	@RequestMapping("/index")
-	public String menuList(){
-		return "/security/funciont/function_list";
-	}
-	
-	@PostMapping("/addEditFunction")
-	@ResponseBody
-	public AjaxResult addEditFunction(Function function){
-		if(StringUtils.isEmpty(function.getId())){
-			function.setSerialNum(nativeCache.getFunctions().size());
-			functionService.addFunction(function);
-			nativeCache.addFunction(function);
-		}else{
-			functionService.updateUrl(function.getId(), function.getUrl());
-			nativeCache.replaceFunction(function);
-		}
-		return AjaxResult.success();
-	}
-	
-	@PostMapping("/deleteFunction")
-	@ResponseBody
-	public AjaxResult deleteFunctionById(Long id){
-		functionService.deleteFunctionById(id);
-		nativeCache.removeFunction(id);
-		return AjaxResult.success();
-	}
-	
-	@PostMapping("/getSubFunctions")
-	@ResponseBody
-	public List<Function> getSubFunctions(Integer page,Integer rows,Long parentId){
-		if(Objects.equals(null, parentId)){
-			parentId = 0L;
-		}
-		return functionService.getFunctions(page, rows, parentId);
-	}
-	
-	@PostMapping("/buildFunctionTreeForEdit")
-	@ResponseBody
-	public List<Node> buildMenuTreeForEdit(){
-		List<Function> list = nativeCache.getFunctions();
-		return new Tree(list).build();
-	}
+
+    @Autowired
+    private FunctionService functionService;
+    @Autowired
+    private NativeCache nativeCache;
+
+    @RequestMapping("/index")
+    public String menuList() {
+        return "/security/funciont/function_list";
+    }
+
+    @PostMapping("/addEditFunction")
+    @ResponseBody
+    public AjaxResult addEditFunction(Function function) {
+        if (StringUtils.isEmpty(function.getId())) {
+            function.setSerialNum(nativeCache.getFunctions().size());
+            functionService.addFunction(function);
+            nativeCache.addFunction(function);
+        } else {
+            functionService.updateUrl(function.getId(), function.getUrl());
+            nativeCache.replaceFunction(function);
+        }
+        return AjaxResult.success();
+    }
+
+    @PostMapping("/deleteFunction")
+    @ResponseBody
+    public AjaxResult deleteFunctionById(Long id) {
+        functionService.deleteFunctionById(id);
+        nativeCache.removeFunction(id);
+        return AjaxResult.success();
+    }
+
+    @PostMapping("/getSubFunctions")
+    @ResponseBody
+    public List<Function> getSubFunctions(Integer page, Integer rows, Long parentId) {
+        if (Objects.equals(null, parentId)) {
+            parentId = 0L;
+        }
+        return functionService.getFunctions(page, rows, parentId);
+    }
+
+    @PostMapping("/buildFunctionTreeForEdit")
+    @ResponseBody
+    public List<Node> buildMenuTreeForEdit() {
+        List<Function> list = nativeCache.getFunctions();
+        return new Tree(list).build();
+    }
 }

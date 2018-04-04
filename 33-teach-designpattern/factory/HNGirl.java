@@ -1,15 +1,15 @@
 package com.sunny.project;
+
 /**
- * 新年系列的女孩子
- * @author Administrator
+ * 锟斤拷锟斤拷系锟叫碉拷女锟斤拷锟斤拷
  *
+ * @author Administrator
  */
 public class HNGirl implements Girl {
 
-	@Override
-	public void drawWomen() {
-		// TODO Auto-generated method stub
-		System.out.println("-----------------新年系列的女孩子--------------------");
-	}
+    @Override
+    public void drawWomen() {
+        System.out.println("-----------------锟斤拷锟斤拷系锟叫碉拷女锟斤拷锟斤拷--------------------");
+    }
 
 }

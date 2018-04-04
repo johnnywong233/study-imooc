@@ -7,23 +7,23 @@ import com.myimooc.guicedemo.server.PaymentService;
 import com.myimooc.guicedemo.server.PriceService;
 
 /**
- * @title ServerModule类
- * @describe 绑定依赖
  * @author zc
  * @version 1.0 2017-10-15
+ * @title ServerModule类
+ * @describe 绑定依赖
  */
-public class ServerModule extends AbstractModule{
+public class ServerModule extends AbstractModule {
 
-	@Override
-	protected void configure() {
-		bind(OrderService.class).to(OrderServiceImpl.class);
-		bind(PaymentService.class).to(PaymentServiceImpl.class);
-		bind(PriceService.class).to(PriceServiceImpl.class);
-	}
-	
-	@Provides 
-	@SessionId
-	Long generateSessionId(){
-		return System.currentTimeMillis();
-	}
+    @Override
+    protected void configure() {
+        bind(OrderService.class).to(OrderServiceImpl.class);
+        bind(PaymentService.class).to(PaymentServiceImpl.class);
+        bind(PriceService.class).to(PriceServiceImpl.class);
+    }
+
+    @Provides
+    @SessionId
+    Long generateSessionId() {
+        return System.currentTimeMillis();
+    }
 }

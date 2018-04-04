@@ -9,19 +9,18 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myimooc.sso.web.util.LoginCheck;
 
 /**
- * 
  * @author ZhangCheng
- * @date 2017-04-02
  * @version V1.0
+ * @date 2017-04-02
  */
 @Controller
 public class DemoTwoController {
 
     @RequestMapping("/demo2")
     public ModelAndView main(HttpServletRequest request) {
-        
+
         ModelAndView mv = new ModelAndView();
-        
+
         if (LoginCheck.checkCookie(request)) {
             mv.setViewName("demo2");
             return mv;

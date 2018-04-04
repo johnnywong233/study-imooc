@@ -12,19 +12,19 @@ public class SpringDataTest {
     private ApplicationContext ctx = null;
 
     @Before
-    public void setup(){
+    public void setup() {
         ctx = new ClassPathXmlApplicationContext("beans-new.xml");
         System.out.println("setup");
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         ctx = null;
         System.out.println("tearDown");
     }
 
     @Test
-    public void testEntityManagerFactory(){
+    public void testEntityManagerFactory() {
 
     }
 

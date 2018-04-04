@@ -3,13 +3,11 @@ package com.imooc.spring.aop.api.introduction;
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.aop.support.DelegatingIntroductionInterceptor;
 
-import com.imooc.aop.api.introduction.Lockable;
-
 public class LockMixin extends DelegatingIntroductionInterceptor implements Lockable {
 
-	private static final long serialVersionUID = 6943163819932660450L;
-	
-	private boolean locked;
+    private static final long serialVersionUID = 6943163819932660450L;
+
+    private boolean locked;
 
     public void lock() {
         this.locked = true;

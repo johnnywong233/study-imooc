@@ -9,24 +9,25 @@ import com.myimooc.ssh.domain.Product;
 
 /**
  * 商品管理的业务类
+ *
  * @author ZhangCheng on 2017-08-17
  */
 @Service
 @Transactional
 public class ProductService {
-	
-	// struts和spring整合，按名称自动装配
-	@Autowired
-	private ProductDao productDao;
-	
-	/**
-	 * 业务层保存商品的方法
-	 */
-	public void save(Product product) {
-		System.out.println("Service中的save方法执行了...");
-		productDao.save(product);
-		
-	}
-	
-	
+
+    // struts和spring整合，按名称自动装配
+    @Autowired
+    private ProductDao productDao;
+
+    /**
+     * 业务层保存商品的方法
+     */
+    public void save(Product product) {
+        System.out.println("Service中的save方法执行了...");
+        productDao.save(product);
+
+    }
+
+
 }

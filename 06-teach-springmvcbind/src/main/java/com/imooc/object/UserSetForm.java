@@ -9,7 +9,7 @@ import java.util.Set;
 public class UserSetForm {
     private Set<User> users;
 
-    private UserSetForm(){
+    private UserSetForm() {
         users = new LinkedHashSet<User>();
         users.add(new User());
         users.add(new User());

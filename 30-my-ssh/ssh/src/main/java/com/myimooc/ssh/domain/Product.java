@@ -6,44 +6,45 @@ import javax.persistence.Id;
 
 /**
  * 商品类
+ *
  * @author ZhangCheng on 2017-08-16
  */
 @Entity
 public class Product {
-	@Id
-	@GeneratedValue
-	private Integer pid;
-	
-	private String pname;
-	
-	private Double price;
-	
-	@Override
-	public String toString() {
-		return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + "]";
-	}
+    @Id
+    @GeneratedValue
+    private Integer pid;
 
-	public Integer getPid() {
-		return pid;
-	}
+    private String pname;
 
-	public void setPid(Integer pid) {
-		this.pid = pid;
-	}
+    private Double price;
 
-	public String getPname() {
-		return pname;
-	}
+    @Override
+    public String toString() {
+        return "Product [pid=" + pid + ", pname=" + pname + ", price=" + price + "]";
+    }
 
-	public void setPname(String pname) {
-		this.pname = pname;
-	}
+    public Integer getPid() {
+        return pid;
+    }
 
-	public Double getPrice() {
-		return price;
-	}
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
 
-	public void setPrice(Double price) {
-		this.price = price;
-	}
+    public String getPname() {
+        return pname;
+    }
+
+    public void setPname(String pname) {
+        this.pname = pname;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
 }

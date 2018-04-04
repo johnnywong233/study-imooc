@@ -11,10 +11,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * @title 产品实体类
- * @describe 产品信息
  * @author zc
  * @version 1.0 2017-09-13
+ * @title 产品实体类
+ * @describe 产品信息
  */
 @Entity
 public class Product {
@@ -25,20 +25,34 @@ public class Product {
 
     @Datalog("产品名称")
     private String name;
-    
-    /** 类别 */
+
+    /**
+     * 类别
+     */
     private String category;
-    /** 详情 */
+    /**
+     * 详情
+     */
     private String detail;
-    /** 买入价 */
+    /**
+     * 买入价
+     */
     private BigDecimal buyPrice;
-    /** 卖出价 */
+    /**
+     * 卖出价
+     */
     private BigDecimal sellPrice;
-    /** 供应商 */
+    /**
+     * 供应商
+     */
     private String provider;
-    /** 上线时间 */
+    /**
+     * 上线时间
+     */
     private Date onlineTime;
-    /** 更新时间 */
+    /**
+     * 更新时间
+     */
     private Date updateTime;
 
     public Product() {

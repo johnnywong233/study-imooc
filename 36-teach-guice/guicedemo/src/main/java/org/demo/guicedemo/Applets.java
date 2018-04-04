@@ -12,39 +12,40 @@ import com.google.inject.multibindings.MapBinder;
 
 public class Applets {
 
-	public static class AppletRegister {
-		private final Binder binder;
+    public static AppletRegister register(Binder binder) {
+        return new AppletRegister(binder);
+    }
 
-		private AppletRegister(Binder binder) {
-			super();
-			this.binder = binder;
-		}
+    public static MyApplet get(Injector injector, String name) {
+        Map<String, MyApplet> applets = injector
+                .getInstance(Key.get(
+                        new TypeLiteral<
+                                Map<String, MyApplet>>() {
+                        }));
 
-		public LinkedBindingBuilder<MyApplet> named(
-				String name) {
-			return MapBinder.newMapBinder(
-					binder, String.class, MyApplet.class)
-						.addBinding(name);
-		}
-	}
+        if (!applets.containsKey(name)) {
+            throw new IllegalArgumentException(
+                    "Unable to find applet. "
+                            + "Valid applets are "
+                            + Joiner.on(", ").join(applets.keySet()));
+        }
 
-	public static AppletRegister register(Binder binder) {
-		return new AppletRegister(binder);
-	}
+        return applets.get(name);
+    }
 
-	public static MyApplet get(Injector injector, String name) {
-		Map<String, MyApplet> applets = injector
-			.getInstance(Key.get(
-				new TypeLiteral<
-					Map<String, MyApplet>>() {}));
+    public static class AppletRegister {
+        private final Binder binder;
 
-		if (!applets.containsKey(name)) {
-			throw new IllegalArgumentException(
-				"Unable to find applet. "
-				+ "Valid applets are "
-				+ Joiner.on(", ").join(applets.keySet()));
-		}
+        private AppletRegister(Binder binder) {
+            super();
+            this.binder = binder;
+        }
 
-		return applets.get(name);
-	}
+        public LinkedBindingBuilder<MyApplet> named(
+                String name) {
+            return MapBinder.newMapBinder(
+                    binder, String.class, MyApplet.class)
+                    .addBinding(name);
+        }
+    }
 }

@@ -34,21 +34,20 @@ public interface EmployeeRepository { //extends Repository<Employee,Integer>{
     public List<Employee> queryParams1(String name, Integer age);
 
     @Query("select o from Employee o where o.name=:name and o.age=:age")
-    public List<Employee> queryParams2(@Param("name")String name, @Param("age")Integer age);
+    public List<Employee> queryParams2(@Param("name") String name, @Param("age") Integer age);
 
     @Query("select o from Employee o where o.name like %?1%")
     public List<Employee> queryLike1(String name);
 
     @Query("select o from Employee o where o.name like %:name%")
-    public List<Employee> queryLike2(@Param("name")String name);
+    public List<Employee> queryLike2(@Param("name") String name);
 
     @Query(nativeQuery = true, value = "select count(1) from employee")
     public long getCount();
 
     @Modifying
     @Query("update Employee o set o.age = :age where o.id = :id")
-    public void update(@Param("id")Integer id, @Param("age")Integer age);
-
+    public void update(@Param("id") Integer id, @Param("age") Integer age);
 
 
 }

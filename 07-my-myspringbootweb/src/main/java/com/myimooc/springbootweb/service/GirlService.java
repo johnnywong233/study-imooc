@@ -12,7 +12,7 @@ public interface GirlService {
      */
     void saveTwo();
 
-    void getAge(Integer id)throws Exception;
+    void getAge(Integer id) throws Exception;
 
     Girl findOne(Integer id);
 }

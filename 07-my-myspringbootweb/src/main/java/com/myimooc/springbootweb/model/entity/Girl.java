@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 /**
  * Created by ChengComputer on 2017/2/18.
  */
-@Entity(name= "TAM_GIRL_INFO")
+@Entity(name = "TAM_GIRL_INFO")
 public class Girl {
 
     @Id
@@ -18,7 +18,7 @@ public class Girl {
 
     private String cupSize;
 
-    @Min(value = 18,message = "未成年少女禁止入内")
+    @Min(value = 18, message = "未成年少女禁止入内")
     private Integer age;
 
     @NotNull(message = "金额必传")

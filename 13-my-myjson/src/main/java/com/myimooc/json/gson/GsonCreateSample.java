@@ -18,7 +18,6 @@ public class GsonCreateSample {
     }
 
     /**
-     *
      * 通过 JavaBean 生成JSON【推荐使用】
      */
     private static void createJsonByGsonBean() {
@@ -28,7 +27,7 @@ public class GsonCreateSample {
         wangxiaoer.setAge(25.2);
         wangxiaoer.setBirthday("1990-01-01");
         wangxiaoer.setSchool("蓝翔");
-        wangxiaoer.setMajor(new String[]{"理发","挖掘机"});
+        wangxiaoer.setMajor(new String[]{"理发", "挖掘机"});
         wangxiaoer.setHas_girlfriend(false);
         wangxiaoer.setCar(null);
         wangxiaoer.setHouse(null);
@@ -42,7 +41,7 @@ public class GsonCreateSample {
         gsonBuilder.setFieldNamingStrategy(new FieldNamingStrategy() {
             @Override
             public String translateName(Field f) {
-                if(f.getName().equals("name")){
+                if (f.getName().equals("name")) {
                     return "NAME";
                 }
                 return f.getName();

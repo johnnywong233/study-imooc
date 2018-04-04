@@ -7,13 +7,13 @@ import org.springframework.stereotype.Component;
 @Scope
 @Component
 public class BeanAnnotation {
-	
-	public void say(String arg) {
-		System.out.println("BeanAnnotation : " + arg);
-	}
-	
-	public void myHashCode() {
-		System.out.println("BeanAnnotation : " + this.hashCode());
-	}
-	
+
+    public void say(String arg) {
+        System.out.println("BeanAnnotation : " + arg);
+    }
+
+    public void myHashCode() {
+        System.out.println("BeanAnnotation : " + this.hashCode());
+    }
+
 }

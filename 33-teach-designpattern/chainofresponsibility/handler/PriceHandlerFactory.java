@@ -2,25 +2,25 @@ package com.imooc.pattern.cor.handler;
 
 public class PriceHandlerFactory {
 
-	/*
-	 * ´´½¨PriceHandlerµÄ¹¤³§·½·¨
-	 */
-	public static PriceHandler createPriceHandler() {
-		
-		PriceHandler sales = new Sales();
-		PriceHandler lead = new Lead();
-		PriceHandler man = new Manager();
-		PriceHandler dir = new Director();
-		PriceHandler vp = new VicePresident();
-		PriceHandler ceo = new CEO();
-		
-		sales.setSuccessor(lead);
-		lead.setSuccessor(man);
-		man.setSuccessor(dir);
-		dir.setSuccessor(vp);
-		vp.setSuccessor(ceo);
-		
-		return sales;
-	}
+    /*
+     * ï¿½ï¿½ï¿½ï¿½PriceHandlerï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     */
+    public static PriceHandler createPriceHandler() {
+
+        PriceHandler sales = new Sales();
+        PriceHandler lead = new Lead();
+        PriceHandler man = new Manager();
+        PriceHandler dir = new Director();
+        PriceHandler vp = new VicePresident();
+        PriceHandler ceo = new CEO();
+
+        sales.setSuccessor(lead);
+        lead.setSuccessor(man);
+        man.setSuccessor(dir);
+        dir.setSuccessor(vp);
+        vp.setSuccessor(ceo);
+
+        return sales;
+    }
 
 }

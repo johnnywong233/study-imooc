@@ -1,245 +1,246 @@
 package com.imooc.util;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.imooc.po.*;
+import com.thoughtworks.xstream.XStream;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import com.imooc.po.Image;
-import com.imooc.po.ImageMessage;
-import com.imooc.po.Music;
-import com.imooc.po.MusicMessage;
-import com.imooc.po.News;
-import com.imooc.po.NewsMessage;
-import com.imooc.po.TextMessage;
-import com.thoughtworks.xstream.XStream;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.*;
+
 /**
- * ÏûÏ¢·â×°Àà
- * @author Stephen
+ * ï¿½ï¿½Ï¢ï¿½ï¿½×°ï¿½ï¿½
  *
+ * @author Stephen
  */
-public class MessageUtil {	
-	
-	public static final String MESSAGE_TEXT = "text";
-	public static final String MESSAGE_NEWS = "news";
-	public static final String MESSAGE_IMAGE = "image";
-	public static final String MESSAGE_VOICE = "voice";
-	public static final String MESSAGE_MUSIC = "music";
-	public static final String MESSAGE_VIDEO = "video";
-	public static final String MESSAGE_LINK = "link";
-	public static final String MESSAGE_LOCATION = "location";
-	public static final String MESSAGE_EVNET = "event";
-	public static final String MESSAGE_SUBSCRIBE = "subscribe";
-	public static final String MESSAGE_UNSUBSCRIBE = "unsubscribe";
-	public static final String MESSAGE_CLICK = "CLICK";
-	public static final String MESSAGE_VIEW = "VIEW";
-	public static final String MESSAGE_SCANCODE= "scancode_push";
-	
-	/**
-	 * xml×ªÎªmap¼¯ºÏ
-	 * @param request
-	 * @return
-	 * @throws IOException
-	 * @throws DocumentException
-	 */
-	public static Map<String, String> xmlToMap(HttpServletRequest request) throws IOException, DocumentException{
-		Map<String, String> map = new HashMap<String, String>();
-		SAXReader reader = new SAXReader();
-		
-		InputStream ins = request.getInputStream();
-		Document doc = reader.read(ins);
-		
-		Element root = doc.getRootElement();
-		
-		List<Element> list = root.elements();
-		
-		for(Element e : list){
-			map.put(e.getName(), e.getText());
-		}
-		ins.close();
-		return map;
-	}
-	
-	/**
-	 * ½«ÎÄ±¾ÏûÏ¢¶ÔÏó×ªÎªxml
-	 * @param textMessage
-	 * @return
-	 */
-	public static String textMessageToXml(TextMessage textMessage){
-		XStream xstream = new XStream();
-		xstream.alias("xml", textMessage.getClass());
-		return xstream.toXML(textMessage);
-	}
-	
-	/**
-	 * ×é×°ÎÄ±¾ÏûÏ¢
-	 * @param toUserName
-	 * @param fromUserName
-	 * @param content
-	 * @return
-	 */
-	public static String initText(String toUserName,String fromUserName,String content){
-		TextMessage text = new TextMessage();
-		text.setFromUserName(toUserName);
-		text.setToUserName(fromUserName);
-		text.setMsgType(MessageUtil.MESSAGE_TEXT);
-		text.setCreateTime(new Date().getTime());
-		text.setContent(content);
-		return textMessageToXml(text);
-	}
-	
-	/**
-	 * Ö÷²Ëµ¥
-	 * @return
-	 */
-	public static String menuText(){
-		StringBuffer sb = new StringBuffer();
-		sb.append("»¶Ó­ÄúµÄ¹Ø×¢£¬Çë°´ÕÕ²Ëµ¥ÌáÊ¾½øÐÐ²Ù×÷£º\n\n");
-		sb.append("1¡¢¿Î³Ì½éÉÜ\n");
-		sb.append("2¡¢Ä½¿ÎÍø½éÉÜ\n");
-		sb.append("3¡¢´Ê×é·­Òë\n\n");
-		sb.append("»Ø¸´£¿µ÷³ö´Ë²Ëµ¥¡£");
-		return sb.toString();
-	}
-	
-	public static String firstMenu(){
-		StringBuffer sb = new StringBuffer();
-		sb.append("±¾Ì×¿Î³Ì½éÉÜÎ¢ÐÅ¹«ÖÚºÅ¿ª·¢£¬Ö÷ÒªÉæ¼°¹«ÖÚºÅ½éÉÜ¡¢±à¼­Ä£Ê½½éÉÜ¡¢¿ª·¢Ä£Ê½½éÉÜµÈ");
-		return sb.toString();
-	}
-	
-	public static String secondMenu(){
-		StringBuffer sb = new StringBuffer();
-		sb.append("Ä½¿ÎÍøÊÇ´¹Ö±µÄ»¥ÁªÍøIT¼¼ÄÜÃâ·ÑÑ§Ï°ÍøÕ¾¡£ÒÔ¶À¼ÒÊÓÆµ½Ì³Ì¡¢ÔÚÏß±à³Ì¹¤¾ß¡¢Ñ§Ï°¼Æ»®¡¢ÎÊ´ðÉçÇøÎªºËÐÄÌØÉ«¡£ÔÚÕâÀï£¬Äã¿ÉÒÔÕÒµ½×îºÃµÄ»¥ÁªÍø¼¼ÊõÅ£ÈË£¬Ò²¿ÉÒÔÍ¨¹ýÃâ·ÑµÄÔÚÏß¹«¿ªÊÓÆµ¿Î³ÌÑ§Ï°¹úÄÚÁìÏÈµÄ»¥ÁªÍøIT¼¼Êõ¡£");
-		sb.append("Ä½¿ÎÍø¿Î³Ìº­¸ÇÇ°¶Ë¿ª·¢¡¢PHP¡¢Html5¡¢Android¡¢iOS¡¢SwiftµÈITÇ°ÑØ¼¼ÊõÓïÑÔ£¬°üÀ¨»ù´¡¿Î³Ì¡¢ÊµÓÃ°¸Àý¡¢¸ß¼¶·ÖÏíÈý´óÀàÐÍ£¬ÊÊºÏ²»Í¬½×¶ÎµÄÑ§Ï°ÈËÈº¡£ÒÔ´¿¸É»õ¡¢¶ÌÊÓÆµµÄÐÎÊ½ÎªÆ½Ì¨ÌØµã£¬ÎªÔÚÐ£Ñ§Éú¡¢Ö°³¡°×ÁìÌá¹©ÁËÒ»¸öÑ¸ËÙÌáÉý¼¼ÄÜ¡¢¹²Í¬·ÖÏí½ø²½µÄÑ§Ï°Æ½Ì¨¡£");
-		return sb.toString();
-	}
-	
-	public static String threeMenu(){
-		StringBuffer sb = new StringBuffer();
-		sb.append("´Ê×é·­ÒëÊ¹ÓÃÖ¸ÄÏ\n\n");
-		sb.append("Ê¹ÓÃÊ¾Àý£º\n");
-		sb.append("·­Òë×ãÇò\n");
-		sb.append("·­ÒëÖÐ¹ú×ãÇò\n");
-		sb.append("·­Òëfootball\n\n");
-		sb.append("»Ø¸´£¿ÏÔÊ¾Ö÷²Ëµ¥¡£");
-		return sb.toString();
-	}
-	/**
-	 * Í¼ÎÄÏûÏ¢×ªÎªxml
-	 * @param newsMessage
-	 * @return
-	 */
-	public static String newsMessageToXml(NewsMessage newsMessage){
-		XStream xstream = new XStream();
-		xstream.alias("xml", newsMessage.getClass());
-		xstream.alias("item", new News().getClass());
-		return xstream.toXML(newsMessage);
-	}
-	
-	/**
-	 * Í¼Æ¬ÏûÏ¢×ªÎªxml
-	 * @param imageMessage
-	 * @return
-	 */
-	public static String imageMessageToXml(ImageMessage imageMessage){
-		XStream xstream = new XStream();
-		xstream.alias("xml", imageMessage.getClass());
-		return xstream.toXML(imageMessage);
-	}
-	
-	/**
-	 * ÒôÀÖÏûÏ¢×ªÎªxml
-	 * @param musicMessage
-	 * @return
-	 */
-	public static String musicMessageToXml(MusicMessage musicMessage){
-		XStream xstream = new XStream();
-		xstream.alias("xml", musicMessage.getClass());
-		return xstream.toXML(musicMessage);
-	}
-	/**
-	 * Í¼ÎÄÏûÏ¢µÄ×é×°
-	 * @param toUserName
-	 * @param fromUserName
-	 * @return
-	 */
-	public static String initNewsMessage(String toUserName,String fromUserName){
-		String message = null;
-		List<News> newsList = new ArrayList<News>();
-		NewsMessage newsMessage = new NewsMessage();
-		
-		News news = new News();
-		news.setTitle("Ä½¿ÎÍø½éÉÜ");
-		news.setDescription("Ä½¿ÎÍøÊÇ´¹Ö±µÄ»¥ÁªÍøIT¼¼ÄÜÃâ·ÑÑ§Ï°ÍøÕ¾¡£ÒÔ¶À¼ÒÊÓÆµ½Ì³Ì¡¢ÔÚÏß±à³Ì¹¤¾ß¡¢Ñ§Ï°¼Æ»®¡¢ÎÊ´ðÉçÇøÎªºËÐÄÌØÉ«¡£ÔÚÕâÀï£¬Äã¿ÉÒÔÕÒµ½×îºÃµÄ»¥ÁªÍø¼¼ÊõÅ£ÈË£¬Ò²¿ÉÒÔÍ¨¹ýÃâ·ÑµÄÔÚÏß¹«¿ªÊÓÆµ¿Î³ÌÑ§Ï°¹úÄÚÁìÏÈµÄ»¥ÁªÍøIT¼¼Êõ¡£Ä½¿ÎÍø¿Î³Ìº­¸ÇÇ°¶Ë¿ª·¢¡¢PHP¡¢Html5¡¢Android¡¢iOS¡¢SwiftµÈITÇ°ÑØ¼¼ÊõÓïÑÔ£¬°üÀ¨»ù´¡¿Î³Ì¡¢ÊµÓÃ°¸Àý¡¢¸ß¼¶·ÖÏíÈý´óÀàÐÍ£¬ÊÊºÏ²»Í¬½×¶ÎµÄÑ§Ï°ÈËÈº¡£");
-		news.setPicUrl("http://zapper.tunnel.mobi/Weixin/image/imooc.jpg");
-		news.setUrl("www.imooc.com");
-		
-		newsList.add(news);
-		
-		newsMessage.setToUserName(fromUserName);
-		newsMessage.setFromUserName(toUserName);
-		newsMessage.setCreateTime(new Date().getTime());
-		newsMessage.setMsgType(MESSAGE_NEWS);
-		newsMessage.setArticles(newsList);
-		newsMessage.setArticleCount(newsList.size());
-		
-		message = newsMessageToXml(newsMessage);
-		return message;
-	}
-	
-	/**
-	 * ×é×°Í¼Æ¬ÏûÏ¢
-	 * @param toUserName
-	 * @param fromUserName
-	 * @return
-	 */
-	public static String initImageMessage(String toUserName,String fromUserName){
-		String message = null;
-		Image image = new Image();
-		image.setMediaId("JTH8vBl0zDRlrrn2bBnMleySuHjVbMhyAo0U2x7kQyd1ciydhhsVPONbnRrKGp8m");
-		ImageMessage imageMessage = new ImageMessage();
-		imageMessage.setFromUserName(toUserName);
-		imageMessage.setToUserName(fromUserName);
-		imageMessage.setMsgType(MESSAGE_IMAGE);
-		imageMessage.setCreateTime(new Date().getTime());
-		imageMessage.setImage(image);
-		message = imageMessageToXml(imageMessage);
-		return message;
-	}
-	
-	/**
-	 * ×é×°ÒôÀÖÏûÏ¢
-	 * @param toUserName
-	 * @param fromUserName
-	 * @return
-	 */
-	public static String initMusicMessage(String toUserName,String fromUserName){
-		String message = null;
-		Music music = new Music();
-		music.setThumbMediaId("WsHCQr1ftJQwmGUGhCP8gZ13a77XVg5Ah_uHPHVEAQuRE5FEjn-DsZJzFZqZFeFk");
-		music.setTitle("see you again");
-		music.setDescription("ËÙ7Æ¬Î²Çú");
-		music.setMusicUrl("http://zapper.tunnel.mobi/Weixin/resource/See You Again.mp3");
-		music.setHQMusicUrl("http://zapper.tunnel.mobi/Weixin/resource/See You Again.mp3");
-		
-		MusicMessage musicMessage = new MusicMessage();
-		musicMessage.setFromUserName(toUserName);
-		musicMessage.setToUserName(fromUserName);
-		musicMessage.setMsgType(MESSAGE_MUSIC);
-		musicMessage.setCreateTime(new Date().getTime());
-		musicMessage.setMusic(music);
-		message = musicMessageToXml(musicMessage);
-		return message;
-	}
+public class MessageUtil {
+
+    public static final String MESSAGE_TEXT = "text";
+    public static final String MESSAGE_NEWS = "news";
+    public static final String MESSAGE_IMAGE = "image";
+    public static final String MESSAGE_VOICE = "voice";
+    public static final String MESSAGE_MUSIC = "music";
+    public static final String MESSAGE_VIDEO = "video";
+    public static final String MESSAGE_LINK = "link";
+    public static final String MESSAGE_LOCATION = "location";
+    public static final String MESSAGE_EVNET = "event";
+    public static final String MESSAGE_SUBSCRIBE = "subscribe";
+    public static final String MESSAGE_UNSUBSCRIBE = "unsubscribe";
+    public static final String MESSAGE_CLICK = "CLICK";
+    public static final String MESSAGE_VIEW = "VIEW";
+    public static final String MESSAGE_SCANCODE = "scancode_push";
+
+    /**
+     * xml×ªÎªmapï¿½ï¿½ï¿½ï¿½
+     *
+     * @param request
+     * @return
+     * @throws IOException
+     * @throws DocumentException
+     */
+    public static Map<String, String> xmlToMap(HttpServletRequest request) throws IOException, DocumentException {
+        Map<String, String> map = new HashMap<String, String>();
+        SAXReader reader = new SAXReader();
+
+        InputStream ins = request.getInputStream();
+        Document doc = reader.read(ins);
+
+        Element root = doc.getRootElement();
+
+        List<Element> list = root.elements();
+
+        for (Element e : list) {
+            map.put(e.getName(), e.getText());
+        }
+        ins.close();
+        return map;
+    }
+
+    /**
+     * ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½×ªÎªxml
+     *
+     * @param textMessage
+     * @return
+     */
+    public static String textMessageToXml(TextMessage textMessage) {
+        XStream xstream = new XStream();
+        xstream.alias("xml", textMessage.getClass());
+        return xstream.toXML(textMessage);
+    }
+
+    /**
+     * ï¿½ï¿½×°ï¿½Ä±ï¿½ï¿½ï¿½Ï¢
+     *
+     * @param toUserName
+     * @param fromUserName
+     * @param content
+     * @return
+     */
+    public static String initText(String toUserName, String fromUserName, String content) {
+        TextMessage text = new TextMessage();
+        text.setFromUserName(toUserName);
+        text.setToUserName(fromUserName);
+        text.setMsgType(MessageUtil.MESSAGE_TEXT);
+        text.setCreateTime(new Date().getTime());
+        text.setContent(content);
+        return textMessageToXml(text);
+    }
+
+    /**
+     * ï¿½ï¿½ï¿½Ëµï¿½
+     *
+     * @return
+     */
+    public static String menuText() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("ï¿½ï¿½Ó­ï¿½ï¿½ï¿½Ä¹ï¿½×¢ï¿½ï¿½ï¿½ë°´ï¿½Õ²Ëµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½\n\n");
+        sb.append("1ï¿½ï¿½ï¿½Î³Ì½ï¿½ï¿½ï¿½\n");
+        sb.append("2ï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
+        sb.append("3ï¿½ï¿½ï¿½ï¿½ï¿½é·­ï¿½ï¿½\n\n");
+        sb.append("ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²Ëµï¿½ï¿½ï¿½");
+        return sb.toString();
+    }
+
+    public static String firstMenu() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("ï¿½ï¿½ï¿½×¿Î³Ì½ï¿½ï¿½ï¿½Î¢ï¿½Å¹ï¿½ï¿½ÚºÅ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½æ¼°ï¿½ï¿½ï¿½ÚºÅ½ï¿½ï¿½Ü¡ï¿½ï¿½à¼­Ä£Ê½ï¿½ï¿½ï¿½Ü¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½Üµï¿½");
+        return sb.toString();
+    }
+
+    public static String secondMenu() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("Ä½ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½Ö±ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ITï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½Ì³Ì¡ï¿½ï¿½ï¿½ï¿½ß±ï¿½Ì¹ï¿½ï¿½ß¡ï¿½Ñ§Ï°ï¿½Æ»ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ÃµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½Ë£ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Ñµï¿½ï¿½ï¿½ï¿½ß¹ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½Î³ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÈµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½ITï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+        sb.append("Ä½ï¿½ï¿½ï¿½ï¿½ï¿½Î³Ìºï¿½ï¿½ï¿½Ç°ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½PHPï¿½ï¿½Html5ï¿½ï¿½Androidï¿½ï¿½iOSï¿½ï¿½Swiftï¿½ï¿½ITÇ°ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î³Ì¡ï¿½Êµï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ÊºÏ²ï¿½Í¬ï¿½×¶Îµï¿½Ñ§Ï°ï¿½ï¿½Èºï¿½ï¿½ï¿½Ô´ï¿½ï¿½É»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½Ê½ÎªÆ½Ì¨ï¿½Øµã£¬Îªï¿½ï¿½Ð£Ñ§ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¹©ï¿½ï¿½Ò»ï¿½ï¿½Ñ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°Æ½Ì¨ï¿½ï¿½");
+        return sb.toString();
+    }
+
+    public static String threeMenu() {
+        StringBuffer sb = new StringBuffer();
+        sb.append("ï¿½ï¿½ï¿½é·­ï¿½ï¿½Ê¹ï¿½ï¿½Ö¸ï¿½ï¿½\n\n");
+        sb.append("Ê¹ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½\n");
+        sb.append("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
+        sb.append("ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ï¿½ï¿½\n");
+        sb.append("ï¿½ï¿½ï¿½ï¿½football\n\n");
+        sb.append("ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½");
+        return sb.toString();
+    }
+
+    /**
+     * Í¼ï¿½ï¿½ï¿½ï¿½Ï¢×ªÎªxml
+     *
+     * @param newsMessage
+     * @return
+     */
+    public static String newsMessageToXml(NewsMessage newsMessage) {
+        XStream xstream = new XStream();
+        xstream.alias("xml", newsMessage.getClass());
+        xstream.alias("item", new News().getClass());
+        return xstream.toXML(newsMessage);
+    }
+
+    /**
+     * Í¼Æ¬ï¿½ï¿½Ï¢×ªÎªxml
+     *
+     * @param imageMessage
+     * @return
+     */
+    public static String imageMessageToXml(ImageMessage imageMessage) {
+        XStream xstream = new XStream();
+        xstream.alias("xml", imageMessage.getClass());
+        return xstream.toXML(imageMessage);
+    }
+
+    /**
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢×ªÎªxml
+     *
+     * @param musicMessage
+     * @return
+     */
+    public static String musicMessageToXml(MusicMessage musicMessage) {
+        XStream xstream = new XStream();
+        xstream.alias("xml", musicMessage.getClass());
+        return xstream.toXML(musicMessage);
+    }
+
+    /**
+     * Í¼ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½×°
+     *
+     * @param toUserName
+     * @param fromUserName
+     * @return
+     */
+    public static String initNewsMessage(String toUserName, String fromUserName) {
+        String message = null;
+        List<News> newsList = new ArrayList<News>();
+        NewsMessage newsMessage = new NewsMessage();
+
+        News news = new News();
+        news.setTitle("Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+        news.setDescription("Ä½ï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½Ö±ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ITï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½Ì³Ì¡ï¿½ï¿½ï¿½ï¿½ß±ï¿½Ì¹ï¿½ï¿½ß¡ï¿½Ñ§Ï°ï¿½Æ»ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ÃµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½Ë£ï¿½Ò²ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½Ñµï¿½ï¿½ï¿½ï¿½ß¹ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½Î³ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÈµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½ITï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½Î³Ìºï¿½ï¿½ï¿½Ç°ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½PHPï¿½ï¿½Html5ï¿½ï¿½Androidï¿½ï¿½iOSï¿½ï¿½Swiftï¿½ï¿½ITÇ°ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î³Ì¡ï¿½Êµï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ÊºÏ²ï¿½Í¬ï¿½×¶Îµï¿½Ñ§Ï°ï¿½ï¿½Èºï¿½ï¿½");
+        news.setPicUrl("http://zapper.tunnel.mobi/Weixin/image/imooc.jpg");
+        news.setUrl("www.imooc.com");
+
+        newsList.add(news);
+
+        newsMessage.setToUserName(fromUserName);
+        newsMessage.setFromUserName(toUserName);
+        newsMessage.setCreateTime(new Date().getTime());
+        newsMessage.setMsgType(MESSAGE_NEWS);
+        newsMessage.setArticles(newsList);
+        newsMessage.setArticleCount(newsList.size());
+
+        message = newsMessageToXml(newsMessage);
+        return message;
+    }
+
+    /**
+     * ï¿½ï¿½×°Í¼Æ¬ï¿½ï¿½Ï¢
+     *
+     * @param toUserName
+     * @param fromUserName
+     * @return
+     */
+    public static String initImageMessage(String toUserName, String fromUserName) {
+        String message = null;
+        Image image = new Image();
+        image.setMediaId("JTH8vBl0zDRlrrn2bBnMleySuHjVbMhyAo0U2x7kQyd1ciydhhsVPONbnRrKGp8m");
+        ImageMessage imageMessage = new ImageMessage();
+        imageMessage.setFromUserName(toUserName);
+        imageMessage.setToUserName(fromUserName);
+        imageMessage.setMsgType(MESSAGE_IMAGE);
+        imageMessage.setCreateTime(new Date().getTime());
+        imageMessage.setImage(image);
+        message = imageMessageToXml(imageMessage);
+        return message;
+    }
+
+    /**
+     * ï¿½ï¿½×°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+     *
+     * @param toUserName
+     * @param fromUserName
+     * @return
+     */
+    public static String initMusicMessage(String toUserName, String fromUserName) {
+        String message = null;
+        Music music = new Music();
+        music.setThumbMediaId("WsHCQr1ftJQwmGUGhCP8gZ13a77XVg5Ah_uHPHVEAQuRE5FEjn-DsZJzFZqZFeFk");
+        music.setTitle("see you again");
+        music.setDescription("ï¿½ï¿½7Æ¬Î²ï¿½ï¿½");
+        music.setMusicUrl("http://zapper.tunnel.mobi/Weixin/resource/See You Again.mp3");
+        music.setHQMusicUrl("http://zapper.tunnel.mobi/Weixin/resource/See You Again.mp3");
+
+        MusicMessage musicMessage = new MusicMessage();
+        musicMessage.setFromUserName(toUserName);
+        musicMessage.setToUserName(fromUserName);
+        musicMessage.setMsgType(MESSAGE_MUSIC);
+        musicMessage.setCreateTime(new Date().getTime());
+        musicMessage.setMusic(music);
+        message = musicMessageToXml(musicMessage);
+        return message;
+    }
 }

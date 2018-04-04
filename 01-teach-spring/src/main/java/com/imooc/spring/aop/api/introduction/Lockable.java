@@ -1,11 +1,11 @@
 package com.imooc.spring.aop.api.introduction;
 
 public interface Lockable {
-	
-	void lock();
 
-	void unlock();
+    void lock();
 
-	boolean locked();
+    void unlock();
+
+    boolean locked();
 
 }

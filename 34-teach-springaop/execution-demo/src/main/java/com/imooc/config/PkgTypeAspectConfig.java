@@ -7,10 +7,9 @@ import org.springframework.stereotype.Component;
 
 /**
  * //匹配ProductService类里头的所有方法
- * @Pointcut("within(com.imooc.service.ProductService)")
- * //匹配com.imooc包及子包下所有类的方法
- * @Pointcut("within(com.imooc..*)")
- * Created by cat on 2017-02-19.
+ *
+ * @Pointcut("within(com.imooc.service.ProductService)") //匹配com.imooc包及子包下所有类的方法
+ * @Pointcut("within(com.imooc..*)") Created by cat on 2017-02-19.
  */
 @Aspect
 @Component

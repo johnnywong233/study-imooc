@@ -3,40 +3,36 @@ package com.zs.spring.demo4;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * 
  * @author admin
- *
- *
- *@TransactionalÖÐµÄµÄÊôÐÔ
- *propagation	:ÊÂÎñµÄ´«²¥ÐÐÎª
- *isolation		:ÊÂÎñµÄ¸ôÀë¼¶±ð
- *readOnly		:Ö»¶Á
- *rollbackFor	:·¢ÉúÄÄÐ©Òì³£»Ø¹ö
- *noRollbackFor	:·¢ÉúÄÄÐ©Òì³£²»»Ø¹ö
- *rollbackForClassName ¸ù¾ÝÒì³£ÀàÃû»Ø¹ö
+ * @Transactionalï¿½ÐµÄµï¿½ï¿½ï¿½ï¿½ï¿½ propagation    :ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½Îª
+ * isolation		:ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ë¼¶ï¿½ï¿½
+ * readOnly		:Ö»ï¿½ï¿½
+ * rollbackFor	:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð©ï¿½ì³£ï¿½Ø¹ï¿½
+ * noRollbackFor	:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð©ï¿½ì³£ï¿½ï¿½ï¿½Ø¹ï¿½
+ * rollbackForClassName ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½
  */
 @Transactional
 public class AccountServiceImpl implements AccountService {
-	
-	//×¢Èë×ªÕËµÄDAO
-	private AccountDao accountDao;
-	
 
-	/**
-	 * @param out	:×ª³öÕËºÅ
-	 * @param in	:×ªÈëÕËºÅ
-	 * @param money	:×ªÕË½ð¶î
-	 */
-	@Override
-	public void transfer( String out, String in, Double money) {
-		accountDao.outMoney(out, money);
-		//int i = 1/0;
-		accountDao.inMoney(in, money);
-		
-	}
+    //×¢ï¿½ï¿½×ªï¿½Ëµï¿½DAO
+    private AccountDao accountDao;
 
-	public void setAccountDao(AccountDao accountDao) {
-		this.accountDao = accountDao;
-	}
+
+    /**
+     * @param out   :×ªï¿½ï¿½ï¿½Ëºï¿½
+     * @param in    :×ªï¿½ï¿½ï¿½Ëºï¿½
+     * @param money :×ªï¿½Ë½ï¿½ï¿½
+     */
+    @Override
+    public void transfer(String out, String in, Double money) {
+        accountDao.outMoney(out, money);
+        //int i = 1/0;
+        accountDao.inMoney(in, money);
+
+    }
+
+    public void setAccountDao(AccountDao accountDao) {
+        this.accountDao = accountDao;
+    }
 
 }

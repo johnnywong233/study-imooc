@@ -2,10 +2,10 @@ package com.zs.spring.demo2;
 
 public interface AccountService {
 
-	/**
-	 * @param out	:×ª³öÕËºÅ
-	 * @param in	:×ªÈëÕËºÅ
-	 * @param money	:×ªÕË½ğ¶î
-	 */
-	public void transfer(String out,String in,Double money);
+    /**
+     * @param out   :×ªï¿½ï¿½ï¿½Ëºï¿½
+     * @param in    :×ªï¿½ï¿½ï¿½Ëºï¿½
+     * @param money :×ªï¿½Ë½ï¿½ï¿½
+     */
+    public void transfer(String out, String in, Double money);
 }

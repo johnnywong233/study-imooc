@@ -1,14 +1,14 @@
 package com.imooc.menu;
 
-public class ClickButton extends Button{
-	//ClickÀàÐÍ²Ëµ¥key
-	private String key;
+public class ClickButton extends Button {
+    //Clickï¿½ï¿½ï¿½Í²Ëµï¿½key
+    private String key;
 
-	public String getKey() {
-		return key;
-	}
+    public String getKey() {
+        return key;
+    }
 
-	public void setKey(String key) {
-		this.key = key;
-	}
+    public void setKey(String key) {
+        this.key = key;
+    }
 }

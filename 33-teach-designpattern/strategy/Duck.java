@@ -1,51 +1,34 @@
 package com.imooc.pattern.strategy;
 
 /*
- * ³¬Àà£¬ËùÓÐµÄÑ¼×Ó¶¼Òª¼Ì³Ð´ËÀà
- * ³éÏóÁËÑ¼×ÓµÄÐÐÎª£ºÏÔÊ¾ºÍÃù½Ð
+ * ï¿½ï¿½ï¿½à£¬ï¿½ï¿½ï¿½Ðµï¿½Ñ¼ï¿½Ó¶ï¿½Òªï¿½Ì³Ð´ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¼ï¿½Óµï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public abstract class Duck {
-  
-	/*
-	 * Ñ¼×Ó·¢³ö½ÐÉù
-	 * Í¨ÓÃÐÐÎª£¬ÓÉ³¬ÀàÊµÏÖ
-	 */
-	public void quack(){
-		System.out.println("¸Â¸Â¸Â");
-	}
-	
-	/*
-	 * ÏÔÊ¾Ñ¼×ÓµÄÍâ¹Û
-	 * Ñ¼×ÓµÄÍâ¹Û¸÷²»ÏàÍ¬£¬ÉùÃ÷Îªabstract£¬ ÓÉ×ÓÀàÊµÏÖ
-	 */
-	public abstract void display();
-	
-	
-	private FlyingStragety flyingStragety;
+
+    private FlyingStragety flyingStragety;
+
+    /*
+     * Ñ¼ï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * Í¨ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½É³ï¿½ï¿½ï¿½Êµï¿½ï¿½
+     */
+    public void quack() {
+        System.out.println("ï¿½Â¸Â¸ï¿½");
+    }
+
+    /*
+     * ï¿½ï¿½Ê¾Ñ¼ï¿½Óµï¿½ï¿½ï¿½ï¿½
+     * Ñ¼ï¿½Óµï¿½ï¿½ï¿½Û¸ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªabstractï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
+     */
+    public abstract void display();
+
+    public void setFlyingStragety(FlyingStragety flyingStragety) {
+        this.flyingStragety = flyingStragety;
+    }
+
+    public void fly() {
+        flyingStragety.performFly();
+    }
 
 
-	public void setFlyingStragety(FlyingStragety flyingStragety) {
-		this.flyingStragety = flyingStragety;
-	}
-	
-	public void fly(){
-		flyingStragety.performFly();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
 }

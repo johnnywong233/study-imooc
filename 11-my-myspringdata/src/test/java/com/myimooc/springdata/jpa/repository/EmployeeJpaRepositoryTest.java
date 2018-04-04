@@ -25,23 +25,23 @@ public class EmployeeJpaRepositoryTest {
     private EmployeeJpaRepository employeeJpaRepository = null;
 
     @Before
-    public void init(){
+    public void init() {
         ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         employeeJpaRepository = ctx.getBean(EmployeeJpaRepository.class);
     }
 
     @After
-    public void destroy(){
+    public void destroy() {
         ctx = null;
     }
 
     @Test
-    public void findTest(){
+    public void findTest() {
         Employee employee = employeeJpaRepository.findOne(99);
-        System.out.println("employee"+employee.toString());
+        System.out.println("employee" + employee.toString());
 
-        System.out.println("employee(10)"+employeeJpaRepository.exists(10));
-        System.out.println("employee(102)"+employeeJpaRepository.exists(102));
+        System.out.println("employee(10)" + employeeJpaRepository.exists(10));
+        System.out.println("employee(102)" + employeeJpaRepository.exists(102));
 
 
     }

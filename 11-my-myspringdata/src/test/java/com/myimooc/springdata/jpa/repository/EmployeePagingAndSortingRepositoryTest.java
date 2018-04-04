@@ -30,13 +30,13 @@ public class EmployeePagingAndSortingRepositoryTest {
     private EmployeePagingAndSortingRepository employeePagingAndSortingRepository = null;
 
     @Before
-    public void init(){
+    public void init() {
         ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         employeePagingAndSortingRepository = ctx.getBean(EmployeePagingAndSortingRepository.class);
     }
 
     @After
-    public void destroy(){
+    public void destroy() {
         ctx = null;
     }
 
@@ -44,16 +44,16 @@ public class EmployeePagingAndSortingRepositoryTest {
      * 分页功能测试
      */
     @Test
-    public void pageTest(){
+    public void pageTest() {
         // page: index是从0开始的，不是从1开始的
-        Pageable pageable = new PageRequest(0,9);
+        Pageable pageable = new PageRequest(0, 9);
         Page<Employee> employeePage = employeePagingAndSortingRepository.findAll(pageable);
 
-        System.out.println("查询的总页数："+employeePage.getTotalPages());
-        System.out.println("查询的总记录数："+employeePage.getTotalElements());
-        System.out.println("查询的当前第几页："+(employeePage.getNumber() + 1));
-        System.out.println("查询的当前页面的集合："+employeePage.getContent());
-        System.out.println("查询的当前页面的记录数："+employeePage.getNumberOfElements());
+        System.out.println("查询的总页数：" + employeePage.getTotalPages());
+        System.out.println("查询的总记录数：" + employeePage.getTotalElements());
+        System.out.println("查询的当前第几页：" + (employeePage.getNumber() + 1));
+        System.out.println("查询的当前页面的集合：" + employeePage.getContent());
+        System.out.println("查询的当前页面的记录数：" + employeePage.getNumberOfElements());
 
     }
 
@@ -61,18 +61,18 @@ public class EmployeePagingAndSortingRepositoryTest {
      * 分页和排序功能测试
      */
     @Test
-    public void pageAndSort(){
-        Sort.Order order = new Sort.Order(Sort.Direction.ASC,"id");
+    public void pageAndSort() {
+        Sort.Order order = new Sort.Order(Sort.Direction.ASC, "id");
         Sort sort = new Sort(order);
         // page: index是从0开始的，不是从1开始的
-        Pageable pageable = new PageRequest(0,5,sort);
+        Pageable pageable = new PageRequest(0, 5, sort);
         Page<Employee> employeePage = employeePagingAndSortingRepository.findAll(pageable);
 
-        System.out.println("查询的总页数："+employeePage.getTotalPages());
-        System.out.println("查询的总记录数："+employeePage.getTotalElements());
-        System.out.println("查询的当前第几页："+(employeePage.getNumber() + 1));
-        System.out.println("查询的当前页面的集合："+employeePage.getContent());
-        System.out.println("查询的当前页面的记录数："+employeePage.getNumberOfElements());
+        System.out.println("查询的总页数：" + employeePage.getTotalPages());
+        System.out.println("查询的总记录数：" + employeePage.getTotalElements());
+        System.out.println("查询的当前第几页：" + (employeePage.getNumber() + 1));
+        System.out.println("查询的当前页面的集合：" + employeePage.getContent());
+        System.out.println("查询的当前页面的记录数：" + employeePage.getNumberOfElements());
     }
 
 }

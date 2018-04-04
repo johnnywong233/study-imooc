@@ -2,7 +2,7 @@ package com.imooc.cglibproxy;
 
 public class Train {
 
-	public void move(){
-		System.out.println("»ð³µÐÐÊ»ÖÐ...");
-	}
+    public void move() {
+        System.out.println("ï¿½ï¿½ï¿½ï¿½Ê»ï¿½ï¿½...");
+    }
 }

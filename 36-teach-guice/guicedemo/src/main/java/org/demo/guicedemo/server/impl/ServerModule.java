@@ -13,27 +13,30 @@ import com.google.inject.matcher.Matchers;
 
 public class ServerModule extends AbstractModule {
 
-	@Override
-	protected void configure() {
-		install(new ChinaModule());
-		install(new GlobalModule());
+    @Override
+    protected void configure() {
+        install(new ChinaModule());
+        install(new GlobalModule());
 
-		bind(OrderService.class).to(OrderServiceImpl.class);
-		bind(PaymentService.class).to(PaymentServiceImpl.class);
-		bind(PriceService.class).to(PriceServiceImpl.class);
+        bind(OrderService.class).to(OrderServiceImpl.class);
+        bind(PaymentService.class).to(PaymentServiceImpl.class);
+        bind(PriceService.class).to(PriceServiceImpl.class);
 
-		bind(new TypeLiteral<Cache<String, String>>(){})
-			.to(GuiceDemoCache.class);
+        bind(new TypeLiteral<Cache<String, String>>() {
+        })
+                .to(GuiceDemoCache.class);
 
-		LoggingInterceptor loggingInterceptor =
-				new LoggingInterceptor();
-		requestInjection(loggingInterceptor);
-		bindInterceptor(Matchers.any(),
-				Matchers.annotatedWith(Logged.class),
-				loggingInterceptor);
-	}
+        LoggingInterceptor loggingInterceptor =
+                new LoggingInterceptor();
+        requestInjection(loggingInterceptor);
+        bindInterceptor(Matchers.any(),
+                Matchers.annotatedWith(Logged.class),
+                loggingInterceptor);
+    }
 
-	@Provides @SessionId Long generateSesssionId() {
-		return System.currentTimeMillis();
-	}
+    @Provides
+    @SessionId
+    Long generateSesssionId() {
+        return System.currentTimeMillis();
+    }
 }

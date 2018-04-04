@@ -1,18 +1,18 @@
 package com.imooc.pattern.cor.handler;
 
 /*
- * оЗйшвэ╪Юё╛ ©иртеЗв╪40%ртдз╣душ©ш
+ * О©╫О©╫О©╫О©╫О©╫э╪Юё╛ О©╫О©╫О©╫О©╫О©╫О©╫в╪40%О©╫О©╫О©╫з╣О©╫О©╫ш©О©╫
  */
 public class Director extends PriceHandler {
 
-	@Override
-	public void processDiscount(float discount) {
-		if(discount<=0.4){
-			System.out.format("%sеЗв╪акуш©ш:%.2f%n",this.getClass().getName(),discount);
-		}else{
-			successor.processDiscount(discount);
-		}
+    @Override
+    public void processDiscount(float discount) {
+        if (discount <= 0.4) {
+            System.out.format("%sО©╫О©╫в╪О©╫О©╫О©╫ш©О©╫:%.2f%n", this.getClass().getName(), discount);
+        } else {
+            successor.processDiscount(discount);
+        }
 
-	}
+    }
 
 }

@@ -15,15 +15,15 @@ public class HelloController {
     @Autowired
     private GirlProperties girlProperties;
 
-    @RequestMapping(value="say",method = RequestMethod.GET)
-    public String say(){
+    @RequestMapping(value = "say", method = RequestMethod.GET)
+    public String say() {
         return girlProperties.getCupSize();
 //        return "index";
     }
 
-//    @RequestMapping(value="/sayy",method = RequestMethod.GET)
-    @GetMapping(value="/sayy")
-    public String sayy(@RequestParam(value="id",required = false,defaultValue = "0") Integer myId){
-        return "id:"+myId;
+    //    @RequestMapping(value="/sayy",method = RequestMethod.GET)
+    @GetMapping(value = "/sayy")
+    public String sayy(@RequestParam(value = "id", required = false, defaultValue = "0") Integer myId) {
+        return "id:" + myId;
     }
 }

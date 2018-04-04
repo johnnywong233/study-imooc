@@ -2,21 +2,21 @@ package com.imooc.pattern.strategy;
 
 public class DuckTest {
 
-	public static void main(String[] args){
-		System.out.println("²âÊÔÑ¼×Ó³ÌÐò");
-		System.out.println("************************");
-		Duck duck = null;
+    public static void main(String[] args) {
+        System.out.println("ï¿½ï¿½ï¿½ï¿½Ñ¼ï¿½Ó³ï¿½ï¿½ï¿½");
+        System.out.println("************************");
+        Duck duck = null;
 //		duck = new MallardDuck();
 //		duck = new RedheadDuck();
 //		duck = new RubberDuck();
 //		duck = new BigYellow();
-		duck = new SpaceDuck();
-		
-		duck.display();
-		duck.quack();
-		duck.fly();
-		System.out.println("************************");
-		System.out.println("²âÊÔÍê±Ï");
-	}
+        duck = new SpaceDuck();
+
+        duck.display();
+        duck.quack();
+        duck.fly();
+        System.out.println("************************");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+    }
 
 }

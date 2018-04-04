@@ -1,22 +1,22 @@
 package com.imooc.pattern.cor.handler;
 
 /*
- * ¼Û¸ñ´¦ÀíÈË£¬¸ºÔð´¦Àí¿Í»§ÕÛ¿ÛÉêÇë
+ * ï¿½Û¸ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½Û¿ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public abstract class PriceHandler {
-	
-	/*
-	 * Ö±½Óºó¼Ì£¬ÓÃÓÚ´«µÝÇëÇó
-	 */
-	protected PriceHandler successor;
 
-	public void setSuccessor(PriceHandler successor) {
-		this.successor = successor;
-	}
-	
-	/*
-	 * ´¦ÀíÕÛ¿ÛÉêÇë
-	 */
-	public abstract  void processDiscount(float discount);
+    /*
+     * Ö±ï¿½Óºï¿½Ì£ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     */
+    protected PriceHandler successor;
+
+    public void setSuccessor(PriceHandler successor) {
+        this.successor = successor;
+    }
+
+    /*
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ï¿½ï¿½ï¿½ï¿½
+     */
+    public abstract void processDiscount(float discount);
 
 }

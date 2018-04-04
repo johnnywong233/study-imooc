@@ -16,15 +16,19 @@ import java.security.spec.X509EncodedKeySpec;
  */
 public class DemoDH {
 
-    /** 待加密字符串 */
-    private static String src="imooc security dh";
+    /**
+     * 待加密字符串
+     */
+    private static String src = "imooc security dh";
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         jdkDH();
     }
 
-    /** 使用jdk实现DH非对称加密 */
-    public static void jdkDH(){
+    /**
+     * 使用jdk实现DH非对称加密
+     */
+    public static void jdkDH() {
         try {
             // 1.初始化发送方密钥
             KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("DH");
@@ -37,17 +41,17 @@ public class DemoDH {
             KeyFactory receiverKeyFactory = KeyFactory.getInstance("DH");
             X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(senderPublicKeyEnc);
             PublicKey receiverPublicKey = receiverKeyFactory.generatePublic(x509EncodedKeySpec);
-            DHParameterSpec dhParameterSpec = ((DHPublicKey)receiverPublicKey).getParams();
+            DHParameterSpec dhParameterSpec = ((DHPublicKey) receiverPublicKey).getParams();
             KeyPairGenerator receiverKeyPairGenerator = KeyPairGenerator.getInstance("DH");
             receiverKeyPairGenerator.initialize(dhParameterSpec);
-            KeyPair receiverKeyPair =  receiverKeyPairGenerator.generateKeyPair();
+            KeyPair receiverKeyPair = receiverKeyPairGenerator.generateKeyPair();
             PrivateKey receiverPrivateKey = receiverKeyPair.getPrivate();
             byte[] receiverPublicKeyEnc = receiverKeyPair.getPublic().getEncoded();
 
             // 3.密钥构建
-            KeyAgreement receiverKeyAgreement  = KeyAgreement.getInstance("DH");
+            KeyAgreement receiverKeyAgreement = KeyAgreement.getInstance("DH");
             receiverKeyAgreement.init(receiverPrivateKey);
-            receiverKeyAgreement.doPhase(receiverPublicKey,true);
+            receiverKeyAgreement.doPhase(receiverPublicKey, true);
             SecretKey receiverDesKey = receiverKeyAgreement.generateSecret("DES");
 
             KeyFactory senderKeyFactory = KeyFactory.getInstance("DH");
@@ -55,7 +59,7 @@ public class DemoDH {
             PublicKey senderPublicKey = senderKeyFactory.generatePublic(x509EncodedKeySpec);
             KeyAgreement senderKeyAgreement = KeyAgreement.getInstance("DH");
             senderKeyAgreement.init(senderKerPair.getPrivate());
-            senderKeyAgreement.doPhase(senderPublicKey,true);
+            senderKeyAgreement.doPhase(senderPublicKey, true);
 
             SecretKey senderDesKey = senderKeyAgreement.generateSecret("DES");
 
@@ -65,21 +69,20 @@ public class DemoDH {
 
             // 4.加密
             Cipher cipher = Cipher.getInstance("DES");
-            cipher.init(Cipher.ENCRYPT_MODE,senderDesKey);
-            byte[] result  = cipher.doFinal(src.getBytes());
-            System.out.println("jdk dh encrypt:"+ Base64.encodeBase64String(result));
+            cipher.init(Cipher.ENCRYPT_MODE, senderDesKey);
+            byte[] result = cipher.doFinal(src.getBytes());
+            System.out.println("jdk dh encrypt:" + Base64.encodeBase64String(result));
 
             // 5.解密
-            cipher.init(Cipher.DECRYPT_MODE,receiverDesKey);
+            cipher.init(Cipher.DECRYPT_MODE, receiverDesKey);
             result = cipher.doFinal(result);
-            System.out.println("jdk dh decrypt:"+ new String(result));
+            System.out.println("jdk dh decrypt:" + new String(result));
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-
 
 
 }

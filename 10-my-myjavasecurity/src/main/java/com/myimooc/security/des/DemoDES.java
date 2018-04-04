@@ -17,16 +17,20 @@ import java.security.Security;
  * Created by ZC on 2017/4/11.
  */
 public class DemoDES {
-    /** 待加密字符串 */
-    private static String src="imooc security des";
+    /**
+     * 待加密字符串
+     */
+    private static String src = "imooc security des";
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         jdkDES();
         bcDES();
     }
 
-    /** 使用 jdk 实现des加解密 */
-    public static void jdkDES(){
+    /**
+     * 使用 jdk 实现des加解密
+     */
+    public static void jdkDES() {
         try {
             // 生成KEY
             KeyGenerator keyGenerator = KeyGenerator.getInstance("DES");
@@ -41,28 +45,30 @@ public class DemoDES {
 
             // 加密
             Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
-            cipher.init(Cipher.ENCRYPT_MODE,convertSecretKey);
+            cipher.init(Cipher.ENCRYPT_MODE, convertSecretKey);
             byte[] result = cipher.doFinal(src.getBytes());
 
-            System.out.println("jdk des encrypt:"+ Hex.encodeHexString(result));
+            System.out.println("jdk des encrypt:" + Hex.encodeHexString(result));
 
             // 解密
-            cipher.init(Cipher.DECRYPT_MODE,convertSecretKey);
+            cipher.init(Cipher.DECRYPT_MODE, convertSecretKey);
             result = cipher.doFinal(result);
-            System.out.println("jdk des decrypt:"+ new String(result));
+            System.out.println("jdk des decrypt:" + new String(result));
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    /** 使用BouncyCastle实现DES加解密 */
-    public static void bcDES(){
+    /**
+     * 使用BouncyCastle实现DES加解密
+     */
+    public static void bcDES() {
         try {
             Security.addProvider(new BouncyCastleProvider());
 
             // 生成KEY
-            KeyGenerator keyGenerator = KeyGenerator.getInstance("DES","BC");
+            KeyGenerator keyGenerator = KeyGenerator.getInstance("DES", "BC");
             keyGenerator.init(56);
             SecretKey secretKey = keyGenerator.generateKey();
             byte[] byteKey = secretKey.getEncoded();
@@ -74,15 +80,15 @@ public class DemoDES {
 
             // 加密
             Cipher cipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
-            cipher.init(Cipher.ENCRYPT_MODE,convertSecretKey);
+            cipher.init(Cipher.ENCRYPT_MODE, convertSecretKey);
             byte[] result = cipher.doFinal(src.getBytes());
 
-            System.out.println("jdk des encrypt:"+ Hex.encodeHexString(result));
+            System.out.println("jdk des encrypt:" + Hex.encodeHexString(result));
 
             // 解密
-            cipher.init(Cipher.DECRYPT_MODE,convertSecretKey);
+            cipher.init(Cipher.DECRYPT_MODE, convertSecretKey);
             result = cipher.doFinal(result);
-            System.out.println("jdk des decrypt:"+ new String(result));
+            System.out.println("jdk des decrypt:" + new String(result));
 
         } catch (Exception e) {
             e.printStackTrace();

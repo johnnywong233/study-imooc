@@ -8,19 +8,20 @@ import com.myimooc.ssh.domain.Product;
 
 /**
  * 商品管理的数据访问类
+ *
  * @author ZhangCheng on 2017-08-17
  */
 @Repository
-public class ProductDao{
-	
-	@Autowired
-	private HibernateTemplate hibernateTemplate;
-	
-	/**
-	 * 数据访问层保存商品的方法
-	 */
-	public void save(Product product) {
-		System.out.println("Dao中的save方法执行了...");
-		hibernateTemplate.save(product);
-	}
+public class ProductDao {
+
+    @Autowired
+    private HibernateTemplate hibernateTemplate;
+
+    /**
+     * 数据访问层保存商品的方法
+     */
+    public void save(Product product) {
+        System.out.println("Dao中的save方法执行了...");
+        hibernateTemplate.save(product);
+    }
 }

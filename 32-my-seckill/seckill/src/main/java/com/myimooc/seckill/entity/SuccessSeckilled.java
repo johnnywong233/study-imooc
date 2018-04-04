@@ -3,9 +3,9 @@ package com.myimooc.seckill.entity;
 import java.util.Date;
 
 /**
- * @describe 成功秒杀明细表
  * @author zc
  * @version 1.0 2017-08-22
+ * @describe 成功秒杀明细表
  */
 public class SuccessSeckilled {
 

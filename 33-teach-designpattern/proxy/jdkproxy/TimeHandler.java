@@ -5,32 +5,32 @@ import java.lang.reflect.Method;
 
 public class TimeHandler implements InvocationHandler {
 
-	public TimeHandler(Object target) {
-		super();
-		this.target = target;
-	}
+    private Object target;
 
-	private Object target;
-	
-	/*
-	 * ²ÎÊý£º
-	 * proxy  ±»´úÀí¶ÔÏó
-	 * method  ±»´úÀí¶ÔÏóµÄ·½·¨
-	 * args ·½·¨µÄ²ÎÊý
-	 * 
-	 * ·µ»ØÖµ£º
-	 * Object  ·½·¨µÄ·µ»ØÖµ
-	 * */
-	@Override
-	public Object invoke(Object proxy, Method method, Object[] args)
-			throws Throwable {
-		long starttime = System.currentTimeMillis();
-		System.out.println("Æû³µ¿ªÊ¼ÐÐÊ»....");
-		method.invoke(target);
-		long endtime = System.currentTimeMillis();
-		System.out.println("Æû³µ½áÊøÐÐÊ»....  Æû³µÐÐÊ»Ê±¼ä£º" 
-				+ (endtime - starttime) + "ºÁÃë£¡");
-		return null;
-	}
+    public TimeHandler(Object target) {
+        super();
+        this.target = target;
+    }
+
+    /*
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * proxy  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * method  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+     * args ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½
+     *
+     * ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½
+     * Object  ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½Öµ
+     * */
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args)
+            throws Throwable {
+        long starttime = System.currentTimeMillis();
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ê»....");
+        method.invoke(target);
+        long endtime = System.currentTimeMillis();
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê»....  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê»Ê±ï¿½ä£º"
+                + (endtime - starttime) + "ï¿½ï¿½ï¿½ë£¡");
+        return null;
+    }
 
 }

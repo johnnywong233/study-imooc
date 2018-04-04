@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by ZC on 2017/4/24.
  */
-@PropertySource(value="classpath:db.properties")
+@PropertySource(value = "classpath:db.properties")
 @Component
 public class PropertiesConfig {
     @Value("${jdbc.driverClass}")

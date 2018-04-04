@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 异常捕获类
- * @author ZhangCheng
- * @date 2017-03-19
- * @version V1.0
  *
+ * @author ZhangCheng
+ * @version V1.0
+ * @date 2017-03-19
  */
 @ControllerAdvice
 public class ExceptionHandle {
@@ -23,18 +23,19 @@ public class ExceptionHandle {
 
     /**
      * 全局异常返回处理
+     *
      * @param e 异常
      * @return 处理后的返回结果
      */
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Result handle(Exception e){
-        if (e instanceof RespException){
-            RespException respException = (RespException)e;
-            return ResultUtil.error(respException.getRespCode(),respException.getMessage());
+    public Result handle(Exception e) {
+        if (e instanceof RespException) {
+            RespException respException = (RespException) e;
+            return ResultUtil.error(respException.getRespCode(), respException.getMessage());
         }
-        LOGGER.error("【系统异常】{}",e);
-        return ResultUtil.error(ResultUtil.RESPCODE_ERROR_SERVICE,"未知错误");
+        LOGGER.error("【系统异常】{}", e);
+        return ResultUtil.error(ResultUtil.RESPCODE_ERROR_SERVICE, "未知错误");
     }
 
 }

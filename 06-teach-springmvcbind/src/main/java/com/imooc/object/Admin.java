@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Created by geely on 2015/11/22.
  */
 
-@XmlRootElement(name="admin")
+@XmlRootElement(name = "admin")
 public class Admin {
     private String name;
     private Integer age;
 
-    @XmlElement(name="name")
+    @XmlElement(name = "name")
     public String getName() {
         return name;
     }
@@ -21,7 +21,7 @@ public class Admin {
         this.name = name;
     }
 
-    @XmlElement(name="age")
+    @XmlElement(name = "age")
     public Integer getAge() {
         return age;
     }

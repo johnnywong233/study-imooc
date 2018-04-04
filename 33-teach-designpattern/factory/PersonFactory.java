@@ -1,14 +1,16 @@
 package com.sunny.project;
+
 /**
- * ÈËÎïµÄÊµÏÖ½Ó¿Ú
- * @author Administrator
+ * ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö½Ó¿ï¿½
  *
+ * @author Administrator
  */
 public interface PersonFactory {
 
-	//ÄÐº¢½Ó¿Ú
-	public Boy getBoy();
-	//Å®º¢½Ó¿Ú
-	public Girl getGirl();
-	
+    //ï¿½Ðºï¿½ï¿½Ó¿ï¿½
+    public Boy getBoy();
+
+    //Å®ï¿½ï¿½ï¿½Ó¿ï¿½
+    public Girl getGirl();
+
 }

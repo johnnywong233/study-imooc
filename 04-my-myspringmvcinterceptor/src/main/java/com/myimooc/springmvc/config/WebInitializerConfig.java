@@ -15,10 +15,9 @@ import org.springframework.web.servlet.DispatcherServlet;
 
 /**
  * Web项目启动类
- * 
+ *
  * @author zhangcheng
  * @version v1.0 2017-02-17
- *
  */
 public class WebInitializerConfig implements WebApplicationInitializer {
 
@@ -43,7 +42,7 @@ public class WebInitializerConfig implements WebApplicationInitializer {
         dispatcherTypes.add(DispatcherType.FORWARD);
         encodingFilter.addMappingForUrlPatterns(dispatcherTypes, true, "*");
         encodingFilter.setInitParameter("encoding", "UTF-8");
-        
+
 
     }
 

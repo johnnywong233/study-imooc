@@ -4,18 +4,18 @@ import com.imooc.pattern.strategy.impl.FlyWithRocket;
 
 public class SpaceDuck extends Duck {
 
-	public SpaceDuck() {
-		super();
-		super.setFlyingStragety(new FlyWithRocket());
-	}
+    public SpaceDuck() {
+        super();
+        super.setFlyingStragety(new FlyWithRocket());
+    }
 
-	@Override
-	public void display() {
-		System.out.println("ÎÒÍ·´÷Óîº½Í·¿ø");
-	}
-	
-	public void quack(){
-		System.out.println("ÎÒÍ¨¹ıÎŞÏßµçÓëÄãÍ¨ĞÅ");
-	}
+    @Override
+    public void display() {
+        System.out.println("ï¿½ï¿½Í·ï¿½ï¿½ï¿½îº½Í·ï¿½ï¿½");
+    }
+
+    public void quack() {
+        System.out.println("ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½");
+    }
 
 }

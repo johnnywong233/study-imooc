@@ -1,11 +1,12 @@
 package com.sunny.project;
+
 /**
- * ÄÐº¢
- * @author Administrator
+ * ï¿½Ðºï¿½
  *
+ * @author Administrator
  */
 public interface Boy {
 
-	
-	public void drawMan();
+
+    public void drawMan();
 }

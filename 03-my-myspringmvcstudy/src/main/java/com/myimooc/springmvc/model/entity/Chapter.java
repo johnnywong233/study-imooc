@@ -3,62 +3,61 @@ package com.myimooc.springmvc.model.entity;
 
 /**
  * 章节实体类
+ *
  * @author zhangcheng
  * @version v1.0 2017-02-18
- *
  */
 public class Chapter {
-	
-	private Integer id;
-	private Integer courseId;
-	private Integer order;
-	private String title;
+
+    private Integer id;
+    private Integer courseId;
+    private Integer order;
+    private String title;
     private String descr;
-    
+
 //    private List<Section> sectionList;
 
-    
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Integer getCourseId() {
-		return courseId;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setCourseId(Integer courseId) {
-		this.courseId = courseId;
-	}
+    public Integer getCourseId() {
+        return courseId;
+    }
 
-	public Integer getOrder() {
-		return order;
-	}
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
 
-	public void setOrder(Integer order) {
-		this.order = order;
-	}
+    public Integer getOrder() {
+        return order;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setOrder(Integer order) {
+        this.order = order;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getDescr() {
-		return descr;
-	}
 
-	public void setDescr(String descr) {
-		this.descr = descr;
-	}
+    public String getDescr() {
+        return descr;
+    }
+
+    public void setDescr(String descr) {
+        this.descr = descr;
+    }
 
     @Override
     public String toString() {
@@ -66,5 +65,5 @@ public class Chapter {
                 + descr + "]";
     }
 
-    
+
 }

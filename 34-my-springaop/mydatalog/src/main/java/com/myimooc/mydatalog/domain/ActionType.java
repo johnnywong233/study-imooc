@@ -1,10 +1,10 @@
 package com.myimooc.mydatalog.domain;
 
 /**
- * @title 操作类型枚举类
- * @describe 枚举操作类型
  * @author zc
  * @version 1.0 2017-09-13
+ * @title 操作类型枚举类
+ * @describe 枚举操作类型
  */
 public enum ActionType {
 

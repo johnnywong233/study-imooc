@@ -17,17 +17,18 @@ public class FormatterTest {
     @Test
     public void test1() throws ParseException {
         CurrencyFormatter currencyFormatter = new CurrencyFormatter();
-        currencyFormatter.setFractionDigits(2);//±£ÁôÐ¡Êýµãºó¼¸Î»
-        currencyFormatter.setRoundingMode(RoundingMode.CEILING);//ÉáÈëÄ£Ê½£¨ceilling±íÊ¾ËÄÉáÎåÈë£©
-        //1¡¢½«´ø»õ±Ò·ûºÅµÄ×Ö·û´®¡°$123.125¡±×ª»»ÎªBigDecimal("123.00")
+        currencyFormatter.setFractionDigits(2);//ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Î»
+        currencyFormatter.setRoundingMode(RoundingMode.CEILING);//ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ceillingï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£©
+        //1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò·ï¿½ï¿½Åµï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½$123.125ï¿½ï¿½×ªï¿½ï¿½ÎªBigDecimal("123.00")
         Assert.assertEquals(new BigDecimal("123.13"), currencyFormatter.parse("$123.125", Locale.US));
     }
+
     @Test
-    public void test2(){
+    public void test2() {
         CurrencyFormatter currencyFormatter = new CurrencyFormatter();
-        currencyFormatter.setFractionDigits(2);//±£ÁôÐ¡Êýµãºó¼¸Î»
-        currencyFormatter.setRoundingMode(RoundingMode.CEILING);//ÉáÈëÄ£Ê½£¨ceilling±íÊ¾ËÄÉáÎåÈë£©
-        //2¡¢½«BigDecimal("123")¸ñÊ½»¯Îª×Ö·û´®¡°$123.00¡±Õ¹Ê¾
+        currencyFormatter.setFractionDigits(2);//ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½Î»
+        currencyFormatter.setRoundingMode(RoundingMode.CEILING);//ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ceillingï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£©
+        //2ï¿½ï¿½ï¿½ï¿½BigDecimal("123")ï¿½ï¿½Ê½ï¿½ï¿½Îªï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½$123.00ï¿½ï¿½Õ¹Ê¾
         Assert.assertEquals("$123.00", currencyFormatter.print(new BigDecimal("123"), Locale.US));
     }
 }

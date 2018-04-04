@@ -1,28 +1,27 @@
 package com.zs.spring.demo3;
 
 
-
 public class AccountServiceImpl implements AccountService {
-	
-	//×¢Èë×ªÕËµÄDAO
-	private AccountDao accountDao;
-	
 
-	/**
-	 * @param out	:×ª³öÕËºÅ
-	 * @param in	:×ªÈëÕËºÅ
-	 * @param money	:×ªÕË½ð¶î
-	 */
-	@Override
-	public void transfer( String out, String in, Double money) {
-		accountDao.outMoney(out, money);
-		//int i = 1/0;
-		accountDao.inMoney(in, money);
-		
-	}
+    //×¢ï¿½ï¿½×ªï¿½Ëµï¿½DAO
+    private AccountDao accountDao;
 
-	public void setAccountDao(AccountDao accountDao) {
-		this.accountDao = accountDao;
-	}
+
+    /**
+     * @param out   :×ªï¿½ï¿½ï¿½Ëºï¿½
+     * @param in    :×ªï¿½ï¿½ï¿½Ëºï¿½
+     * @param money :×ªï¿½Ë½ï¿½ï¿½
+     */
+    @Override
+    public void transfer(String out, String in, Double money) {
+        accountDao.outMoney(out, money);
+        //int i = 1/0;
+        accountDao.inMoney(in, money);
+
+    }
+
+    public void setAccountDao(AccountDao accountDao) {
+        this.accountDao = accountDao;
+    }
 
 }

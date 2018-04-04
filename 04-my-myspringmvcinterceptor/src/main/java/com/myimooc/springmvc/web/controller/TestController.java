@@ -11,38 +11,38 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/")
 public class TestController {
-    
+
     private Logger log = LoggerFactory.getLogger(TestController.class);
-    
+
     @RequestMapping("/viewall")
-    public ModelAndView viewAll(String name,String pwd,HttpServletRequest request){
-        ModelAndView mv= new ModelAndView();
-        
+    public ModelAndView viewAll(String name, String pwd, HttpServletRequest request) {
+        ModelAndView mv = new ModelAndView();
+
         log.debug("进入了控制器的viewAll方法");
-        log.debug("name="+name+",pwd="+pwd);
-        
+        log.debug("name=" + name + ",pwd=" + pwd);
+
         request.getSession().setAttribute("user", name);
-        
+
         mv.setViewName("/hello1");
-        mv.addObject("msg","恭喜 "+name+" 登录成功！");
-        
+        mv.addObject("msg", "恭喜 " + name + " 登录成功！");
+
         return mv;
     }
-    
+
     @RequestMapping("/query")
-    public ModelAndView query(String name,String pwd){
-        ModelAndView mv= new ModelAndView();
-        
+    public ModelAndView query(String name, String pwd) {
+        ModelAndView mv = new ModelAndView();
+
         log.debug("进入了控制器的viewAll方法");
-        log.debug("name="+name+",pwd="+pwd);
-        
-        
+        log.debug("name=" + name + ",pwd=" + pwd);
+
+
         mv.setViewName("/hello1");
         return mv;
     }
-    
+
     @RequestMapping("/login")
-    public ModelAndView doLogin(){
+    public ModelAndView doLogin() {
         return new ModelAndView("/login");
     }
 }

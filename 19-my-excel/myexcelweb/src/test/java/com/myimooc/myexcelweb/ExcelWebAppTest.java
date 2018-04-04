@@ -7,32 +7,28 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class ExcelWebAppTest 
-    extends TestCase
-{
+public class ExcelWebAppTest
+        extends TestCase {
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public ExcelWebAppTest( String testName )
-    {
-        super( testName );
+    public ExcelWebAppTest(String testName) {
+        super(testName);
     }
 
     /**
      * @return the suite of tests being tested
      */
-    public static Test suite()
-    {
-        return new TestSuite( ExcelWebAppTest.class );
+    public static Test suite() {
+        return new TestSuite(ExcelWebAppTest.class);
     }
 
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
-    {
-        assertTrue( true );
+    public void testApp() {
+        assertTrue(true);
     }
 }

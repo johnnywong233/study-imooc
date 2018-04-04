@@ -18,29 +18,29 @@ public class DataSourceTest {
     private ApplicationContext ctx = null;
 
     @Before
-    public void setup(){
+    public void setup() {
         ctx = new ClassPathXmlApplicationContext("beans.xml");
         System.out.println("setup");
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         ctx = null;
         System.out.println("tearDown");
     }
 
     @Test
-    public void testDataSource(){
+    public void testDataSource() {
         System.out.println("testDataSource");
-        DataSource dataSource = (DataSource)ctx.getBean("dataSource");
+        DataSource dataSource = (DataSource) ctx.getBean("dataSource");
         Assert.notNull(dataSource);
     }
 
 
     @Test
-    public void testJdbcTemplate(){
+    public void testJdbcTemplate() {
         System.out.println("testJdbcTemplate");
-        JdbcTemplate jdbcTemplate = (JdbcTemplate)ctx.getBean("jdbcTemplate");
+        JdbcTemplate jdbcTemplate = (JdbcTemplate) ctx.getBean("jdbcTemplate");
         Assert.notNull(jdbcTemplate);
     }
 

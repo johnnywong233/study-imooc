@@ -33,17 +33,18 @@ import java.util.Properties;
 //@EnableAspectJAutoProxy
 // 启用自动扫描 @Component 注解的Bean
 @ComponentScan(basePackages = "com.myimooc.springdata.jpa")
-public class SpringConfig{
+public class SpringConfig {
 
     @Autowired
     private PropertiesConfig propertiesConfig;
 
     /**
      * 配置数据源
+     *
      * @return
      */
     @Bean
-    public DriverManagerDataSource dataSource(){
+    public DriverManagerDataSource dataSource() {
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setDriverClassName(propertiesConfig.getJdbcDriverClass());
         driverManagerDataSource.setUrl(propertiesConfig.getJdbcUrl());
@@ -55,10 +56,11 @@ public class SpringConfig{
 
     /**
      * 配置事务管理器 JpaTransactionManager
+     *
      * @return
      */
-    @Bean(name="transactionManager")
-    public PlatformTransactionManager transactionManager(){
+    @Bean(name = "transactionManager")
+    public PlatformTransactionManager transactionManager() {
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setDataSource(this.dataSource());
         transactionManager.setEntityManagerFactory(this.entityManagerFactory().getObject());
@@ -69,10 +71,11 @@ public class SpringConfig{
 
     /**
      * 配置JPA的 EntityManagerFactory
+     *
      * @return
      */
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource());
 
@@ -85,10 +88,10 @@ public class SpringConfig{
 
         Properties jpaProperties = new Properties();
 //        jpaProperties.setProperty("hibernate.ejb.naming_strategy","org.hibernate.cfg.ImprovedNamingStrategy");
-        jpaProperties.setProperty("hibernate.dialect","org.hibernate.dialect.MySQL5InnoDBDialect");
-        jpaProperties.setProperty("hibernate.show_sql","true");
-        jpaProperties.setProperty("hibernate.format_sql","true");
-        jpaProperties.setProperty("hibernate.hbm2ddl.auto","update");
+        jpaProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
+        jpaProperties.setProperty("hibernate.show_sql", "true");
+        jpaProperties.setProperty("hibernate.format_sql", "true");
+        jpaProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 
         entityManagerFactory.setJpaProperties(jpaProperties);
 

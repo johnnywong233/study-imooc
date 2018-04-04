@@ -4,8 +4,8 @@ import com.imooc.pattern.strategy.FlyingStragety;
 
 public class FlyNoWay implements FlyingStragety {
 
-	public void performFly() {
-		System.out.println("ÎÒ²»»á·ÉÐÐ£¡");
-	}
+    public void performFly() {
+        System.out.println("ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½");
+    }
 
 }

@@ -4,29 +4,45 @@ import java.util.List;
 
 /**
  * 课程实体类
+ *
  * @author zhangcheng
  * @version v1.0 2017-02-18
- *
  */
 public class Course {
-    
-    /** 课程ID */
+
+    /**
+     * 课程ID
+     */
     private Integer courseId;
-    /** 课程名称 */
+    /**
+     * 课程名称
+     */
     private String title;
-    /** 图片路径 */
+    /**
+     * 图片路径
+     */
     private String imgPath;
-    /** 学习人数 */
+    /**
+     * 学习人数
+     */
     private Integer learningNum;
-    /** 课程时长 */
+    /**
+     * 课程时长
+     */
     private Long duration;
-    /** 课程难度 */
+    /**
+     * 课程难度
+     */
     private Integer level;
-    /** 课程难度描述 */
+    /**
+     * 课程难度描述
+     */
     private String levelDesc;
-    /** 课程介绍 */
+    /**
+     * 课程介绍
+     */
     private String descr;
-    
+
     private List<Chapter> chapterList;
 
     public Integer getCourseId() {
@@ -107,6 +123,6 @@ public class Course {
                 + learningNum + ", duration=" + duration + ", level=" + level + ", levelDesc=" + levelDesc + ", descr="
                 + descr + ", chapterList=" + chapterList + "]";
     }
-    
-    
+
+
 }

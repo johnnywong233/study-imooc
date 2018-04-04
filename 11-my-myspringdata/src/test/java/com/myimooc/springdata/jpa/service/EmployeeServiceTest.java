@@ -21,27 +21,27 @@ public class EmployeeServiceTest {
     private EmployeeService employeeService = null;
 
     @Before
-    public void init(){
+    public void init() {
         ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         employeeService = ctx.getBean(EmployeeService.class);
     }
 
     @After
-    public void destroy(){
+    public void destroy() {
         ctx = null;
     }
 
     @Test
-    public void transactionManagerTest(){
-        PlatformTransactionManager transactionManager = (PlatformTransactionManager)ctx.getBean(PlatformTransactionManager.class);
+    public void transactionManagerTest() {
+        PlatformTransactionManager transactionManager = (PlatformTransactionManager) ctx.getBean(PlatformTransactionManager.class);
         Assert.assertNotNull(transactionManager);
     }
 
     // 更新操作
 
     @Test
-    public void updateAgeByIdTest(){
-        employeeService.updateAgeById(1,55);
+    public void updateAgeByIdTest() {
+        employeeService.updateAgeById(1, 55);
     }
 
 }

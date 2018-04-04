@@ -17,10 +17,12 @@ import java.security.Security;
  */
 public class DemoSHA {
 
-    /** 待加密字符串 */
-    private static String src="imooc security sha";
+    /**
+     * 待加密字符串
+     */
+    private static String src = "imooc security sha";
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         jdkSHA1();
         bcSHA1();
         bcSHA224();
@@ -31,11 +33,11 @@ public class DemoSHA {
     /**
      * 通过 JDK 实现SHA-1 加密
      */
-    public static void jdkSHA1(){
+    public static void jdkSHA1() {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA");
             md.update(src.getBytes());
-            System.out.println("jdk sha-1:"+ Hex.encodeHexString(md.digest()));
+            System.out.println("jdk sha-1:" + Hex.encodeHexString(md.digest()));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
@@ -44,41 +46,45 @@ public class DemoSHA {
     /**
      * 通过 bouncy castle 实现SHA-1 加密
      */
-    public static void bcSHA1(){
+    public static void bcSHA1() {
         Digest digest = new SHA1Digest();
-        digest.update(src.getBytes(),0,src.getBytes().length);
+        digest.update(src.getBytes(), 0, src.getBytes().length);
         byte[] sha1Bytes = new byte[digest.getDigestSize()];
-        digest.doFinal(sha1Bytes,0);
-        System.out.println("bc sha-1:"+ org.bouncycastle.util.encoders.Hex.toHexString(sha1Bytes));
+        digest.doFinal(sha1Bytes, 0);
+        System.out.println("bc sha-1:" + org.bouncycastle.util.encoders.Hex.toHexString(sha1Bytes));
     }
 
     /**
      * 通过 bouncy castle 实现SHA-224 加密
      */
-    public static void bcSHA224(){
+    public static void bcSHA224() {
         Digest digest = new SHA224Digest();
-        digest.update(src.getBytes(),0,src.getBytes().length);
+        digest.update(src.getBytes(), 0, src.getBytes().length);
         byte[] sha224Bytes = new byte[digest.getDigestSize()];
-        digest.doFinal(sha224Bytes,0);
-        System.out.println("bc sha-224:"+ org.bouncycastle.util.encoders.Hex.toHexString(sha224Bytes));
+        digest.doFinal(sha224Bytes, 0);
+        System.out.println("bc sha-224:" + org.bouncycastle.util.encoders.Hex.toHexString(sha224Bytes));
     }
 
-    /** 通过 provider 实现SHA224加密 */
-    public static void bcSHA224_2(){
+    /**
+     * 通过 provider 实现SHA224加密
+     */
+    public static void bcSHA224_2() {
         Security.addProvider(new BouncyCastleProvider());
         try {
             MessageDigest md = MessageDigest.getInstance("SHA224");
             byte[] sha224Bytes = md.digest(src.getBytes());
-            System.out.println("sha-224:"+ org.bouncycastle.util.encoders.Hex.toHexString(sha224Bytes));
+            System.out.println("sha-224:" + org.bouncycastle.util.encoders.Hex.toHexString(sha224Bytes));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
     }
 
-    /** 通过 commons.codec 实现SHA-1加密 */
-    public static void ccSHA1(){
-        System.out.println("cc sha1-1:"+DigestUtils.sha1Hex(src.getBytes()));
-        System.out.println("cc sha1-2:"+DigestUtils.sha1Hex(src));
+    /**
+     * 通过 commons.codec 实现SHA-1加密
+     */
+    public static void ccSHA1() {
+        System.out.println("cc sha1-1:" + DigestUtils.sha1Hex(src.getBytes()));
+        System.out.println("cc sha1-2:" + DigestUtils.sha1Hex(src));
     }
 
 }

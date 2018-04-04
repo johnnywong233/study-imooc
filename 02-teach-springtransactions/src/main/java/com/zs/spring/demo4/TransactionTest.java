@@ -11,14 +11,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:applicationContext4.xml")
 public class TransactionTest {
 
-	/**
-	 * Ò»¶¨Òª×¢Èë´úÀíÀà:ÒòÎª´úÀíÀà½øÐÐÔöÇ¿µÄ²Ù×÷
-	 */
-	@Resource(name="accountService")
-	private AccountService accountService;
-	
-	@Test
-	public void demo1(){
-		accountService.transfer("aaa", "bbb", 200d);
-	}
+    /**
+     * Ò»ï¿½ï¿½Òª×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½Ä²ï¿½ï¿½ï¿½
+     */
+    @Resource(name = "accountService")
+    private AccountService accountService;
+
+    @Test
+    public void demo1() {
+        accountService.transfer("aaa", "bbb", 200d);
+    }
 }

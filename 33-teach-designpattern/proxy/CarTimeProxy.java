@@ -2,21 +2,21 @@ package com.imooc.proxy;
 
 public class CarTimeProxy implements Moveable {
 
-	public CarTimeProxy(Moveable m) {
-		super();
-		this.m = m;
-	}
+    private Moveable m;
 
-	private Moveable m;
-	
-	@Override
-	public void move() {
-		long starttime = System.currentTimeMillis();
-		System.out.println("Æû³µ¿ªÊ¼ÐÐÊ»....");
-		m.move();
-		long endtime = System.currentTimeMillis();
-		System.out.println("Æû³µ½áÊøÐÐÊ»....  Æû³µÐÐÊ»Ê±¼ä£º" 
-				+ (endtime - starttime) + "ºÁÃë£¡");
-	}
+    public CarTimeProxy(Moveable m) {
+        super();
+        this.m = m;
+    }
+
+    @Override
+    public void move() {
+        long starttime = System.currentTimeMillis();
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Ê»....");
+        m.move();
+        long endtime = System.currentTimeMillis();
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê»....  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê»Ê±ï¿½ä£º"
+                + (endtime - starttime) + "ï¿½ï¿½ï¿½ë£¡");
+    }
 
 }

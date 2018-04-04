@@ -6,22 +6,23 @@ import com.myimooc.sshemployee.domain.Department;
 
 /**
  * 部门管理的DAO的接口
+ *
  * @author ZhangCheng on 2017-08-18
  */
 public interface DepartmentDao {
 
-	int findCount();
+    int findCount();
 
-	List<Department> findByPage(int begin, int pageSize);
+    List<Department> findByPage(int begin, int pageSize);
 
-	void save(Department department);
+    void save(Department department);
 
-	Department findById(Integer did);
+    Department findById(Integer did);
 
-	void update(Department department);
+    void update(Department department);
 
-	void delete(Department department);
+    void delete(Department department);
 
-	List<Department> findAll();
+    List<Department> findAll();
 
 }

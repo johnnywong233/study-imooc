@@ -8,7 +8,7 @@ import java.util.List;
 public class StudentDAOImplTest {
 
     @Test
-     public void testQuery() {
+    public void testQuery() {
 
         StudentDAO studentDAO = new StudentDAOImpl();
         List<Student> students = studentDAO.query();

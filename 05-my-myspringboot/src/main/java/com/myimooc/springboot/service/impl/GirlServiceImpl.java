@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by ChengComputer on 2017/2/18.
  */
 @Service
-public class GirlServiceImpl implements GirlService{
+public class GirlServiceImpl implements GirlService {
 
     @Autowired
     private GirlRepository girlRepository;

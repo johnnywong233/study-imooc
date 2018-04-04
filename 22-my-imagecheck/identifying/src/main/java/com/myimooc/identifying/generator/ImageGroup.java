@@ -6,53 +6,58 @@ import java.util.Set;
 
 /**
  * 原始图片分组
- * @author ZhangCheng on 2017-07-09
  *
+ * @author ZhangCheng on 2017-07-09
  */
 public class ImageGroup {
-	/** 图片组名称 */
-	private String name;
-	/** 图片数量 */
-	private int count;
-	/** 图片URL组 */
-	private Set<String> images;
+    /**
+     * 图片组名称
+     */
+    private String name;
+    /**
+     * 图片数量
+     */
+    private int count;
+    /**
+     * 图片URL组
+     */
+    private Set<String> images;
 
-	public ImageGroup(String name, int count, String... imageNames) {
-		this.name = name;
-		this.count = count;
-		this.images = new HashSet<String>();
-		this.images.addAll(Arrays.asList(imageNames));
-	}
+    public ImageGroup(String name, int count, String... imageNames) {
+        this.name = name;
+        this.count = count;
+        this.images = new HashSet<String>();
+        this.images.addAll(Arrays.asList(imageNames));
+    }
 
-	@Override
-	public String toString() {
-		return "ImageGroup [name=" + name + ", count=" + count + ", images=" + images + "]";
-	}
+    @Override
+    public String toString() {
+        return "ImageGroup [name=" + name + ", count=" + count + ", images=" + images + "]";
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public int getCount() {
-		return count;
-	}
+    public int getCount() {
+        return count;
+    }
 
-	public void setCount(int count) {
-		this.count = count;
-	}
+    public void setCount(int count) {
+        this.count = count;
+    }
 
-	public Set<String> getImages() {
-		return images;
-	}
+    public Set<String> getImages() {
+        return images;
+    }
 
-	public void setImages(Set<String> images) {
-		this.images = images;
-	}
-	
-	
-	
+    public void setImages(Set<String> images) {
+        this.images = images;
+    }
+
+
 }

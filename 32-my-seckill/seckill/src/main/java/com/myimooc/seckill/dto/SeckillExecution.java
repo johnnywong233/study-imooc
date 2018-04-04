@@ -4,9 +4,9 @@ import com.myimooc.seckill.entity.SuccessSeckilled;
 import com.myimooc.seckill.enums.SeckillStatEnum;
 
 /**
- * @describe 封装秒杀执行后结果
  * @author zc
  * @version 1.0 2017-08-23
+ * @describe 封装秒杀执行后结果
  */
 public class SeckillExecution {
 
@@ -17,16 +17,6 @@ public class SeckillExecution {
     private String stateInfo;
     // 秒杀成功对象
     private SuccessSeckilled successSeckilled;
-
-    @Override
-    public String toString() {
-        return "SeckillExecution{" +
-                "seckillId=" + seckillId +
-                ", state=" + state +
-                ", stateInfo='" + stateInfo + '\'' +
-                ", successSeckilled=" + successSeckilled +
-                '}';
-    }
 
     public SeckillExecution(long seckillId, SeckillStatEnum statEnum, SuccessSeckilled successSeckilled) {
         this.seckillId = seckillId;
@@ -39,6 +29,16 @@ public class SeckillExecution {
         this.seckillId = seckillId;
         this.state = statEnum.getState();
         this.stateInfo = statEnum.getStateInfo();
+    }
+
+    @Override
+    public String toString() {
+        return "SeckillExecution{" +
+                "seckillId=" + seckillId +
+                ", state=" + state +
+                ", stateInfo='" + stateInfo + '\'' +
+                ", successSeckilled=" + successSeckilled +
+                '}';
     }
 
     public long getSeckillId() {

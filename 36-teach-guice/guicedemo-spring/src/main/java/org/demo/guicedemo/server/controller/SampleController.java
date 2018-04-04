@@ -19,29 +19,33 @@ import com.google.inject.Injector;
 
 @RestController
 @SpringBootApplication(
-    scanBasePackageClasses = SpringScanBase.class)
+        scanBasePackageClasses = SpringScanBase.class)
 @ServletComponentScan
 public class SampleController {
 
-  @Bean Injector injector(ApplicationContext context) {
-    return Guice.createInjector(
-        new HelloWorldWebModule(),
-        new SpringAwareServletModule(context));
-  }
+    @Autowired
+    GreetingHandler greetingHandler;
 
-  @Bean @RequestScope GreetingHandler greetingHandler(
-      Injector injector) {
-    return injector.getInstance(GreetingHandler.class);
-  }
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(SampleController.class, args);
+    }
 
-  @Autowired GreetingHandler greetingHandler;
+    @Bean
+    Injector injector(ApplicationContext context) {
+        return Guice.createInjector(
+                new HelloWorldWebModule(),
+                new SpringAwareServletModule(context));
+    }
 
-  @GetMapping("/greeting")
-  String greeting(@RequestParam("name") String name) {
-    return greetingHandler.getByName(name);
-  }
+    @Bean
+    @RequestScope
+    GreetingHandler greetingHandler(
+            Injector injector) {
+        return injector.getInstance(GreetingHandler.class);
+    }
 
-  public static void main(String[] args) throws Exception {
-    SpringApplication.run(SampleController.class, args);
-  }
+    @GetMapping("/greeting")
+    String greeting(@RequestParam("name") String name) {
+        return greetingHandler.getByName(name);
+    }
 }

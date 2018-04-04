@@ -21,25 +21,25 @@ public class DataSourceTest {
     private ApplicationContext ctx = null;
 
     @Before
-    public void init(){
+    public void init() {
         ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         System.out.println("init");
     }
 
     @After
-    public void destroy(){
+    public void destroy() {
         ctx = null;
         System.out.println("destroy");
     }
 
     @Test
-    public void dataSourceTest(){
+    public void dataSourceTest() {
         DataSource dataSource = ctx.getBean(DriverManagerDataSource.class);
         Assert.assertNotNull(dataSource);
     }
 
     @Test
-    public void jdbcTemplateTest(){
+    public void jdbcTemplateTest() {
         JdbcTemplate jdbcTemplate = ctx.getBean(JdbcTemplate.class);
         System.out.println("jdbcTemplateTest");
         Assert.assertNotNull(jdbcTemplate);

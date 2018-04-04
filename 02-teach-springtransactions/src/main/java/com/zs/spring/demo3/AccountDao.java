@@ -2,16 +2,15 @@ package com.zs.spring.demo3;
 
 public interface AccountDao {
 
-	/**
-	 * @param out	:×ª³öÕËºÅ
-	 * @param money	:×ªÕË½ð¶î
-	 */
-	public void outMoney(String out,Double money);
-	
-	/**
-	 * 
-	 * @param in	:×ªÈëÕËºÅ
-	 * @param money	:×ªÕË½ð¶î
-	 */
-	public void inMoney(String in,Double money);
+    /**
+     * @param out   :×ªï¿½ï¿½ï¿½Ëºï¿½
+     * @param money :×ªï¿½Ë½ï¿½ï¿½
+     */
+    public void outMoney(String out, Double money);
+
+    /**
+     * @param in    :×ªï¿½ï¿½ï¿½Ëºï¿½
+     * @param money :×ªï¿½Ë½ï¿½ï¿½
+     */
+    public void inMoney(String in, Double money);
 }

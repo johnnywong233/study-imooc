@@ -16,15 +16,19 @@ import java.security.NoSuchAlgorithmException;
  */
 public class DemoAES {
 
-    /** 待加密字符串 */
-    private static String src="imooc security aes";
+    /**
+     * 待加密字符串
+     */
+    private static String src = "imooc security aes";
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         jdkAES();
     }
 
-    /** 通过JDK实现AES对称加密 */
-    public static void jdkAES(){
+    /**
+     * 通过JDK实现AES对称加密
+     */
+    public static void jdkAES() {
         try {
             // 生成KEY
             KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
@@ -33,18 +37,18 @@ public class DemoAES {
             byte[] keyBytes = secretKey.getEncoded();
 
             // KEY 转换
-            Key key = new SecretKeySpec(keyBytes,"AES");
+            Key key = new SecretKeySpec(keyBytes, "AES");
 
             // 加密
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-            cipher.init(Cipher.ENCRYPT_MODE,key);
+            cipher.init(Cipher.ENCRYPT_MODE, key);
             byte[] result = cipher.doFinal(src.getBytes());
-            System.out.println("jdk aes encrypt:"+ Base64.encodeBase64String(result));
+            System.out.println("jdk aes encrypt:" + Base64.encodeBase64String(result));
 
             // 解密
-            cipher.init(Cipher.DECRYPT_MODE,key);
-            result=cipher.doFinal(result);
-            System.out.println("jdk aes decrypt:"+ new String(result));
+            cipher.init(Cipher.DECRYPT_MODE, key);
+            result = cipher.doFinal(result);
+            System.out.println("jdk aes decrypt:" + new String(result));
         } catch (Exception e) {
             e.printStackTrace();
         }

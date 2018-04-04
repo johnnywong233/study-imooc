@@ -28,7 +28,7 @@ public class StudentDaoImpl implements StudentDao {
             preparedStatement = connection.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 Integer id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 Integer age = resultSet.getInt("age");
@@ -43,7 +43,7 @@ public class StudentDaoImpl implements StudentDao {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.release(resultSet,preparedStatement,connection);
+            JDBCUtils.release(resultSet, preparedStatement, connection);
         }
         return studentList;
     }
@@ -56,14 +56,14 @@ public class StudentDaoImpl implements StudentDao {
         try {
             connection = JDBCUtils.getConnection();
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,student.getName());
-            preparedStatement.setInt(2,student.getAge());
+            preparedStatement.setString(1, student.getName());
+            preparedStatement.setInt(2, student.getAge());
 
             preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.release(resultSet,preparedStatement,connection);
+            JDBCUtils.release(resultSet, preparedStatement, connection);
         }
     }
 }

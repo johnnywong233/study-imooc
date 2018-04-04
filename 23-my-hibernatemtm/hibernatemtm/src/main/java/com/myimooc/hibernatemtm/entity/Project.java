@@ -6,62 +6,62 @@ import java.util.Set;
 
 /**
  * project 实体类
- * @author ZhangCheng on 2017-07-11
  *
+ * @author ZhangCheng on 2017-07-11
  */
-public class Project implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+public class Project implements Serializable {
 
-	private int proid;
-	
-	private String proname;
-	
-	// 添加一个员工的集合
-	private Set<Employee> employees = new HashSet<Employee>();
+    private static final long serialVersionUID = 1L;
 
-	public Project() {
-	}
+    private int proid;
 
-	public Project(int proid, String proname) {
-		this.proid = proid;
-		this.proname = proname;
-	}
+    private String proname;
 
-	public Project(int proid, String proname, Set<Employee> employees) {
-		this.proid = proid;
-		this.proname = proname;
-		this.employees = employees;
-	}
+    // 添加一个员工的集合
+    private Set<Employee> employees = new HashSet<Employee>();
 
-	@Override
-	public String toString() {
-		return "Project [proid=" + proid + ", proname=" + proname + ", employees=" + employees + "]";
-	}
+    public Project() {
+    }
 
-	public int getProid() {
-		return proid;
-	}
+    public Project(int proid, String proname) {
+        this.proid = proid;
+        this.proname = proname;
+    }
 
-	public void setProid(int proid) {
-		this.proid = proid;
-	}
+    public Project(int proid, String proname, Set<Employee> employees) {
+        this.proid = proid;
+        this.proname = proname;
+        this.employees = employees;
+    }
 
-	public String getproname() {
-		return proname;
-	}
+    @Override
+    public String toString() {
+        return "Project [proid=" + proid + ", proname=" + proname + ", employees=" + employees + "]";
+    }
 
-	public void setproname(String proname) {
-		this.proname = proname;
-	}
+    public int getProid() {
+        return proid;
+    }
 
-	public Set<Employee> getEmployees() {
-		return employees;
-	}
+    public void setProid(int proid) {
+        this.proid = proid;
+    }
 
-	public void setEmployees(Set<Employee> employees) {
-		this.employees = employees;
-	}
-	
-	
+    public String getproname() {
+        return proname;
+    }
+
+    public void setproname(String proname) {
+        this.proname = proname;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
+
+
 }

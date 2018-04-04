@@ -25,13 +25,13 @@ public class EmployeeJpaSpecificationExecutorTest {
     private EmployeeJpaSpecificationExecutor employeeJpaSpecificationExecutor = null;
 
     @Before
-    public void init(){
+    public void init() {
         ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         employeeJpaSpecificationExecutor = ctx.getBean(EmployeeJpaSpecificationExecutor.class);
     }
 
     @After
-    public void destroy(){
+    public void destroy() {
         ctx = null;
     }
 
@@ -41,11 +41,11 @@ public class EmployeeJpaSpecificationExecutorTest {
      * 3、查询条件:age > 50
      */
     @Test
-    public void queryTest(){
-        Sort.Order order = new Sort.Order(Sort.Direction.DESC,"id");
+    public void queryTest() {
+        Sort.Order order = new Sort.Order(Sort.Direction.DESC, "id");
         Sort sort = new Sort(order);
         // page: index是从0开始的，不是从1开始的
-        Pageable pageable = new PageRequest(0,5,sort);
+        Pageable pageable = new PageRequest(0, 5, sort);
 
         /**
          * root : 就是我们要查询的类型 (Employee)
@@ -57,17 +57,17 @@ public class EmployeeJpaSpecificationExecutorTest {
             public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
                 // root (employee (age))
                 Path path = root.get("age");
-                return cb.gt(path,50);
+                return cb.gt(path, 50);
             }
         };
 
-        Page<Employee> employeePage = employeeJpaSpecificationExecutor.findAll(specification,pageable);
+        Page<Employee> employeePage = employeeJpaSpecificationExecutor.findAll(specification, pageable);
 
-        System.out.println("查询的总页数："+employeePage.getTotalPages());
-        System.out.println("查询的总记录数："+employeePage.getTotalElements());
-        System.out.println("查询的当前第几页："+(employeePage.getNumber() + 1));
-        System.out.println("查询的当前页面的集合："+employeePage.getContent());
-        System.out.println("查询的当前页面的记录数："+employeePage.getNumberOfElements());
+        System.out.println("查询的总页数：" + employeePage.getTotalPages());
+        System.out.println("查询的总记录数：" + employeePage.getTotalElements());
+        System.out.println("查询的当前第几页：" + (employeePage.getNumber() + 1));
+        System.out.println("查询的当前页面的集合：" + employeePage.getContent());
+        System.out.println("查询的当前页面的记录数：" + employeePage.getNumberOfElements());
 
     }
 

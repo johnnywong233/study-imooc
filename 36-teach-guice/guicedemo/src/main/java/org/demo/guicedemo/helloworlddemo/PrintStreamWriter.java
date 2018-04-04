@@ -6,17 +6,17 @@ import javax.inject.Inject;
 
 public class PrintStreamWriter implements MyDestination {
 
-	private PrintStream destination;
+    private PrintStream destination;
 
-	@Inject
-	public PrintStreamWriter(PrintStream destination) {
-		super();
-		this.destination = destination;
-	}
+    @Inject
+    public PrintStreamWriter(PrintStream destination) {
+        super();
+        this.destination = destination;
+    }
 
-	@Override
-	public void write(String string) {
-		destination.println(string);
-	}
+    @Override
+    public void write(String string) {
+        destination.println(string);
+    }
 
 }

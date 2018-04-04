@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * StudentDAO访问接口实现类：通过最原始的JDBC的方式操作
  */
-public class StudentDAOImpl implements  StudentDAO{
+public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public List<Student> query() {
@@ -44,7 +44,7 @@ public class StudentDAOImpl implements  StudentDAO{
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtil.release(resultSet,preparedStatement,connection);
+            JDBCUtil.release(resultSet, preparedStatement, connection);
         }
         return students;
     }
@@ -64,7 +64,7 @@ public class StudentDAOImpl implements  StudentDAO{
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtil.release(resultSet,preparedStatement,connection);
+            JDBCUtil.release(resultSet, preparedStatement, connection);
         }
     }
 }

@@ -11,27 +11,27 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @title ElasticSearch配置类
- * @describe ElasticSearch配置
  * @author zc
  * @version 1.0 2017-09-15
+ * @title ElasticSearch配置类
+ * @describe ElasticSearch配置
  */
 @Configuration
 public class EsConfig {
-	
-	@Bean
-	public TransportClient client() throws UnknownHostException{
-		InetSocketTransportAddress node = new InetSocketTransportAddress(InetAddress.getByName("localhost"),9300);
-		
-		Settings settings = Settings.builder()
-				// es集群名称
-				.put("cluster.name", "myes")
-				.build();
-		
-		TransportClient client = new PreBuiltTransportClient(settings);
-		client.addTransportAddress(node);
-		
-		return client;
-	}
-	
+
+    @Bean
+    public TransportClient client() throws UnknownHostException {
+        InetSocketTransportAddress node = new InetSocketTransportAddress(InetAddress.getByName("localhost"), 9300);
+
+        Settings settings = Settings.builder()
+                // es集群名称
+                .put("cluster.name", "myes")
+                .build();
+
+        TransportClient client = new PreBuiltTransportClient(settings);
+        client.addTransportAddress(node);
+
+        return client;
+    }
+
 }

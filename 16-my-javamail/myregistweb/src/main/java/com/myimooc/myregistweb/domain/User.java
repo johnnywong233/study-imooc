@@ -6,21 +6,21 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
-    
+
     @Id
     @GeneratedValue
     private Integer uid;
-    
+
     private String username;
-    
+
     private String password;
-    
+
     private String nickname;
-    
+
     private String email;
-    
+
     private Integer state;
-    
+
     private String code;
 
     public Integer getUid() {
@@ -78,7 +78,6 @@ public class User {
     public void setCode(String code) {
         this.code = code;
     }
-    
-    
-    
+
+
 }

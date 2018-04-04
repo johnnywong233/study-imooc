@@ -14,32 +14,36 @@ import java.security.spec.X509EncodedKeySpec;
  */
 public class DemoECDSA {
 
-    /** 待加密字符串 */
-    private static String src="imooc security ecdsa";
+    /**
+     * 待加密字符串
+     */
+    private static String src = "imooc security ecdsa";
 
-    public static void main(String[] args)throws Exception{
+    public static void main(String[] args) throws Exception {
         jdkECDSA();
     }
 
-    /** 使用 JDK 实现 ECDSA 数字签名  */
-    public static void jdkECDSA() throws Exception{
+    /**
+     * 使用 JDK 实现 ECDSA 数字签名
+     */
+    public static void jdkECDSA() throws Exception {
 
         // 1.初始化密钥
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("EC");
         keyPairGenerator.initialize(256);
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
-        ECPublicKey ecPublicKey = (ECPublicKey)keyPair.getPublic();
-        ECPrivateKey ecPrivateKey = (ECPrivateKey)keyPair.getPrivate();
+        ECPublicKey ecPublicKey = (ECPublicKey) keyPair.getPublic();
+        ECPrivateKey ecPrivateKey = (ECPrivateKey) keyPair.getPrivate();
 
         // 2.执行签名
         PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(ecPrivateKey.getEncoded());
-        KeyFactory keyFactory =  KeyFactory.getInstance("EC");
+        KeyFactory keyFactory = KeyFactory.getInstance("EC");
         PrivateKey privateKey = keyFactory.generatePrivate(pkcs8EncodedKeySpec);
         Signature signature = Signature.getInstance("SHA1withECDSA");
         signature.initSign(privateKey);
         signature.update(src.getBytes());
         byte[] result = signature.sign();
-        System.out.println("jdk ecdsa sign:"+ Hex.encodeHexString(result));
+        System.out.println("jdk ecdsa sign:" + Hex.encodeHexString(result));
 
         // 3.验证签名
         X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(ecPublicKey.getEncoded());
@@ -49,7 +53,7 @@ public class DemoECDSA {
         signature.initVerify(publicKey);
         signature.update(src.getBytes());
         boolean bool = signature.verify(result);
-        System.out.println("jdk ecdsa verify:"+ bool);
+        System.out.println("jdk ecdsa verify:" + bool);
     }
 
 }

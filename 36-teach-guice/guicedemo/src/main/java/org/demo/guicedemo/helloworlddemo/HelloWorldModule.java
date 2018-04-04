@@ -11,17 +11,19 @@ import com.google.inject.Provides;
 
 public class HelloWorldModule extends AbstractModule {
 
-	@Override
-	protected void configure() {
-		Applets.register(binder()).named("hello")
-			.to(StringWritingApplet.class);
+    @Override
+    protected void configure() {
+        Applets.register(binder()).named("hello")
+                .to(StringWritingApplet.class);
 
-		bind(MyDestination.class).to(PrintStreamWriter.class);
-		bind(PrintStream.class).toInstance(System.out);
-	}
+        bind(MyDestination.class).to(PrintStreamWriter.class);
+        bind(PrintStream.class).toInstance(System.out);
+    }
 
-	@Provides @Output String getOutputString(
-			@Args List<String> args) {
-		return args.get(0);
-	}
+    @Provides
+    @Output
+    String getOutputString(
+            @Args List<String> args) {
+        return args.get(0);
+    }
 }

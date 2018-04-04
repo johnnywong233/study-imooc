@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * StudentDAO访问接口实现类：通过Spring jdbc的方式操作
  */
-public class StudentDAOSpringJdbcImpl implements  StudentDAO{
+public class StudentDAOSpringJdbcImpl implements StudentDAO {
 
     private JdbcTemplate jdbcTemplate;
 
@@ -21,7 +21,7 @@ public class StudentDAOSpringJdbcImpl implements  StudentDAO{
         final List<Student> students = new ArrayList<Student>();
         String sql = "select id, name , age from student";
 
-        jdbcTemplate.query(sql, new RowCallbackHandler(){
+        jdbcTemplate.query(sql, new RowCallbackHandler() {
 
             @Override
             public void processRow(ResultSet rs) throws SQLException {

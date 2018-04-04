@@ -2,20 +2,20 @@ package com.imooc.pattern.template;
 
 public class RefreshBeverageTest {
 
-	public static void main(String[] args) {
-		
-		System.out.println("ÖÆ±¸¿§·È...");
-		RefreshBeverage b1 = new Coffee();
-		b1.prepareBeverageTemplate();
-		System.out.println("¿§·ÈºÃÁË£¡");
-		
-		System.out.println("\n******************************************");
-		
-		System.out.println("ÖÆ±¸²è...");
-		RefreshBeverage b2 = new Tea();
-		b2.prepareBeverageTemplate();
-		System.out.println("²èºÃÁË£¡");
+    public static void main(String[] args) {
 
-	}
+        System.out.println("ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½...");
+        RefreshBeverage b1 = new Coffee();
+        b1.prepareBeverageTemplate();
+        System.out.println("ï¿½ï¿½ï¿½Èºï¿½ï¿½Ë£ï¿½");
+
+        System.out.println("\n******************************************");
+
+        System.out.println("ï¿½Æ±ï¿½ï¿½ï¿½...");
+        RefreshBeverage b2 = new Tea();
+        b2.prepareBeverageTemplate();
+        System.out.println("ï¿½ï¿½ï¿½ï¿½Ë£ï¿½");
+
+    }
 
 }

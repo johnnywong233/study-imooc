@@ -17,15 +17,19 @@ import java.security.SecureRandom;
  */
 public class Demo3DES {
 
-    /** 待加密字符串 */
-    private static String src="imooc security 3des";
+    /**
+     * 待加密字符串
+     */
+    private static String src = "imooc security 3des";
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         jdk3des();
     }
 
-    /** 使用jdk实现3重DES加解密 */
-    private static void jdk3des(){
+    /**
+     * 使用jdk实现3重DES加解密
+     */
+    private static void jdk3des() {
         try {
             // 生成KEY
             KeyGenerator keyGenerator = KeyGenerator.getInstance("DESede");
@@ -41,15 +45,15 @@ public class Demo3DES {
 
             // 加密
             Cipher cipher = Cipher.getInstance("DESede/ECB/PKCS5Padding");
-            cipher.init(Cipher.ENCRYPT_MODE,convertSecretKey);
+            cipher.init(Cipher.ENCRYPT_MODE, convertSecretKey);
             byte[] result = cipher.doFinal(src.getBytes());
 
-            System.out.println("jdk 3des encrypt:"+ Hex.encodeHexString(result));
+            System.out.println("jdk 3des encrypt:" + Hex.encodeHexString(result));
 
             // 解密
-            cipher.init(Cipher.DECRYPT_MODE,convertSecretKey);
+            cipher.init(Cipher.DECRYPT_MODE, convertSecretKey);
             result = cipher.doFinal(result);
-            System.out.println("jdk 3des decrypt:"+ new String(result));
+            System.out.println("jdk 3des decrypt:" + new String(result));
 
         } catch (Exception e) {
             e.printStackTrace();

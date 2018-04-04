@@ -17,16 +17,20 @@ import java.security.NoSuchAlgorithmException;
  */
 public class DemoMac {
 
-    /** 待加密字符串 */
-    private static String src="imooc security mac";
+    /**
+     * 待加密字符串
+     */
+    private static String src = "imooc security mac";
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         jdkHmacDM5();
         bcHmacMD5();
     }
 
-    /** jdk实现hmac MD5摘要算法 */
-    public static void jdkHmacDM5(){
+    /**
+     * jdk实现hmac MD5摘要算法
+     */
+    public static void jdkHmacDM5() {
         try {
             // 初始化 KeyGenerator
             KeyGenerator keyGenerator = KeyGenerator.getInstance("HmacMD5");
@@ -36,32 +40,34 @@ public class DemoMac {
             //byte[] key = secretKey.getEncoded();
 
             // 自定义密钥
-            byte[] key = Hex.decodeHex(new char[]{'a','a','a','a','a','a','a','a','a','a'});
+            byte[] key = Hex.decodeHex(new char[]{'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a'});
 
             // 还原密钥
-            SecretKey restoreSecretKey = new SecretKeySpec(key,"HmacMD5");
+            SecretKey restoreSecretKey = new SecretKeySpec(key, "HmacMD5");
             // 实例化 MAC
             Mac mac = Mac.getInstance(restoreSecretKey.getAlgorithm());
             // 初始化 MAC
             mac.init(restoreSecretKey);
             // 执行摘要
             byte[] hmacMD5Bytes = mac.doFinal(src.getBytes());
-            System.out.println("jdk hmacMD5:"+ Hex.encodeHexString(hmacMD5Bytes));
+            System.out.println("jdk hmacMD5:" + Hex.encodeHexString(hmacMD5Bytes));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    /** bouncycastle.crypto实现hmacMD5加密 */
-    public static void bcHmacMD5(){
+    /**
+     * bouncycastle.crypto实现hmacMD5加密
+     */
+    public static void bcHmacMD5() {
         HMac hmac = new HMac(new MD5Digest());
         hmac.init(new KeyParameter(org.bouncycastle.util.encoders.Hex.decode("aaaaaaaaaa")));
-        hmac.update(src.getBytes(),0,src.getBytes().length);
+        hmac.update(src.getBytes(), 0, src.getBytes().length);
         // 执行摘要
         byte[] hmacMD5Bytes = new byte[hmac.getMacSize()];
-        hmac.doFinal(hmacMD5Bytes,0);
+        hmac.doFinal(hmacMD5Bytes, 0);
 
-        System.out.println("bc hmacMD5:"+ org.bouncycastle.util.encoders.Hex.toHexString(hmacMD5Bytes));
+        System.out.println("bc hmacMD5:" + org.bouncycastle.util.encoders.Hex.toHexString(hmacMD5Bytes));
     }
 
 }

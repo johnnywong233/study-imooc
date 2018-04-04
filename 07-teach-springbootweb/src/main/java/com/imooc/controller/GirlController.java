@@ -31,6 +31,7 @@ public class GirlController {
 
     /**
      * 查询所有女生列表
+     *
      * @return
      */
     @GetMapping(value = "/girls")
@@ -42,6 +43,7 @@ public class GirlController {
 
     /**
      * 添加一个女生
+     *
      * @return
      */
     @PostMapping(value = "/girls")
@@ -93,7 +95,7 @@ public class GirlController {
     }
 
     @GetMapping(value = "girls/getAge/{id}")
-    public void getAge(@PathVariable("id") Integer id) throws Exception{
+    public void getAge(@PathVariable("id") Integer id) throws Exception {
         girlService.getAge(id);
     }
 }

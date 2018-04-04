@@ -2,54 +2,54 @@ package com.myimooc.wxdevadvanced.domain;
 
 /**
  * 服务器验证请求Vo
- * @author ZhangCheng on 2017-08-11
  *
+ * @author ZhangCheng on 2017-08-11
  */
 public class AccressReqVo {
-	
-	private String signature;
-	
-	private String timestamp;
-	
-	private String nonce;
-	
-	private String echostr;
 
-	@Override
-	public String toString() {
-		return "AccressReqVo [signature=" + signature + ", timestamp=" + timestamp + ", nonce=" + nonce + ", echostr="
-				+ echostr + "]";
-	}
+    private String signature;
 
-	public String getSignature() {
-		return signature;
-	}
+    private String timestamp;
 
-	public void setSignature(String signature) {
-		this.signature = signature;
-	}
+    private String nonce;
 
-	public String getTimestamp() {
-		return timestamp;
-	}
+    private String echostr;
 
-	public void setTimestamp(String timestamp) {
-		this.timestamp = timestamp;
-	}
+    @Override
+    public String toString() {
+        return "AccressReqVo [signature=" + signature + ", timestamp=" + timestamp + ", nonce=" + nonce + ", echostr="
+                + echostr + "]";
+    }
 
-	public String getNonce() {
-		return nonce;
-	}
+    public String getSignature() {
+        return signature;
+    }
 
-	public void setNonce(String nonce) {
-		this.nonce = nonce;
-	}
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
 
-	public String getEchostr() {
-		return echostr;
-	}
+    public String getTimestamp() {
+        return timestamp;
+    }
 
-	public void setEchostr(String echostr) {
-		this.echostr = echostr;
-	}
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getNonce() {
+        return nonce;
+    }
+
+    public void setNonce(String nonce) {
+        this.nonce = nonce;
+    }
+
+    public String getEchostr() {
+        return echostr;
+    }
+
+    public void setEchostr(String echostr) {
+        this.echostr = echostr;
+    }
 }

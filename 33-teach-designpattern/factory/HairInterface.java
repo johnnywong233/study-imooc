@@ -1,13 +1,14 @@
 package com.sunny.project;
+
 /**
- * ·¢ÐÍ½Ó¿Ú
- * @author Administrator
+ * ï¿½ï¿½ï¿½Í½Ó¿ï¿½
  *
+ * @author Administrator
  */
 public interface HairInterface {
 
-	/**
-	 * »­Í¼
-	 */
-	public void draw();
+    /**
+     * ï¿½ï¿½Í¼
+     */
+    public void draw();
 }

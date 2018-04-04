@@ -17,9 +17,8 @@ import com.myimooc.auth.context.UserContextFilter;
 
 /**
  * Web项目启动类
- * 
- * @author zhangcheng
  *
+ * @author zhangcheng
  */
 public class WebInitConfig implements WebApplicationInitializer {
 
@@ -45,10 +44,10 @@ public class WebInitConfig implements WebApplicationInitializer {
         dispatcherTypes.add(DispatcherType.FORWARD);
         encodingFilter.addMappingForUrlPatterns(dispatcherTypes, true, "*");
         encodingFilter.setInitParameter("encoding", "UTF-8");
-        
+
         FilterRegistration.Dynamic userContextFilter = servletContext.addFilter("usercontext", new UserContextFilter());
         userContextFilter.addMappingForUrlPatterns(dispatcherTypes, true, "*");
-        
+
     }
 
 }

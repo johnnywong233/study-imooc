@@ -2,7 +2,7 @@ group 'com.myimooc'
 version '1.0-SNAPSHOT'
 
 // 对所有项目进行配置
-allprojects{
+allprojects {
     apply plugin: 'java'
     sourceCompatibility = 1.8
 
@@ -11,7 +11,7 @@ allprojects{
 
     publishing {
         publications {
-            myPublish(MavenPublication){
+            myPublish(MavenPublication) {
                 from components.java
             }
         }
@@ -24,7 +24,7 @@ allprojects{
     }
 }
 // 对所有子项目进行配置
-subprojects{
+subprojects {
     repositories {
         mavenCentral()
     }

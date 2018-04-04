@@ -23,10 +23,10 @@ import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
 /**
  * Web项目SpringMvc配置
- * 
+ *
  * @author ZhangCheng
- * @date 2017-03-19
  * @version V1.0
+ * @date 2017-03-19
  */
 @Configuration
 @EnableWebMvc
@@ -35,7 +35,7 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 
     /**
      * 配置视图解析器
-     * 
+     *
      * @return
      */
     @Bean
@@ -62,7 +62,7 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 
     /**
      * 配置FASTJSON
-     * 
+     *
      * @return
      */
     @Bean
@@ -84,7 +84,7 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 
     /**
      * 配置FreeMarker
-     * 
+     *
      * @return
      */
     @Bean

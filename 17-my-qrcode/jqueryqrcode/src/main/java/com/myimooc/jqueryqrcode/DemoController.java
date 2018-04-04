@@ -6,10 +6,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DemoController {
-	
-	@GetMapping(value={"","/"})
-	public ModelAndView qrcode(){
-		return new ModelAndView("/qrcode");
-	}
-	
+
+    @GetMapping(value = {"", "/"})
+    public ModelAndView qrcode() {
+        return new ModelAndView("/qrcode");
+    }
+
 }

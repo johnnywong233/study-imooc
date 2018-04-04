@@ -18,7 +18,7 @@ public class SpringConfig {
     private Properties properties;
 
     @Bean
-    DriverManagerDataSource getDriverManagerDataSource(){
+    DriverManagerDataSource getDriverManagerDataSource() {
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setDriverClassName(properties.getJdbcDriverClass());
         driverManagerDataSource.setUrl(properties.getJdbcUrl());
@@ -28,7 +28,7 @@ public class SpringConfig {
     }
 
     @Bean
-    JdbcTemplate getJdbcTemplate(){
+    JdbcTemplate getJdbcTemplate() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         jdbcTemplate.setDataSource(getDriverManagerDataSource());
         return jdbcTemplate;

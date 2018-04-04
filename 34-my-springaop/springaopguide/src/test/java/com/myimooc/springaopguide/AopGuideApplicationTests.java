@@ -11,43 +11,42 @@ import com.myimooc.springaopguide.service.ProductService;
 import com.myimooc.springaopguide.service.ProductServiceAop;
 
 /**
- * @title 单元测试类
- * @describe 测试权限校验服务是否生效
  * @author zc
  * @version 1.0 2017-09-03
+ * @title 单元测试类
+ * @describe 测试权限校验服务是否生效
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class AopGuideApplicationTests {
-	
-	@Autowired
-	private ProductService productService;
-	
-	@Test(expected = Exception.class)
-	public void annoInsertTest(){
-		CurrentUserHolder.set("tom");
-		productService.delete(1L);
-	}
-	
-	@Test
-	public void adminInsertTest(){
-		CurrentUserHolder.set("admin");
-		productService.delete(1L);
-	}
-	
-	@Autowired
-	private ProductServiceAop productServiceAop;
-	
-	@Test(expected = Exception.class)
-	public void annoInsertAopTest(){
-		CurrentUserHolder.set("tom");
-		productServiceAop.delete(1L);
-	}
-	
-	@Test
-	public void adminInsertAopTest(){
-		CurrentUserHolder.set("admin");
-		productServiceAop.delete(1L);
-	}
-	
+
+    @Autowired
+    private ProductService productService;
+    @Autowired
+    private ProductServiceAop productServiceAop;
+
+    @Test(expected = Exception.class)
+    public void annoInsertTest() {
+        CurrentUserHolder.set("tom");
+        productService.delete(1L);
+    }
+
+    @Test
+    public void adminInsertTest() {
+        CurrentUserHolder.set("admin");
+        productService.delete(1L);
+    }
+
+    @Test(expected = Exception.class)
+    public void annoInsertAopTest() {
+        CurrentUserHolder.set("tom");
+        productServiceAop.delete(1L);
+    }
+
+    @Test
+    public void adminInsertAopTest() {
+        CurrentUserHolder.set("admin");
+        productServiceAop.delete(1L);
+    }
+
 }

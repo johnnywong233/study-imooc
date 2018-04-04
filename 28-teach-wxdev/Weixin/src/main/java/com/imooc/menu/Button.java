@@ -1,28 +1,34 @@
 package com.imooc.menu;
 
 public class Button {
-	//²Ëµ¥ÀàÐÍ
-	private String type;
-	//²Ëµ¥Ãû³Æ
-	private String name;
-	//¶þ¼¶²Ëµ¥
-	private Button[] sub_button;
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Button[] getSub_button() {
-		return sub_button;
-	}
-	public void setSub_button(Button[] sub_button) {
-		this.sub_button = sub_button;
-	}
+    //ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
+    private String type;
+    //ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
+    private String name;
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½
+    private Button[] sub_button;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Button[] getSub_button() {
+        return sub_button;
+    }
+
+    public void setSub_button(Button[] sub_button) {
+        this.sub_button = sub_button;
+    }
 }

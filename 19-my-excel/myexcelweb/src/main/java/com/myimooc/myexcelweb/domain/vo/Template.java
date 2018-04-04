@@ -2,33 +2,33 @@ package com.myimooc.myexcelweb.domain.vo;
 
 /**
  * 数据导入模版
- * @author ZhangCheng on 2017-07-08
  *
+ * @author ZhangCheng on 2017-07-08
  */
 public class Template {
-	
-	private String templateId;
-	
-	private String templateName;
 
-	public String getTemplateId() {
-		return templateId;
-	}
+    private String templateId;
 
-	public void setTemplateId(String templateId) {
-		this.templateId = templateId;
-	}
+    private String templateName;
 
-	public String getTemplateName() {
-		return templateName;
-	}
+    public String getTemplateId() {
+        return templateId;
+    }
 
-	public void setTemplateName(String templateName) {
-		this.templateName = templateName;
-	}
+    public void setTemplateId(String templateId) {
+        this.templateId = templateId;
+    }
 
-	@Override
-	public String toString() {
-		return "Template [templateId=" + templateId + ", templateName=" + templateName + "]";
-	}
+    public String getTemplateName() {
+        return templateName;
+    }
+
+    public void setTemplateName(String templateName) {
+        this.templateName = templateName;
+    }
+
+    @Override
+    public String toString() {
+        return "Template [templateId=" + templateId + ", templateName=" + templateName + "]";
+    }
 }

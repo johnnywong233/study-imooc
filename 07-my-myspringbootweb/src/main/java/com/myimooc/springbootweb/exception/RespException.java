@@ -4,13 +4,15 @@ import com.myimooc.springbootweb.utils.ResultResp;
 
 /**
  * 自定义项目异常类
- * @author ZhangCheng
- * @date 2017-03-19
- * @version V1.0
  *
+ * @author ZhangCheng
+ * @version V1.0
+ * @date 2017-03-19
  */
-public class RespException extends RuntimeException{
-    /** 响应编号 */
+public class RespException extends RuntimeException {
+    /**
+     * 响应编号
+     */
     private Integer respCode;
 
     public RespException(ResultResp resultResp) {

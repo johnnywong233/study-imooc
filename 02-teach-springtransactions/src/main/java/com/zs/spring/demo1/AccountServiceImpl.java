@@ -6,43 +6,43 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 
 public class AccountServiceImpl implements AccountService {
-	
-	//×¢Èë×ªÕËµÄDAO
-	private AccountDao accountDao;
-	
-	
-	//×¢ÈëÊÂÎñ¹ÜÀíµÄÄ£°å
-	private TransactionTemplate transactionTemplate;
 
-	/**
-	 * @param out	:×ª³öÕËºÅ
-	 * @param in	:×ªÈëÕËºÅ
-	 * @param money	:×ªÕË½ð¶î
-	 */
-	@Override
-	public void transfer(final String out, final String in, final Double money) {
-		/*accountDao.outMoney(out, money);
+    //×¢ï¿½ï¿½×ªï¿½Ëµï¿½DAO
+    private AccountDao accountDao;
+
+
+    //×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
+    private TransactionTemplate transactionTemplate;
+
+    /**
+     * @param out   :×ªï¿½ï¿½ï¿½Ëºï¿½
+     * @param in    :×ªï¿½ï¿½ï¿½Ëºï¿½
+     * @param money :×ªï¿½Ë½ï¿½ï¿½
+     */
+    @Override
+    public void transfer(final String out, final String in, final Double money) {
+        /*accountDao.outMoney(out, money);
 		//int i = 1/0;
 		accountDao.inMoney(in, money);*/
-		
-		
-		transactionTemplate.execute(new TransactionCallbackWithoutResult() {
 
-			@Override
-			protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
-				accountDao.outMoney(out, money);
-				//int i = 1/0;
-				accountDao.inMoney(in, money);
-			}
-		});
-	}
 
-	public void setAccountDao(AccountDao accountDao) {
-		this.accountDao = accountDao;
-	}
+        transactionTemplate.execute(new TransactionCallbackWithoutResult() {
 
-	public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
-		this.transactionTemplate = transactionTemplate;
-	}
+            @Override
+            protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
+                accountDao.outMoney(out, money);
+                //int i = 1/0;
+                accountDao.inMoney(in, money);
+            }
+        });
+    }
+
+    public void setAccountDao(AccountDao accountDao) {
+        this.accountDao = accountDao;
+    }
+
+    public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+        this.transactionTemplate = transactionTemplate;
+    }
 
 }

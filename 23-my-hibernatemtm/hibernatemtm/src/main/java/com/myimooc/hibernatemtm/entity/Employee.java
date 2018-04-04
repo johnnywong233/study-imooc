@@ -6,61 +6,61 @@ import java.util.Set;
 
 /**
  * employee 实体类
- * @author ZhangCheng on 2017-07-11
  *
+ * @author ZhangCheng on 2017-07-11
  */
-public class Employee implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+public class Employee implements Serializable {
 
-	private int empid;
-	
-	private String empname;
-	
-	// 添加一个项目的集合
-	private Set<Project> projects = new HashSet<Project>();
+    private static final long serialVersionUID = 1L;
 
-	public Employee() {
-	}
+    private int empid;
 
-	public Employee(int empid, String empname) {
-		this.empid = empid;
-		this.empname = empname;
-	}
+    private String empname;
 
-	public Employee(int empid, String empname, Set<Project> projects) {
-		this.empid = empid;
-		this.empname = empname;
-		this.projects = projects;
-	}
+    // 添加一个项目的集合
+    private Set<Project> projects = new HashSet<Project>();
 
-	@Override
-	public String toString() {
-		return "Employee [empid=" + empid + ", empname=" + empname + ", projects=" + projects + "]";
-	}
+    public Employee() {
+    }
 
-	public int getEmpid() {
-		return empid;
-	}
+    public Employee(int empid, String empname) {
+        this.empid = empid;
+        this.empname = empname;
+    }
 
-	public void setEmpid(int empid) {
-		this.empid = empid;
-	}
+    public Employee(int empid, String empname, Set<Project> projects) {
+        this.empid = empid;
+        this.empname = empname;
+        this.projects = projects;
+    }
 
-	public String getEmpname() {
-		return empname;
-	}
+    @Override
+    public String toString() {
+        return "Employee [empid=" + empid + ", empname=" + empname + ", projects=" + projects + "]";
+    }
 
-	public void setEmpname(String empname) {
-		this.empname = empname;
-	}
+    public int getEmpid() {
+        return empid;
+    }
 
-	public Set<Project> getProjects() {
-		return projects;
-	}
+    public void setEmpid(int empid) {
+        this.empid = empid;
+    }
 
-	public void setProjects(Set<Project> projects) {
-		this.projects = projects;
-	}
+    public String getEmpname() {
+        return empname;
+    }
+
+    public void setEmpname(String empname) {
+        this.empname = empname;
+    }
+
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
 
 }

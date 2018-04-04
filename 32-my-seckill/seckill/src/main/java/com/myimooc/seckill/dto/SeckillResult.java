@@ -1,9 +1,9 @@
 package com.myimooc.seckill.dto;
 
 /**
- * @describe VO 对象，所有ajax请求返回类型，封装json结果
  * @author zc
  * @version 1.0 2017-08-24
+ * @describe VO 对象，所有ajax请求返回类型，封装json结果
  */
 public class SeckillResult<T> {
 

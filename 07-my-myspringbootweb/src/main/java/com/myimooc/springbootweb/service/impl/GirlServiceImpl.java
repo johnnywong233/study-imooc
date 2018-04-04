@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Created by ChengComputer on 2017/2/18.
  */
 @Service
-public class GirlServiceImpl implements GirlService{
+public class GirlServiceImpl implements GirlService {
 
     @Autowired
     private GirlRepository girlRepository;
@@ -37,13 +37,13 @@ public class GirlServiceImpl implements GirlService{
     }
 
     @Override
-    public void getAge(Integer id) throws Exception{
+    public void getAge(Integer id) throws Exception {
         Girl girl = girlRepository.findOne(id);
         Integer age = girl.getAge();
-        if (age < 10){
+        if (age < 10) {
             //返回“你还在上小学吧”
             throw new RespException(ResultResp.PRIMARY_SCHOOL);
-        }else if(age >10 && age<16){
+        } else if (age > 10 && age < 16) {
             //返回“你可能在上初中”
             throw new RespException(ResultResp.MIDDLE_SCHOOL);
         }
@@ -54,6 +54,7 @@ public class GirlServiceImpl implements GirlService{
 
     /**
      * 通过Id查询一个女生的信息
+     *
      * @param id
      * @return
      */

@@ -16,14 +16,14 @@ public class StudentDAOSpringJdbcImplTest {
     private StudentDAO studentDAO = null;
 
     @Before
-    public void setup(){
+    public void setup() {
         ctx = new ClassPathXmlApplicationContext("beans.xml");
-        studentDAO = (StudentDAO)ctx.getBean("studentDAO");
+        studentDAO = (StudentDAO) ctx.getBean("studentDAO");
         System.out.println("setup");
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         ctx = null;
         System.out.println("tearDown");
     }

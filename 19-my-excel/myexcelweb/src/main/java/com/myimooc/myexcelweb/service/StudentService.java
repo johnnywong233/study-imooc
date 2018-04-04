@@ -10,17 +10,17 @@ import com.myimooc.myexcelweb.repository.StudentRepository;
 
 /**
  * 学生信息业务类
- * @author ZhangCheng on 2017-07-08
  *
+ * @author ZhangCheng on 2017-07-08
  */
 @Service
 public class StudentService {
-	
-	@Autowired
-	private StudentRepository studentRepository;
-	
-	public List<Student> list(){
-		return studentRepository.findAll();
-	}
-	
+
+    @Autowired
+    private StudentRepository studentRepository;
+
+    public List<Student> list() {
+        return studentRepository.findAll();
+    }
+
 }

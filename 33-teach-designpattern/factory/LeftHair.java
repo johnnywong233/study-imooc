@@ -1,15 +1,15 @@
 package com.sunny.project;
+
 /**
- * ×óÆ«·Ö·¢ÐÍ
- * @author Administrator
+ * ï¿½ï¿½Æ«ï¿½Ö·ï¿½ï¿½ï¿½
  *
+ * @author Administrator
  */
 public class LeftHair implements HairInterface {
 
-	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-		System.out.println("-----------------×óÆ«·Ö·¢ÐÍ-------------------");
-	}
+    @Override
+    public void draw() {
+        System.out.println("-----------------ï¿½ï¿½Æ«ï¿½Ö·ï¿½ï¿½ï¿½-------------------");
+    }
 
 }

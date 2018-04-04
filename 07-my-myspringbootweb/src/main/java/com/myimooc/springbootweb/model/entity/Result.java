@@ -2,19 +2,26 @@ package com.myimooc.springbootweb.model.entity;
 
 /**
  * http请求返回的实体Bean
+ *
  * @author ZhangCheng
+ * @version V1.0
  * @date 2017-03-19
- * @version  V1.0
  */
 public class Result<T> {
 
-    /** 响应编号 */
+    /**
+     * 响应编号
+     */
     private Integer respCode;
 
-    /** 响应消息 */
+    /**
+     * 响应消息
+     */
     private String respMsg;
 
-    /** 具体的内容 */
+    /**
+     * 具体的内容
+     */
     private T data;
 
     public Integer getRespCode() {

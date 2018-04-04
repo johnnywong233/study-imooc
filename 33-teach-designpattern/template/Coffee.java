@@ -1,19 +1,19 @@
- package com.imooc.pattern.template;
+package com.imooc.pattern.template;
 
 /*
- * ¾ßÌå×ÓÀà£¬Ìá¹©ÁË¿§·ÈÖÆ±¸µÄ¾ßÌåÊµÏÖ
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à£¬ï¿½á¹©ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½Æ±ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½Êµï¿½ï¿½
  */
 public class Coffee extends RefreshBeverage {
 
-	@Override
-	protected void brew() {
-		System.out.println("ÓÃ·ĞË®³åÅİ¿§·È");
+    @Override
+    protected void brew() {
+        System.out.println("ï¿½Ã·ï¿½Ë®ï¿½ï¿½ï¿½İ¿ï¿½ï¿½ï¿½");
 
-	}
+    }
 
-	@Override
-	protected void addCondiments() {
-		System.out.println("¼ÓÈëÌÇºÍÅ£ÄÌ");
-	}
+    @Override
+    protected void addCondiments() {
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Çºï¿½Å£ï¿½ï¿½");
+    }
 
 }

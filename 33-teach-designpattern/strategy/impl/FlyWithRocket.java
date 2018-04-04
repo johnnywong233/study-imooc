@@ -4,8 +4,8 @@ import com.imooc.pattern.strategy.FlyingStragety;
 
 public class FlyWithRocket implements FlyingStragety {
 
-	public void performFly() {
-		System.out.println("ÓÃ»ğ¼ıÔÚÌ«¿ÕåÛÓÎ");
-	}
+    public void performFly() {
+        System.out.println("ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ì«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+    }
 
 }

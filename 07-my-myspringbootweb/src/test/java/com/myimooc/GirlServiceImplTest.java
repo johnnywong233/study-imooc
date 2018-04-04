@@ -12,9 +12,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * GirlService单元测试类
+ *
  * @author ZhangCheng
- * @date 2017-03-19
  * @version V1.0
+ * @date 2017-03-19
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -24,9 +25,9 @@ public class GirlServiceImplTest {
     private GirlService girlService;
 
     @Test
-    public void findOne(){
+    public void findOne() {
         Girl girl = girlService.findOne(7);
-        Assert.assertEquals(new Integer(22),girl.getAge());
+        Assert.assertEquals(new Integer(22), girl.getAge());
     }
 
 }

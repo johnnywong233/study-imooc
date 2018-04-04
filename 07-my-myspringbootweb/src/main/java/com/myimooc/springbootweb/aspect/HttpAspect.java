@@ -11,54 +11,63 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- *
  * @author ZhangCheng
- * @date 2017-03-19
  * @version V1.0
- *
+ * @date 2017-03-19
  */
 @Aspect
 @Component
 public class HttpAspect {
 
-    /** 日志 */
+    /**
+     * 日志
+     */
     private final static Logger LOGGER = LoggerFactory.getLogger(HttpAspect.class);
 
-    /** 定义切点 */
+    /**
+     * 定义切点
+     */
     @Pointcut("execution(public * com.myimooc.springbootweb.web.controller.GirlController.*(..))")
-    public void log(){}
+    public void log() {
+    }
 
-    /** 前置通知 */
+    /**
+     * 前置通知
+     */
     @Before("log()")
-    public void doBefore(JoinPoint joinPoint){
-        ServletRequestAttributes attributes =  (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
+    public void doBefore(JoinPoint joinPoint) {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
 
         // url
-        LOGGER.info("url={}",request.getRequestURI());
+        LOGGER.info("url={}", request.getRequestURI());
 
         // method
-        LOGGER.info("method={}",request.getMethod());
+        LOGGER.info("method={}", request.getMethod());
 
         // ip
-        LOGGER.info("ip={}",request.getRemoteAddr());
+        LOGGER.info("ip={}", request.getRemoteAddr());
 
         // 类方法
-        LOGGER.info("class_method={}",joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+        LOGGER.info("class_method={}", joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
 
         // 参数
-        LOGGER.info("args={}",joinPoint.getArgs());
+        LOGGER.info("args={}", joinPoint.getArgs());
     }
 
-    /** 后置通知 */
+    /**
+     * 后置通知
+     */
     @After("log()")
-    public void doAfter(){
+    public void doAfter() {
         LOGGER.info("方法执行之后执行");
     }
 
-    /** 正常返回通知 */
-    @AfterReturning(returning = "object",pointcut = "log()")
-    public void doAfterReturning(Object object){
+    /**
+     * 正常返回通知
+     */
+    @AfterReturning(returning = "object", pointcut = "log()")
+    public void doAfterReturning(Object object) {
 //        LOGGER.info("response={}",object.toString());
     }
 

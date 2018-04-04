@@ -5,6 +5,7 @@ import java.util.Set;
 
 /**
  * Created by ChengComputer on 2017/2/19.
+ *
  * @author zhangcheng
  * @version v1.0
  * @date 2017-02-19
@@ -13,7 +14,7 @@ public class UserSetForm {
 
     private Set<User> users;
 
-    private UserSetForm(){
+    private UserSetForm() {
         users = new LinkedHashSet<User>();
         users.add(new User());
         users.add(new User());

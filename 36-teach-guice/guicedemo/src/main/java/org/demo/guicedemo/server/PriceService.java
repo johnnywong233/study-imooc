@@ -4,8 +4,8 @@ import java.util.Set;
 
 public interface PriceService {
 
-	long getPrice(long orderId);
+    long getPrice(long orderId);
 
-	Set<String> getSupportedCurrencies();
+    Set<String> getSupportedCurrencies();
 
 }

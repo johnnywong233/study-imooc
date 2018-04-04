@@ -24,29 +24,29 @@ public class EmployeeCrudRepositoryTest {
     private EmployeeService employeeService = null;
 
     @Before
-    public void init(){
+    public void init() {
         ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         employeeService = ctx.getBean(EmployeeService.class);
     }
 
     @After
-    public void destroy(){
+    public void destroy() {
         ctx = null;
     }
 
     @Test
-    public void entityManageFactoryTest(){
-        LocalContainerEntityManagerFactoryBean entityManagerFactory = (LocalContainerEntityManagerFactoryBean)ctx.getBean(LocalContainerEntityManagerFactoryBean.class);
+    public void entityManageFactoryTest() {
+        LocalContainerEntityManagerFactoryBean entityManagerFactory = (LocalContainerEntityManagerFactoryBean) ctx.getBean(LocalContainerEntityManagerFactoryBean.class);
         Assert.assertNotNull(entityManagerFactory);
     }
 
     @Test
-    public void saveTest(){
+    public void saveTest() {
         List<Employee> employees = new ArrayList<Employee>();
         Employee employee = null;
-        for(int i=0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
             employee = new Employee();
-            employee.setName("test"+i);
+            employee.setName("test" + i);
             employee.setAge(100 - i);
             employees.add(employee);
         }

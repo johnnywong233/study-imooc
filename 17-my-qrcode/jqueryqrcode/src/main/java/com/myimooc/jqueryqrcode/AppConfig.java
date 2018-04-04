@@ -11,26 +11,27 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
 @Configuration
-public class AppConfig extends WebMvcConfigurerAdapter{
-	
-	/**
+public class AppConfig extends WebMvcConfigurerAdapter {
+
+    /**
      * 配置视图解析器
+     *
      * @return
      */
     @Bean
-    public FreeMarkerViewResolver getFreeMarkerViewResolver(){
+    public FreeMarkerViewResolver getFreeMarkerViewResolver() {
         FreeMarkerViewResolver freeMarkerViewResolver = new FreeMarkerViewResolver();
-        
+
         freeMarkerViewResolver.setOrder(1);
         freeMarkerViewResolver.setSuffix(".html");
         freeMarkerViewResolver.setCache(false);
         freeMarkerViewResolver.setRequestContextAttribute("request");
         freeMarkerViewResolver.setContentType("text/html;charset=utf-8");
         freeMarkerViewResolver.setViewClass(FreeMarkerView.class);
-        
+
         return freeMarkerViewResolver;
     }
-    
+
     /**
      * 配置静态资源映射
      */
@@ -38,17 +39,18 @@ public class AppConfig extends WebMvcConfigurerAdapter{
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
-    
+
     /**
      * 配置FreeMarker
+     *
      * @return
      */
     @Bean
-    public FreeMarkerConfigurer getFreeMarkerConfigurer(){
+    public FreeMarkerConfigurer getFreeMarkerConfigurer() {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
         freeMarkerConfigurer.setDefaultEncoding("UTF-8");
         freeMarkerConfigurer.setTemplateLoaderPath("classpath:/templates/");
-        
+
         Properties settings = new Properties();
         settings.setProperty("template_update_delay", "5");
         settings.setProperty("url_escaping_charset", "UTF-8");
@@ -65,9 +67,9 @@ public class AppConfig extends WebMvcConfigurerAdapter{
         settings.setProperty("template_exception_handler", "ignore");
         settings.setProperty("auto_import", "/common/common.ftl as common");
         freeMarkerConfigurer.setFreemarkerSettings(settings);
-        
+
         return freeMarkerConfigurer;
     }
-    
-	
+
+
 }

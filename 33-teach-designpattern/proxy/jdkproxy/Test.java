@@ -8,21 +8,21 @@ import com.imooc.proxy.Moveable;
 
 public class Test {
 
-	/**
-	 * JDK¶¯Ì¬´úÀí²âÊÔÀà
-	 */
-	public static void main(String[] args) {
-		Car car = new Car();
-		InvocationHandler h = new TimeHandler(car);
-		Class<?> cls = car.getClass();
-		/**
-		 * loader  Àà¼ÓÔØÆ÷
-		 * interfaces  ÊµÏÖ½Ó¿Ú
-		 * h InvocationHandler
-		 */
-		Moveable m = (Moveable)Proxy.newProxyInstance(cls.getClassLoader(),
-												cls.getInterfaces(), h);
-		m.move();
-	}
+    /**
+     * JDKï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     */
+    public static void main(String[] args) {
+        Car car = new Car();
+        InvocationHandler h = new TimeHandler(car);
+        Class<?> cls = car.getClass();
+        /**
+         * loader  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+         * interfaces  Êµï¿½Ö½Ó¿ï¿½
+         * h InvocationHandler
+         */
+        Moveable m = (Moveable) Proxy.newProxyInstance(cls.getClassLoader(),
+                cls.getInterfaces(), h);
+        m.move();
+    }
 
 }

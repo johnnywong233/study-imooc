@@ -3,18 +3,17 @@ package com.imooc.pattern.strategy;
 import com.imooc.pattern.strategy.impl.FlyWithWin;
 
 
-
 public class MallardDuck extends Duck {
 
-	
-	public MallardDuck(){
-		super();
-		super.setFlyingStragety(new FlyWithWin());
-	}
-	
-	@Override
-	public void display() {
-		System.out.println("ÎÒµÄ²±×ÓÊÇÂÌÉ«µÄ");
-	}
+
+    public MallardDuck() {
+        super();
+        super.setFlyingStragety(new FlyWithWin());
+    }
+
+    @Override
+    public void display() {
+        System.out.println("ï¿½ÒµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½");
+    }
 
 }

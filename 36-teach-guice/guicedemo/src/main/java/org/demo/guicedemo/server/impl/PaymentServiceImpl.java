@@ -1,27 +1,26 @@
 package org.demo.guicedemo.server.impl;
 
-import javax.inject.Inject;
-
+import com.google.common.cache.Cache;
 import org.demo.guicedemo.Logged;
 import org.demo.guicedemo.server.PaymentService;
 
-import com.google.common.cache.Cache;
+import javax.inject.Inject;
 
 public class PaymentServiceImpl implements PaymentService {
-	private final Cache<String, String> cache;
+    private final Cache<String, String> cache;
 
-	@Inject
-	public PaymentServiceImpl(Cache<String, String> cache) {
-		super();
-		this.cache = cache;
-	}
+    @Inject
+    public PaymentServiceImpl(Cache<String, String> cache) {
+        super();
+        this.cache = cache;
+    }
 
-	@Override @Logged
-	public void pay(long orderId, long price, Long sessionId) {
-		// TODO Auto-generated method stub
-	}
+    @Override
+    @Logged
+    public void pay(long orderId, long price, Long sessionId) {
+    }
 
-	void putCache(String key, String value) {
-		cache.put(key, value);
-	}
+    void putCache(String key, String value) {
+        cache.put(key, value);
+    }
 }

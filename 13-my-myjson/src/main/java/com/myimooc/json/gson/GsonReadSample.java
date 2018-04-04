@@ -21,23 +21,23 @@ public class GsonReadSample {
 
     /**
      * 读取 JSON 数据
-     * */
+     */
     public static void createJsonByGsonFile() throws IOException {
         File file = new File(GsonReadSample.class.getResource("/wangxiaoer.json").getFile());
 
-        String content = FileUtils.readFileToString(file,"UTF-8");
+        String content = FileUtils.readFileToString(file, "UTF-8");
 
         // 无日期转换
         Gson gson = new Gson();
 
-        Diaosi wangxiaoer = gson.fromJson(content,Diaosi.class);
+        Diaosi wangxiaoer = gson.fromJson(content, Diaosi.class);
 
         System.out.println(wangxiaoer.toString());
 
         // 带日期转换
         Gson gson2 = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
 
-        DiaosiWithBirthday wangxiaoer2 = gson2.fromJson(content,DiaosiWithBirthday.class);
+        DiaosiWithBirthday wangxiaoer2 = gson2.fromJson(content, DiaosiWithBirthday.class);
 
         System.out.println(wangxiaoer2.getBirthday().toString());
 

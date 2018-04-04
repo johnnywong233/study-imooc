@@ -8,22 +8,24 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @describe 商品库存dao
  * @author zc
  * @version 1.0 2017-08-22
+ * @describe 商品库存dao
  */
 public interface SeckillDao {
 
     /**
      * 减库存
+     *
      * @param seckillId
      * @param killTime
      * @return 如果影响行数>1，表示更新的记录行数
      */
-    int reduceNumber(@Param("seckillId")Long seckillId, @Param("killTime")Date killTime);
+    int reduceNumber(@Param("seckillId") Long seckillId, @Param("killTime") Date killTime);
 
     /**
      * 根据id查询秒杀对象
+     *
      * @param seckillId
      * @return
      */
@@ -31,6 +33,7 @@ public interface SeckillDao {
 
     /**
      * 根据偏移量查询秒杀商品列表
+     *
      * @param offset
      * @param limit
      * @return
@@ -39,7 +42,8 @@ public interface SeckillDao {
 
     /**
      * 使用存储过程执行秒杀
+     *
      * @param paramMap
      */
-    void killByProcedure(Map<String,Object> paramMap);
+    void killByProcedure(Map<String, Object> paramMap);
 }

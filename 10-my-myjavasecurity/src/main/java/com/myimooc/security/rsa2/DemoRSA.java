@@ -14,22 +14,26 @@ import java.security.spec.X509EncodedKeySpec;
  */
 public class DemoRSA {
 
-    /** 待加密字符串 */
-    private static String src="imooc security rsa";
+    /**
+     * 待加密字符串
+     */
+    private static String src = "imooc security rsa";
 
-    public static void main(String[] args)throws Exception{
+    public static void main(String[] args) throws Exception {
         jdkRSA();
     }
 
-    /** 使用 JDK 实现 RSA 数字签名  */
-    public static void jdkRSA() throws Exception{
+    /**
+     * 使用 JDK 实现 RSA 数字签名
+     */
+    public static void jdkRSA() throws Exception {
 
         // 1.初始化密钥
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
         keyPairGenerator.initialize(512);
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
-        RSAPublicKey rsaPublicKey = (RSAPublicKey)keyPair.getPublic();
-        RSAPrivateKey rsaPrivateKey = (RSAPrivateKey)keyPair.getPrivate();
+        RSAPublicKey rsaPublicKey = (RSAPublicKey) keyPair.getPublic();
+        RSAPrivateKey rsaPrivateKey = (RSAPrivateKey) keyPair.getPrivate();
 
         // 2.执行签名
         PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(rsaPrivateKey.getEncoded());
@@ -39,7 +43,7 @@ public class DemoRSA {
         signature.initSign(privateKey);
         signature.update(src.getBytes());
         byte[] result = signature.sign();
-        System.out.println("jdk ras sign:"+ Hex.encodeHexString(result));
+        System.out.println("jdk ras sign:" + Hex.encodeHexString(result));
 
         // 3.验证签名
         X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(rsaPublicKey.getEncoded());
@@ -49,7 +53,7 @@ public class DemoRSA {
         signature.initVerify(publicKey);
         signature.update(src.getBytes());
         boolean bool = signature.verify(result);
-        System.out.println("jdk rsa verify:"+bool);
+        System.out.println("jdk rsa verify:" + bool);
     }
 
 }

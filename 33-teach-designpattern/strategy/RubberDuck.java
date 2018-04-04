@@ -4,19 +4,19 @@ import com.imooc.pattern.strategy.impl.FlyNoWay;
 
 public class RubberDuck extends Duck {
 
-	public RubberDuck() {
-		super();
-		super.setFlyingStragety(new FlyNoWay());
-	}
+    public RubberDuck() {
+        super();
+        super.setFlyingStragety(new FlyNoWay());
+    }
 
-	@Override
-	public void display() {
-		System.out.println("ÎÒÈ«Éí·¢»Æ£¬×ì°ÍºÜºì");
-	}
-	
-	
-	public void quack(){
-		System.out.println("¸Â~¸Â~¸Â~");
-	}
+    @Override
+    public void display() {
+        System.out.println("ï¿½ï¿½È«ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ÍºÜºï¿½");
+    }
+
+
+    public void quack() {
+        System.out.println("ï¿½ï¿½~ï¿½ï¿½~ï¿½ï¿½~");
+    }
 
 }

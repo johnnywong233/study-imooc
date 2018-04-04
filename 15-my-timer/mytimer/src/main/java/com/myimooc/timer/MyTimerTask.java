@@ -9,12 +9,13 @@ import java.util.TimerTask;
  * Created by ChangComputer on 2017/5/24.
  */
 // 继承 TimerTask 类
-public class MyTimerTask extends TimerTask{
+public class MyTimerTask extends TimerTask {
     private String name;
 
     // 计数器，没执行一次加一
     private Integer count = 0;
-    public MyTimerTask(String name){
+
+    public MyTimerTask(String name) {
         this.name = name;
     }
 
@@ -33,7 +34,7 @@ public class MyTimerTask extends TimerTask{
             System.out.println("Current exec name is : " + name);
 
             count++;
-        }else{
+        } else {
             // 取消任务执行
             cancel();
             System.out.println("Task cancel!");

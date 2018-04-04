@@ -1,24 +1,18 @@
 package com.myimooc.springmvcbind.config;
 
-import java.util.EnumSet;
-
-import javax.servlet.DispatcherType;
-import javax.servlet.FilterRegistration;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
-
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import javax.servlet.*;
+import java.util.EnumSet;
+
 /**
  * Web项目启动类
- * 
+ *
  * @author zhangcheng
  * @version v1.0 2017-02-19
- *
  */
 public class WebInitConfig implements WebApplicationInitializer {
 
@@ -44,7 +38,7 @@ public class WebInitConfig implements WebApplicationInitializer {
         dispatcherTypes.add(DispatcherType.FORWARD);
         encodingFilter.addMappingForUrlPatterns(dispatcherTypes, true, "*");
         encodingFilter.setInitParameter("encoding", "UTF-8");
-        
+
 
     }
 

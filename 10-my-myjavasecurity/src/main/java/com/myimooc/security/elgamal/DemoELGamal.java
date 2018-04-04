@@ -15,15 +15,19 @@ import java.security.spec.X509EncodedKeySpec;
  */
 public class DemoELGamal {
 
-    /** 待加密字符串 */
-    private static String src="imooc security elgamal";
+    /**
+     * 待加密字符串
+     */
+    private static String src = "imooc security elgamal";
 
-    public static void main(String[] args)throws Exception{
+    public static void main(String[] args) throws Exception {
         bcELGamal();
     }
 
-    /** 使用 BouncyCastle 实现 ELGamal 加解密 */
-    public static void bcELGamal()throws Exception{
+    /**
+     * 使用 BouncyCastle 实现 ELGamal 加解密
+     */
+    public static void bcELGamal() throws Exception {
         // 公钥加密，私钥解密
         Security.addProvider(new BouncyCastleProvider());
 
@@ -33,12 +37,12 @@ public class DemoELGamal {
         AlgorithmParameters algorithmParameters = algorithmParameterGenerator.generateParameters();
         DHParameterSpec dhParameterSpec = (DHParameterSpec) algorithmParameters.getParameterSpec(DHParameterSpec.class);
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("ELGamal");
-        keyPairGenerator.initialize(dhParameterSpec,new SecureRandom());
+        keyPairGenerator.initialize(dhParameterSpec, new SecureRandom());
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
         PublicKey publicKey = keyPair.getPublic();
         PrivateKey privateKey = keyPair.getPrivate();
-        System.out.println("Public Key:"+ Base64.encodeBase64String(publicKey.getEncoded()));
-        System.out.println("Private Key:"+ Base64.encodeBase64String(privateKey.getEncoded()));
+        System.out.println("Public Key:" + Base64.encodeBase64String(publicKey.getEncoded()));
+        System.out.println("Private Key:" + Base64.encodeBase64String(privateKey.getEncoded()));
 
     }
 

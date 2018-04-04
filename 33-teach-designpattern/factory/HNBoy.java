@@ -1,15 +1,15 @@
 package com.sunny.project;
+
 /**
- * ÐÂÄêÏµÁÐµÄÄÐº¢×Ó
- * @author Administrator
+ * ï¿½ï¿½ï¿½ï¿½Ïµï¿½Ðµï¿½ï¿½Ðºï¿½ï¿½ï¿½
  *
+ * @author Administrator
  */
 public class HNBoy implements Boy {
 
-	@Override
-	public void drawMan() {
-		// TODO Auto-generated method stub
-		System.out.println("-----------------ÐÂÄêÏµÁÐµÄÄÐº¢×Ó--------------------");
-	}
+    @Override
+    public void drawMan() {
+        System.out.println("-----------------ï¿½ï¿½ï¿½ï¿½Ïµï¿½Ðµï¿½ï¿½Ðºï¿½ï¿½ï¿½--------------------");
+    }
 
 }

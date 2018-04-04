@@ -21,7 +21,7 @@ public class SuccessKilledDaoTest {
     public void insertSuccessKilled() throws Exception {
         long id = 1001L;
         long phone = 13502123541L;
-        int insertCount = successKilledDao.insertSuccessKilled(id,phone);
+        int insertCount = successKilledDao.insertSuccessKilled(id, phone);
         System.out.println(insertCount);
     }
 
@@ -29,7 +29,7 @@ public class SuccessKilledDaoTest {
     public void queryByIdWithSeckill() throws Exception {
         long id = 1001L;
         long phone = 13502123541L;
-        SuccessSeckilled successSeckilled = successKilledDao.queryByIdWithSeckill(id,phone);
+        SuccessSeckilled successSeckilled = successKilledDao.queryByIdWithSeckill(id, phone);
         System.out.println(successSeckilled);
         System.out.println(successSeckilled.getSeckill());
     }

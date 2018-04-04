@@ -1,9 +1,10 @@
 package com.immoc.pattern.adapter;
+
 /*
- * ÈýÏà²å×ù½Ó¿Ú
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
  */
 public interface ThreePlugIf {
-	
-	//Ê¹ÓÃÈýÏàµçÁ÷¹©µç
-	public void powerWithThree();
+
+    //Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public void powerWithThree();
 }

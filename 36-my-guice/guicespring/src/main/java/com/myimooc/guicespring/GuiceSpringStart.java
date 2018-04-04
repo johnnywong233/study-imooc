@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
- * @title 启动类
- * @describe Guice与SpringBoot协作
  * @author zc
  * @version 1.0 2017-10-15
+ * @title 启动类
+ * @describe Guice与SpringBoot协作
  */
 @SpringBootApplication
 @ServletComponentScan

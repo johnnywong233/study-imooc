@@ -1,15 +1,15 @@
 package com.immoc.pattern.adapter;
 
 /*
- * ²ÉÓÃ¼Ì³Ğ·½Ê½µÄ²å×ùÊÊÅäÆ÷
+ * ï¿½ï¿½ï¿½Ã¼Ì³Ğ·ï¿½Ê½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public class TwoPlugAdapterExtends extends GBTwoPlug implements ThreePlugIf {
 
-	@Override
-	public void powerWithThree() {
-		System.out.print("½èÖú¼Ì³ĞÊÊÅäÆ÷");
-		this.powerWithTwo();
+    @Override
+    public void powerWithThree() {
+        System.out.print("ï¿½ï¿½ï¿½ï¿½ï¿½Ì³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+        this.powerWithTwo();
 
-	}
+    }
 
 }

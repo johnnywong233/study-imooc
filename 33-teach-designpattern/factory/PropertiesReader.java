@@ -7,31 +7,31 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * propertiesÎÄ¼þµÄ¶ÁÈ¡¹¤¾ß
- * @author Administrator
+ * propertiesï¿½Ä¼ï¿½ï¿½Ä¶ï¿½È¡ï¿½ï¿½ï¿½ï¿½
  *
+ * @author Administrator
  */
 public class PropertiesReader {
 
-	
-	public Map<String, String> getProperties() {
 
-		Properties props = new Properties();
-		Map<String, String> map = new HashMap<String, String>();
-		try {
+    public Map<String, String> getProperties() {
 
-			InputStream in = getClass().getResourceAsStream("type.properties");
-			props.load(in);
-			Enumeration en = props.propertyNames();
-			while (en.hasMoreElements()) {
-				String key = (String) en.nextElement();
-				String property = props.getProperty(key);
-				map.put(key, property);
+        Properties props = new Properties();
+        Map<String, String> map = new HashMap<String, String>();
+        try {
+
+            InputStream in = getClass().getResourceAsStream("type.properties");
+            props.load(in);
+            Enumeration en = props.propertyNames();
+            while (en.hasMoreElements()) {
+                String key = (String) en.nextElement();
+                String property = props.getProperty(key);
+                map.put(key, property);
 //				System.out.println(key + "  " + property);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return map;
-	}
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return map;
+    }
 }

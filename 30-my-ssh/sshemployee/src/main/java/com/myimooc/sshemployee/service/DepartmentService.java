@@ -7,20 +7,21 @@ import com.myimooc.sshemployee.domain.PageBean;
 
 /**
  * 部门管理的业务层的接口
+ *
  * @author ZhangCheng on 2017-08-18
  */
 public interface DepartmentService {
 
-	PageBean<Department> findByPage(Integer currPage);
+    PageBean<Department> findByPage(Integer currPage);
 
-	void save(Department department);
+    void save(Department department);
 
-	Department findById(Integer did);
+    Department findById(Integer did);
 
-	void update(Department department);
+    void update(Department department);
 
-	void delete(Department department);
+    void delete(Department department);
 
-	List<Department> findAll();
+    List<Department> findAll();
 
 }

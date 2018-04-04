@@ -1,14 +1,14 @@
 package com.imooc.menu;
 
 public class Menu {
-	//Ò»¼¶²Ëµ¥
-	private Button[] button;
+    //Ò»ï¿½ï¿½ï¿½Ëµï¿½
+    private Button[] button;
 
-	public Button[] getButton() {
-		return button;
-	}
+    public Button[] getButton() {
+        return button;
+    }
 
-	public void setButton(Button[] button) {
-		this.button = button;
-	}
+    public void setButton(Button[] button) {
+        this.button = button;
+    }
 }

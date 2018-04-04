@@ -20,86 +20,85 @@ import com.myimooc.watermark.service.UploadService;
 
 /**
  * WatermarkController 控制类
- * 
- * @author ZhangCheng on 2017-07-21
  *
+ * @author ZhangCheng on 2017-07-21
  */
 @Controller
 public class WatermarkController {
 
-	private static Logger logger = LoggerFactory.getLogger(WatermarkController.class);
+    private static Logger logger = LoggerFactory.getLogger(WatermarkController.class);
 
-	@Autowired
-	private UploadService uploadService;
+    @Autowired
+    private UploadService uploadService;
 
-	@Autowired
-	private MarkService markService;
+    @Autowired
+    private MarkService markService;
 
-	/***
-	 * 单图片上传
-	 * 
-	 * @param image
-	 * @param request
-	 * @return
-	 */
-	@PostMapping("/watermark")
-	public ModelAndView watermark(MultipartFile image, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("/watermark");
-		PicInfo picInfo = new PicInfo();
+    /***
+     * 单图片上传
+     *
+     * @param image
+     * @param request
+     * @return
+     */
+    @PostMapping("/watermark")
+    public ModelAndView watermark(MultipartFile image, HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView("/watermark");
+        PicInfo picInfo = new PicInfo();
 
-		String uploadPath = "static/images/";
-		String realUploadPath = getClass().getClassLoader().getResource(uploadPath).getPath();
+        String uploadPath = "static/images/";
+        String realUploadPath = getClass().getClassLoader().getResource(uploadPath).getPath();
 
-		logger.info("上传相对目录：{}", uploadPath);
-		logger.info("上传绝对目录：{}", uploadPath);
+        logger.info("上传相对目录：{}", uploadPath);
+        logger.info("上传绝对目录：{}", uploadPath);
 
-		String imageURL = uploadService.uploadImage(image, uploadPath, realUploadPath);
+        String imageURL = uploadService.uploadImage(image, uploadPath, realUploadPath);
 
-		File imageFile = new File(realUploadPath + image.getOriginalFilename());
+        File imageFile = new File(realUploadPath + image.getOriginalFilename());
 
-		String logoImageURL = markService.watermake(imageFile, image.getOriginalFilename(), uploadPath, realUploadPath);
+        String logoImageURL = markService.watermake(imageFile, image.getOriginalFilename(), uploadPath, realUploadPath);
 
-		picInfo.setImageURL(imageURL);
-		picInfo.setLogoImageURL(logoImageURL);
-		mav.addObject("picInfo", picInfo);
+        picInfo.setImageURL(imageURL);
+        picInfo.setLogoImageURL(logoImageURL);
+        mav.addObject("picInfo", picInfo);
 
-		return mav;
-	}
+        return mav;
+    }
 
-	/**
-	 * 图片批量上传
-	 * 
-	 * @param image
-	 * @param request
-	 * @return
-	 */
-	@PostMapping("/morewatermark")
-	public ModelAndView morewatermark(List<MultipartFile> image, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView("/morewatermark");
+    /**
+     * 图片批量上传
+     *
+     * @param image
+     * @param request
+     * @return
+     */
+    @PostMapping("/morewatermark")
+    public ModelAndView morewatermark(List<MultipartFile> image, HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView("/morewatermark");
 
-		String uploadPath = "static/images/";
-		String realUploadPath = getClass().getClassLoader().getResource(uploadPath).getPath();
+        String uploadPath = "static/images/";
+        String realUploadPath = getClass().getClassLoader().getResource(uploadPath).getPath();
 
-		logger.info("上传相对目录：{}", uploadPath);
-		logger.info("上传绝对目录：{}", realUploadPath);
+        logger.info("上传相对目录：{}", uploadPath);
+        logger.info("上传绝对目录：{}", realUploadPath);
 
-		if (image != null && image.size() > 0) {
-			List<PicInfo> picInfoList = new ArrayList<PicInfo>();
-			for (MultipartFile imageFileTemp : image) {
-				if(imageFileTemp == null || imageFileTemp.getSize() < 1){
-					continue;
-				}
-				PicInfo picInfo = new PicInfo();
-				String imageURL = uploadService.uploadImage(imageFileTemp, uploadPath, realUploadPath);
-				File imageFile = new File(realUploadPath + imageFileTemp.getOriginalFilename());
-				String logoImageURL = markService.watermake(imageFile, imageFileTemp.getOriginalFilename(), uploadPath,
-						realUploadPath);
-				picInfo.setImageURL(imageURL);
-				picInfo.setLogoImageURL(logoImageURL);
-				picInfoList.add(picInfo);
-			}
-			mav.addObject("picInfoList", picInfoList);
-		}
-		return mav;
-	}
+        if (image != null && image.size() > 0) {
+            List<PicInfo> picInfoList = new ArrayList<PicInfo>();
+            for (MultipartFile imageFileTemp : image) {
+                if (imageFileTemp == null || imageFileTemp.getSize() < 1) {
+                    continue;
+                }
+                PicInfo picInfo = new PicInfo();
+                String imageURL = uploadService.uploadImage(imageFileTemp, uploadPath, realUploadPath);
+                File imageFile = new File(realUploadPath + imageFileTemp.getOriginalFilename());
+                String logoImageURL = markService.watermake(imageFile, imageFileTemp.getOriginalFilename(), uploadPath,
+                        realUploadPath);
+                picInfo.setImageURL(imageURL);
+                picInfo.setLogoImageURL(logoImageURL);
+                picInfoList.add(picInfo);
+            }
+            mav.addObject("picInfoList", picInfoList);
+        }
+        return mav;
+    }
 }

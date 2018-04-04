@@ -12,9 +12,9 @@ import java.util.List;
 @SpringBootTest
 public class GirlApplicationTests {
 
-	@Test
-	public void contextLoads() {
+    @Test
+    public void contextLoads() {
 
-	}
+    }
 
 }

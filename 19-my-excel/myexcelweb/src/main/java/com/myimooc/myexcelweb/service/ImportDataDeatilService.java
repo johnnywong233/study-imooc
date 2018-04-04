@@ -12,25 +12,25 @@ import com.myimooc.myexcelweb.repository.ImportDataRepository;
 
 /**
  * 数据导入详情业务类
- * @author ZhangCheng on 2017-07-08
  *
+ * @author ZhangCheng on 2017-07-08
  */
 @Service
 public class ImportDataDeatilService {
-	
-	@Autowired
-	private ImportDataRepository importDataRepository;
-	@Autowired
-	private ImportDataDetailRepository importDataDetailRepository;
-	
-	public List<ImportData> list(){
-		return importDataRepository.findAll();
-	}
-	
-	public void save(List<ImportDataDetail> importDataDetailList){
-		
-		importDataDetailRepository.save(importDataDetailList);
-		
-	}
-	
+
+    @Autowired
+    private ImportDataRepository importDataRepository;
+    @Autowired
+    private ImportDataDetailRepository importDataDetailRepository;
+
+    public List<ImportData> list() {
+        return importDataRepository.findAll();
+    }
+
+    public void save(List<ImportDataDetail> importDataDetailList) {
+
+        importDataDetailRepository.save(importDataDetailList);
+
+    }
+
 }

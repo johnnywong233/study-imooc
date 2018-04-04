@@ -1,8 +1,9 @@
 package com.imooc.pattern.strategy;
+
 /*
- * 策略接口，实现鸭子的飞行行为
+ * 锟斤拷锟皆接口ｏ拷实锟斤拷鸭锟接的凤拷锟斤拷锟斤拷为
  */
 public interface FlyingStragety {
 
-	void performFly();
+    void performFly();
 }

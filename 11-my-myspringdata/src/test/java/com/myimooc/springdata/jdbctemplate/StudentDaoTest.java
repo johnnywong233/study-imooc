@@ -25,26 +25,26 @@ public class StudentDaoTest {
     private StudentDao studentDao;
 
     @Before
-    public void init(){
+    public void init() {
         ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         studentDao = ctx.getBean(StudentDao.class);
     }
 
     @After
-    public void destroy(){
+    public void destroy() {
         ctx = null;
     }
 
     @Test
-    public void listStudentTest(){
+    public void listStudentTest() {
         List<Student> studentList = studentDao.listStudent();
-        for (Student student : studentList){
+        for (Student student : studentList) {
             System.out.println(student.toString());
         }
     }
 
     @Test
-    public void saveTest(){
+    public void saveTest() {
         Student student = new Student();
         student.setName("test-spring-jdbcTemplate");
         student.setAge(25);

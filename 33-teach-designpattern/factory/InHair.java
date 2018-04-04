@@ -1,16 +1,16 @@
 package com.sunny.project;
+
 /**
- * 中分发型
- * @author Administrator
+ * 锟叫分凤拷锟斤拷
  *
+ * @author Administrator
  */
 public class InHair implements HairInterface {
 
-	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-		System.out.println("-----------------中分发型-------------------");
-	
-	}
+    @Override
+    public void draw() {
+        System.out.println("-----------------锟叫分凤拷锟斤拷-------------------");
+
+    }
 
 }

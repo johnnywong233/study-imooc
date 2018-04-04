@@ -2,15 +2,16 @@ package com.imooc.proxy;
 
 public class Client {
 
-	/**
-	 * ²âÊÔÀà
-	 * @throws Exception 
-	 */
-	public static void main(String[] args) throws Exception {
-		Car car = new Car();
-		InvocationHandler h = new TimeHandler(car);
-		Moveable m = (Moveable)Proxy.newProxyInstance(Moveable.class,h);
-		m.move();
-	}
+    /**
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     *
+     * @throws Exception
+     */
+    public static void main(String[] args) throws Exception {
+        Car car = new Car();
+        InvocationHandler h = new TimeHandler(car);
+        Moveable m = (Moveable) Proxy.newProxyInstance(Moveable.class, h);
+        m.move();
+    }
 
 }

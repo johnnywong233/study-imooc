@@ -23,12 +23,14 @@ public class EmployeeService {
     private EmployeeCrudRepository employeeCrudRepository;
 
     @Transactional
-    public void updateAgeById(Integer id, Integer age){
-        this.employeeRepository.updateAgeById(id,age);
-    };
+    public void updateAgeById(Integer id, Integer age) {
+        this.employeeRepository.updateAgeById(id, age);
+    }
+
+    ;
 
     @Transactional
-    public void save(List<Employee> employees){
+    public void save(List<Employee> employees) {
         this.employeeCrudRepository.save(employees);
     }
 }

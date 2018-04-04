@@ -12,17 +12,17 @@ import java.util.List;
 public class StudentDaoImplTest {
 
     @Test
-    public void listStudentTest(){
+    public void listStudentTest() {
         StudentDao studentDao = new StudentDaoImpl();
 
-        List<Student>  studentList = studentDao.listStudent();
-        for(Student student : studentList){
+        List<Student> studentList = studentDao.listStudent();
+        for (Student student : studentList) {
             System.out.println(student.toString());
         }
     }
 
     @Test
-    public void saveStudentTest(){
+    public void saveStudentTest() {
         StudentDao studentDao = new StudentDaoImpl();
 
         Student student = new Student();

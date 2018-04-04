@@ -6,12 +6,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @title 字段注解
- * @describe 该注解用于获取被标识字段的中文名
  * @author zc
  * @version 1.0 2017-09-13
+ * @title 字段注解
+ * @describe 该注解用于获取被标识字段的中文名
  */
-@Target({ ElementType.FIELD, ElementType.METHOD, ElementType.TYPE })
+@Target({ElementType.FIELD, ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Datalog {
 

@@ -21,26 +21,26 @@ public class DataSourceTest {
     private ApplicationContext ctx = null;
 
     @Before
-    public void init(){
+    public void init() {
         ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
         System.out.println("init");
     }
 
     @After
-    public void destroy(){
+    public void destroy() {
         ctx = null;
         System.out.println("destroy");
     }
 
     @Test
-    public void dataSourceTest(){
+    public void dataSourceTest() {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = ctx.getBean(LocalContainerEntityManagerFactoryBean.class);
         System.out.println(entityManagerFactory.getDataSource().toString());
         Assert.assertNotNull(entityManagerFactory.getDataSource());
     }
 
     @Test
-    public void entityManagerFactoryTest(){
+    public void entityManagerFactoryTest() {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = ctx.getBean(LocalContainerEntityManagerFactoryBean.class);
         System.out.println(entityManagerFactory.toString());
         Assert.assertNotNull(entityManagerFactory);

@@ -1,20 +1,21 @@
 package com.immoc.pattern.adapter;
 /*
- * ¶þÏà×ªÈýÏàµÄ²å×ùÊÊÅäÆ÷
+ * ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 
 public class TwoPlugAdapter implements ThreePlugIf {
 
-	private GBTwoPlug plug;
-	
-	public TwoPlugAdapter(GBTwoPlug plug){
-		this.plug = plug;
-	}
-	@Override
-	public void powerWithThree() {
-		System.out.println("Í¨¹ý×ª»¯");
-		plug.powerWithTwo();
+    private GBTwoPlug plug;
 
-	}
+    public TwoPlugAdapter(GBTwoPlug plug) {
+        this.plug = plug;
+    }
+
+    @Override
+    public void powerWithThree() {
+        System.out.println("Í¨ï¿½ï¿½×ªï¿½ï¿½");
+        plug.powerWithTwo();
+
+    }
 
 }

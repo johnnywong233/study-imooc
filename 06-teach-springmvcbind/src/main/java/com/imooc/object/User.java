@@ -13,6 +13,18 @@ public class User {
     private Integer age;
     private ContactInfo contactInfo;
 
+    public static void main(String[] args) {
+        Set<User> u = new HashSet<User>();
+        User u1 = new User();
+        u1.setName("aa");
+        User u2 = new User();
+        u2.setName("aa");
+        u.add(u1);
+        u.add(u2);
+        System.out.println("size:" + u.size());
+        System.out.println(u);
+    }
+
     public ContactInfo getContactInfo() {
         return contactInfo;
     }
@@ -35,18 +47,6 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    public static void main(String[] args) {
-        Set<User> u = new HashSet<User>();
-        User u1 = new User();
-        u1.setName("aa");
-        User u2 = new User();
-        u2.setName("aa");
-        u.add(u1);
-        u.add(u2);
-        System.out.println("size:"+u.size());
-        System.out.println(u);
     }
 
     @Override

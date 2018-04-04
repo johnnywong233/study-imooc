@@ -11,15 +11,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:applicationContext2.xml")
 public class TransactionTest {
 
-	/**
-	 * һ��Ҫע�������:��Ϊ�����������ǿ�Ĳ���
-	 */
-	//@Resource(name="accountService")
-	@Resource(name="accountServiceProxy")
-	private AccountService accountService;
-	
-	@Test
-	public void demo1(){
-		accountService.transfer("aaa", "bbb", 200d);
-	}
+    /**
+     * һ��Ҫע�������:��Ϊ�����������ǿ�Ĳ���
+     */
+    //@Resource(name="accountService")
+    @Resource(name = "accountServiceProxy")
+    private AccountService accountService;
+
+    @Test
+    public void demo1() {
+        accountService.transfer("aaa", "bbb", 200d);
+    }
 }

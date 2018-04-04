@@ -5,11 +5,17 @@ package com.myimooc.springdata.jdbctemplate.domain;
  * Created by ZC on 2017/4/24.
  */
 public class Student {
-    /** 主键ID */
+    /**
+     * 主键ID
+     */
     private Integer id;
-    /** 姓名 */
+    /**
+     * 姓名
+     */
     private String name;
-    /** 年龄 */
+    /**
+     * 年龄
+     */
     private int age;
 
     @Override

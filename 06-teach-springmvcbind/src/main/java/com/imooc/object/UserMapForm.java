@@ -6,7 +6,7 @@ import java.util.Map;
  * Created by geely on 2015/11/22.
  */
 public class UserMapForm {
-    private Map<String,User> users;
+    private Map<String, User> users;
 
     @Override
     public String toString() {

@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class WebApplicationContext implements ApplicationContextAware {
 
-	private static ApplicationContext ctx;
-	
-	@Override
-	public void setApplicationContext(ApplicationContext context) throws BeansException {
-		ctx = context;
-	}
-	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public static <T> T getBean(Class clazz){
-		return (T)ctx.getBean(clazz);
-	}
+    private static ApplicationContext ctx;
+
+    @SuppressWarnings({"rawtypes", "unchecked"})
+    public static <T> T getBean(Class clazz) {
+        return (T) ctx.getBean(clazz);
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext context) throws BeansException {
+        ctx = context;
+    }
 }

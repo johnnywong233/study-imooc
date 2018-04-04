@@ -23,8 +23,8 @@ public class StudentDaoImpl implements StudentDao {
     public List<Student> listStudent() {
         List<Student> studentList = new ArrayList<Student>();
         String sql = "select id, name, age from student";
-        List<Map<String,Object>>  mapList = jdbcTemplate.queryForList(sql);
-        for (Map<String,Object> mapTemp : mapList) {
+        List<Map<String, Object>> mapList = jdbcTemplate.queryForList(sql);
+        for (Map<String, Object> mapTemp : mapList) {
             Integer id = Integer.parseInt(mapTemp.get("id").toString());
             String name = mapTemp.get("name").toString();
             Integer age = Integer.parseInt(mapTemp.get("age").toString());
@@ -41,6 +41,6 @@ public class StudentDaoImpl implements StudentDao {
 
     public void saveStudent(Student student) {
         String sql = "insert into student(name, age) value(?,?)";
-        jdbcTemplate.update(sql,student.getName(),student.getAge());
+        jdbcTemplate.update(sql, student.getName(), student.getAge());
     }
 }

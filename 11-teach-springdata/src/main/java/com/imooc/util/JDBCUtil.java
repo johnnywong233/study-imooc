@@ -14,6 +14,7 @@ public class JDBCUtil {
 
     /**
      * 获取Connection
+     *
      * @return 所获得到的JDBC的Connection
      */
     public static Connection getConnection() throws Exception {
@@ -45,14 +46,15 @@ public class JDBCUtil {
 
     /**
      * 释放DB相关的资源
+     *
      * @param resultSet
      * @param statement
      * @param connection
      */
     public static void release(ResultSet resultSet,
-                               Statement statement, Connection connection){
+                               Statement statement, Connection connection) {
 
-        if(resultSet != null) {
+        if (resultSet != null) {
             try {
                 resultSet.close();
             } catch (SQLException e) {
@@ -60,7 +62,7 @@ public class JDBCUtil {
             }
         }
 
-        if(statement != null) {
+        if (statement != null) {
             try {
                 statement.close();
             } catch (SQLException e) {
@@ -69,7 +71,7 @@ public class JDBCUtil {
         }
 
 
-        if(connection != null) {
+        if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException e) {
@@ -78,7 +80,6 @@ public class JDBCUtil {
         }
 
     }
-
 
 
 }

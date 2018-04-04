@@ -4,15 +4,15 @@ import java.util.Random;
 
 public class Car implements Moveable {
 
-	@Override
-	public void move() {
-		//ÊµÏÖ¿ª³µ
-		try {
-			Thread.sleep(new Random().nextInt(1000));
-			System.out.println("Æû³µÐÐÊ»ÖÐ....");
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    public void move() {
+        //Êµï¿½Ö¿ï¿½ï¿½ï¿½
+        try {
+            Thread.sleep(new Random().nextInt(1000));
+            System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê»ï¿½ï¿½....");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -1,9 +1,9 @@
 package com.immoc.pattern.adapter;
 
 public class GBTwoPlug {
-	
-	//Ê¹ÓÃ¶þÏàµçÁ÷¹©µç
-	public void powerWithTwo(){
-		System.out.println("Ê¹ÓÃ¶þÏàµçÁ÷¹©µç");
-	}
+
+    //Ê¹ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    public void powerWithTwo() {
+        System.out.println("Ê¹ï¿½Ã¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+    }
 }

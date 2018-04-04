@@ -15,9 +15,10 @@ import static org.junit.Assert.*;
 
 /**
  * GirlController单元测试类
+ *
  * @author ZhangCheng
- * @date 2017-03-19
  * @version V1.0
+ * @date 2017-03-19
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

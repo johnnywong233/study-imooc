@@ -5,18 +5,19 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by ChengComputer on 2017/2/19.
+ *
  * @author zhangcheng
  * @version v1.0
  * @date 2017-02-19
  */
-@XmlRootElement(name="admin")
+@XmlRootElement(name = "admin")
 public class Admin {
 
     private String name;
 
     private Integer age;
 
-    @XmlElement(name="name")
+    @XmlElement(name = "name")
     public String getName() {
         return name;
     }
@@ -25,7 +26,7 @@ public class Admin {
         this.name = name;
     }
 
-    @XmlElement(name="age")
+    @XmlElement(name = "age")
     public Integer getAge() {
         return age;
     }

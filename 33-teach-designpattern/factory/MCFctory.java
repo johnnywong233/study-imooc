@@ -1,21 +1,20 @@
 package com.sunny.project;
+
 /**
- * Ê¥µ®ÏµÁÐ¼Ó¹¤³§
- * @author Administrator
+ * Ê¥ï¿½ï¿½Ïµï¿½Ð¼Ó¹ï¿½ï¿½ï¿½
  *
+ * @author Administrator
  */
 public class MCFctory implements PersonFactory {
 
-	@Override
-	public Boy getBoy() {
-		// TODO Auto-generated method stub
-		return new MCBoy();
-	}
+    @Override
+    public Boy getBoy() {
+        return new MCBoy();
+    }
 
-	@Override
-	public Girl getGirl() {
-		// TODO Auto-generated method stub
-		return new MCGirl();
-	}
+    @Override
+    public Girl getGirl() {
+        return new MCGirl();
+    }
 
 }

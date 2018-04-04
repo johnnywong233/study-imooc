@@ -1,10 +1,11 @@
 package com.sunny.project;
+
 /**
- * Å®º¢×Ó
- * @author Administrator
+ * Å®ï¿½ï¿½ï¿½ï¿½
  *
+ * @author Administrator
  */
 public interface Girl {
 
-	public void drawWomen();
+    public void drawWomen();
 }
