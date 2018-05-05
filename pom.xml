@@ -87,6 +87,7 @@
         <module>36-teach-guice</module>
         <module>37-my-rxjava</module>
         <module>38-my-hotdeploy</module>
+        <module>39-pager</module>
     </modules>
 
     <dependencyManagement>
